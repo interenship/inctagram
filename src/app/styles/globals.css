@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  font-family: "Inter", sans-serif;
   color-scheme: dark;
+  font-family: "Inter", sans-serif;
 }

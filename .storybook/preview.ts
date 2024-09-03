@@ -14,7 +14,10 @@ const preview: Preview = {
         },
       ],
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
     controls: {
       matchers: {
         color: /(background|color)$/i,

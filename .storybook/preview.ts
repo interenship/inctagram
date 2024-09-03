@@ -6,12 +6,8 @@ import "../src/app/styles/globals.css";
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: "twitter",
+      default: "dark",
       values: [
-        {
-          name: "white",
-          value: "#FFF",
-        },
         {
           name: "dark",
           value: "#000",

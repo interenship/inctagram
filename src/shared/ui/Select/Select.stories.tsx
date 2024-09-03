@@ -4,9 +4,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./select";
+} from "src/shared/ui/Select/Select";
 
-import { Select } from "./select";
+import { Select } from "src/shared/ui/Select/Select";
 import FlagRussia from "../../../../public/icons/Flag-Russia";
 import FlagUnitedKingdom from "../../../../public/icons/FlagUnitedKingdom";
 

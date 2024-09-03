@@ -5,7 +5,8 @@ import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  tags: ['autodocs'],parameters: {
+  tags: ['autodocs'],
+  parameters: {
     layout: 'centered',
   },
   argTypes: {
@@ -20,9 +21,10 @@ const meta: Meta<typeof Button> = {
   // Todo Спросить на проверке по поводу args в Meta. Плохо или хорошо, в чём разница
   args: {
     children: 'Button',
-    asLink: false,
+    as: 'button',
     disabled: false,
     className: '',
+    fullWidth: false,
     onClick: fn()
   }
 };
@@ -51,4 +53,20 @@ export const Text: Story = {
   args: {
     variant: 'text',
   },
+};
+export const FullWidth: Story = {
+  args: {
+    variant: 'primary',
+    fullWidth: true
+  },
+};
+export const AsLink: Story = {
+  args: {
+    variant: 'outline',
+    as: 'a',
+    href: '/'
+  },
+  render: (args) => {
+    return <Button {...args}>Button as Link</Button>
+  }
 };

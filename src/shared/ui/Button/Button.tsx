@@ -1,16 +1,21 @@
 import { cn } from '@/features/utils/cn';
 import { VariantProps } from 'class-variance-authority';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, ElementType } from 'react';
 import { buttonVariants } from './buttonVariants';
-import Link from 'next/link';
 
-type Props = ComponentProps<'button'> & VariantProps<typeof buttonVariants> & { asLink: boolean }
+type Props<E extends ElementType> = ComponentProps<E>
+    & VariantProps<typeof buttonVariants>
+    & { as?: E, href?: string, fullWidth: boolean }
 
-export const Button = ({ variant = 'primary', className, asLink = false, ...props }: Props) => {
+export const Button = <E extends ElementType = 'button'>({
+    variant = 'primary', className, as, fullWidth = false, ...props
+}: Props<E>) => {
+    const Component = as || 'button';
+
     return (
-        <button
-            className={cn(buttonVariants({ variant }), className)}
+        <Component
+            className={cn(buttonVariants({ variant }), fullWidth && "w-full", className)}
             {...props}
-        >{asLink ? <Link href={'/'}>{props.children}</Link> : props.children}</button>
+        />
     );
 };

@@ -59,6 +59,11 @@ export const FullWidth: Story = {
     variant: 'primary',
     fullWidth: true
   },
+  render: (args) => {
+    return <div className='w-[50vw] flex justify-center'>
+      <Button {...args}>Button</Button>
+    </div>
+  }
 };
 export const AsLink: Story = {
   args: {

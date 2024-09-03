@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const buttonVariants = cva('box-border min-w-24 min-h-9 px-6 py-[6px] rounded-sm text-white', {
+export const buttonVariants = cva('box-border min-w-24 min-h-9 px-6 py-[6px] rounded-sm text-white disabled:cursor-not-allowed', {
     variants: {
         variant: {
             primary: [

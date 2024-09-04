@@ -3,6 +3,28 @@ import { ComponentProps, ElementType, FC, ReactNode } from "react";
 import { clsx } from "clsx";
 
 import s from "./Typography.module.scss";
+import { cn } from "@/features/utils/cn";
+import { VariantProps, cva } from "class-variance-authority";
+
+const TypographyVariants = cva([""], {
+  variants: {
+    variant: {
+      Large: "div",
+      h1: "h1",
+      h2: "h2",
+      h3: "h3",
+      regular16: "p",
+      bold16: "p",
+      regular14: "p",
+      medium14: "p",
+      bold14: "p",
+      small: "p",
+      semiBoldSmall: "p",
+      regularLink: "a",
+      smallLink: "a",
+    },
+  },
+});
 
 type Props<T extends ElementType> = {
   as?: T;

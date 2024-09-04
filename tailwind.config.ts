@@ -12,8 +12,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
         accent: {
@@ -58,6 +57,22 @@ const config: Config = {
           700: "#D5DAE0",
           900: "#8D9094",
         },
+      },
+      fonts: {
+        // line heights
+        lineHS: "16px",
+        lineHM: "24px",
+        lineHL: "36px",
+        // font sizes
+        fontXS: "0.75rem", //12px
+        fontS: "0.875rem", //14px
+        fontM: "1rem", //16px
+        fontL: "1.125rem", //18px
+        fontXL: "1.25rem", //20
+        fontXXL: "1.625rem", //26px
+        // font weights
+        fontWR: "400",
+        fontWB: "700",
       },
     },
   },

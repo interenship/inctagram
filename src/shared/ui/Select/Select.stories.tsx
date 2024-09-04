@@ -1,23 +1,37 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  SelectContent,
-  SelectItem,
+  Select,
   SelectTrigger,
   SelectValue,
-} from "src/shared/ui/Select/Select";
-
-import { Select } from "src/shared/ui/Select/Select";
+  SelectContent,
+  SelectItem,
+} from "./Select";
 import FlagRussia from "../../../../public/icons/Flag-Russia";
 import FlagUnitedKingdom from "../../../../public/icons/FlagUnitedKingdom";
 
 const meta: Meta<typeof Select> = {
   component: Select,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
+  argTypes: {
+    disabled: {
+      control: "boolean",
+      description:
+        "Отключает компонент, делая его недоступным для взаимодействия.",
+      defaultValue: false,
+    },
+  },
+  args: {
+    disabled: false,
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: (
       <>
@@ -25,7 +39,7 @@ export const Primary: Story = {
           <SelectValue placeholder="Select-box" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="Select-box<">Select-box</SelectItem>
+          <SelectItem value="Select-box">Select-box</SelectItem>
           <SelectItem value="dark">Dark</SelectItem>
           <SelectItem value="system">System</SelectItem>
           <SelectItem value="def">Def</SelectItem>
@@ -35,26 +49,7 @@ export const Primary: Story = {
   },
 };
 
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: (
-      <>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select-box" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Select-box<">Select-box</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-          <SelectItem value="def">Def</SelectItem>
-        </SelectContent>
-      </>
-    ),
-  },
-};
-
-export const WithIRuIcon: Story = {
+export const WithRussianFlagIcon: Story = {
   args: {
     children: (
       <>
@@ -62,7 +57,7 @@ export const WithIRuIcon: Story = {
           <SelectValue placeholder="Select-box" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="Select-box<">Select-box</SelectItem>
+          <SelectItem value="Select-box">Select-box</SelectItem>
           <SelectItem value="dark">Dark</SelectItem>
           <SelectItem value="system">System</SelectItem>
           <SelectItem value="def">Def</SelectItem>
@@ -72,7 +67,7 @@ export const WithIRuIcon: Story = {
   },
 };
 
-export const WithUkIcon: Story = {
+export const WithUKFlagIcon: Story = {
   args: {
     children: (
       <>
@@ -80,7 +75,7 @@ export const WithUkIcon: Story = {
           <SelectValue placeholder="Select-box" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="Select-box<">Select-box</SelectItem>
+          <SelectItem value="Select-box">Select-box</SelectItem>
           <SelectItem value="dark">Dark</SelectItem>
           <SelectItem value="system">System</SelectItem>
           <SelectItem value="def">Def</SelectItem>

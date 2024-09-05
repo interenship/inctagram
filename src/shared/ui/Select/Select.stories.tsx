@@ -26,74 +26,68 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
-  args: {
-    children: (
-      <>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select-box" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Select-box">Select-box</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-          <SelectItem value="def">Def</SelectItem>
-        </SelectContent>
-      </>
-    ),
-  },
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Select-box" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="Select-box">Select-box</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+        <SelectItem value="def">Def</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
 };
 
 export const Disabled: Story = {
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Select-box" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="Select-box">Select-box</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+        <SelectItem value="def">Def</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
   args: {
     disabled: true,
-    children: (
-      <>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select-box" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Select-box">Select-box</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-          <SelectItem value="def">Def</SelectItem>
-        </SelectContent>
-      </>
-    ),
   },
 };
 
 export const WithRussianFlagIcon: Story = {
-  args: {
-    children: (
-      <>
-        <SelectTrigger className="w-[180px]" IconComponent={FlagRussia}>
-          <SelectValue placeholder="Select-box" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Select-box">Select-box</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-          <SelectItem value="def">Def</SelectItem>
-        </SelectContent>
-      </>
-    ),
-  },
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger className="w-[180px]" IconComponent={FlagRussia}>
+        <SelectValue placeholder="Select-box" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="Select-box">Select-box</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+        <SelectItem value="def">Def</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
 };
 
 export const WithUKFlagIcon: Story = {
-  args: {
-    children: (
-      <>
-        <SelectTrigger className="w-[180px]" IconComponent={FlagUnitedKingdom}>
-          <SelectValue placeholder="Select-box" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="Select-box">Select-box</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-          <SelectItem value="def">Def</SelectItem>
-        </SelectContent>
-      </>
-    ),
-  },
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger className="w-[180px]" IconComponent={FlagUnitedKingdom}>
+        <SelectValue placeholder="Select-box" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="Select-box">Select-box</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+        <SelectItem value="def">Def</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
 };

@@ -3,7 +3,7 @@ import {
   RadixSelectContent,
   RadixSelectViewport,
   RadixSelectPortal,
-} from "./SelectPrimitive";
+} from "src/shared/ui/Select/selectPrimitive";
 import { cn } from "@/features/utils/cn";
 
 const SelectContent = React.forwardRef<

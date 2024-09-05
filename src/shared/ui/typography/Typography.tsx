@@ -2,9 +2,7 @@ import { ComponentProps, ElementType, FC, ReactNode } from "react";
 
 import { clsx } from "clsx";
 
-import s from "./Typography.module.scss";
-import { cn } from "@/features/utils/cn";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 const TypographyVariants = cva([""], {
   variants: {
@@ -35,7 +33,7 @@ const createTypographyComponent = <T extends ElementType>(basicClassName: Compon
   return (props: Props<T>) => {
     const { as, className, ...restProps } = props;
     const Component = as || COMPONENTS[basicClassName];
-    const classNames = clsx(s[basicClassName], className);
+    const classNames = clsx(basicClassName, className);
 
     return <Component className={classNames} {...restProps} />;
   };

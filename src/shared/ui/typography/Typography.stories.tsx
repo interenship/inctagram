@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ElementType, ReactNode, useState } from "react";
+import { useState } from "react";
 
 import { Typography } from "./Typography";
 
@@ -14,44 +14,29 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-type createStoryArgs = {
-  Component: typeof Typography.H1;
-  as?: ElementType;
-  children?: ReactNode;
-};
-
-const createStory = (args: createStoryArgs): Story => {
-  const { Component, as, children } = args;
-
-  return {
-    args: {
-      children,
-    },
-    render: ({ children }) => <Component as={as}>{children}</Component>,
-  };
-};
-
 const testText = "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
 
-const allTypographyStyle = {
-  margin: "0.5rem 0",
-};
+const stylesForTypography = "flex flex-col bg-slate-50 gap-2 p-10";
 
 export const AllTypography = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <Typography.H1 style={allTypographyStyle}>Heading 1</Typography.H1>
-      <Typography.H2 style={allTypographyStyle}>Heading 2</Typography.H2>
-      <Typography.H3 style={allTypographyStyle}>Heading 3</Typography.H3>
+    <div className={stylesForTypography}>
+      <Typography.LARGE className={"bg-slate-600"}>{testText}</Typography.LARGE>
+      <Typography.H1>{testText}</Typography.H1>
+      <Typography.H2>{testText}</Typography.H2>
+      <Typography.H3>{testText}</Typography.H3>
+      <Typography.REGULAR16>{testText}</Typography.REGULAR16>
+      <Typography.BOLD16>{testText}</Typography.BOLD16>
+      <Typography.REGULAR14>{testText}</Typography.REGULAR14>
+      <Typography.MEDIUM14>{testText}</Typography.MEDIUM14>
+      <Typography.BOLD14>{testText}</Typography.BOLD14>
+      <Typography.SMALL>{testText}</Typography.SMALL>
+      <Typography.SEMIBOLDSMALL>{testText}</Typography.SEMIBOLDSMALL>
+      <Typography.REGULARLINK>{testText}</Typography.REGULARLINK>
+      <Typography.SMALLLINK>{testText}</Typography.SMALLLINK>
     </div>
   ),
 };
-
-export const H1 = createStory({ Component: Typography.H1, children: testText });
-
-export const H2 = createStory({ Component: Typography.H2, children: testText });
-
-export const H3 = createStory({ Component: Typography.H3, children: testText });
 
 export const TypographyAsButton: Story = {
   render: () => {
@@ -64,10 +49,11 @@ export const TypographyAsButton: Story = {
           onClick={() => {
             setValue(value + 1);
           }}
+          className={" bg-slate-50 p-2 rounded mb-5"}
         >
-          like a button press to increase
+          Press Button
         </Typography.H1>
-        <Typography.H2>{value}</Typography.H2>
+        <Typography.LARGE style={{ color: "white" }}>{value}</Typography.LARGE>
       </>
     );
   },

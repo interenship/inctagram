@@ -1,8 +1,5 @@
 import * as React from "react";
-import {
-  RadixSelectTrigger,
-  RadixSelectIcon,
-} from "src/shared/ui/Select/selectPrimitive";
+import { RadixSelectTrigger, RadixSelectIcon } from "./selectPrimitive";
 import { cn } from "@/features/utils/cn";
 import ChevronDown from "../../../../public/icons/chevron-down";
 

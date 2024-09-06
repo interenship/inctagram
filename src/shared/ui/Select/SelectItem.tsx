@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   RadixSelectItem as Item,
   RadixSelectItemText as ItemText,
-} from "src/shared/ui/Select/selectPrimitive";
+} from "./selectPrimitive";
 import { cn } from "@/features/utils/cn";
 
 const SelectItem = React.forwardRef<

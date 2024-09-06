@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '.';
+import { Tabs, TabsContent, TabsList } from '.';
 
 const meta: Meta<typeof Tabs> = {
     component: Tabs,
@@ -9,45 +9,94 @@ const meta: Meta<typeof Tabs> = {
     },
 };
 
-export default meta;
-type Story = StoryObj<typeof Tabs>;
+const TabListProps = {
+    tabs: [
+        { disabled: false, title: "Tabs1", value: "Tabs1" },
+        { disabled: false, title: "Tabs2", value: "Tabs2" },
+        { disabled: false, title: "Tabs3", value: "Tabs3" },
+        { disabled: false, title: "Tabs4", value: "Tabs4" },
+    ],
+    fullWidth: false
+}
 
-const aTabs = ["Tabs1", "Tabs2", "Tabs3", "Tabs4"];
+export default meta;
+type Story = StoryObj<typeof Tabs> & StoryObj<typeof TabListProps>;
 
 export const Story: Story = {
     name: 'Tabs',
-    render: () => {
+    argTypes: {
+        fullWidth: {
+            table: {
+                defaultValue: { summary: 'false' },
+            },
+        },
+    },
+    args: {
+        tabs: [
+            { disabled: false, title: "Tabs1", value: "Tabs1" },
+            { disabled: false, title: "Tabs2", value: "Tabs2" },
+            { disabled: false, title: "Tabs3", value: "Tabs3" },
+            { disabled: false, title: "Tabs4", value: "Tabs4" },
+        ],
+        fullWidth: false
+    },
+    render: (args: any) => {
         return <div className='max-w-[955px] w-[920px]'>
-            <Tabs defaultValue={aTabs[0]}>
-                <TabsList>
-                    {aTabs.map((tab) => {
-                        return <TabsTrigger value={tab} key={tab}>{tab}</TabsTrigger>
-                    })}
-                </TabsList>
+            <Tabs defaultValue={args.tabs[0].value}>
+                <TabsList tabs={args.tabs} {...args} />
 
-                <TabsContent value={aTabs[0]}>Content {aTabs[0]}</TabsContent>
-                <TabsContent value={aTabs[1]}>Content {aTabs[1]}</TabsContent>
-                <TabsContent value={aTabs[2]}>Content {aTabs[2]}</TabsContent>
-                <TabsContent value={aTabs[3]}>Content {aTabs[3]}</TabsContent>
+                <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+                <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+                <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+                <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
+            </Tabs>
+        </div>
+    }
+};
+
+export const FullWidth: Story = {
+    args: {
+        tabs: [
+            { disabled: false, title: "Tabs1", value: "Tabs1" },
+            { disabled: false, title: "Tabs2", value: "Tabs2" },
+            { disabled: false, title: "Tabs3", value: "Tabs3" },
+            { disabled: false, title: "Tabs4", value: "Tabs4" },
+        ],
+        fullWidth: true
+    },
+    render: (args: any) => {
+        return <div className='max-w-[955px] w-[920px]'>
+            <Tabs defaultValue={args.tabs[0].value}>
+                <TabsList tabs={args.tabs} {...args} />
+
+                <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+                <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+                <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+                <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
             </Tabs>
         </div>
     }
 };
 
 export const DisabledTabs: Story = {
-    render: () => {
+    args: {
+        tabs: [
+            { disabled: true, title: "Tabs1", value: "Tabs1" },
+            { disabled: true, title: "Tabs2", value: "Tabs2" },
+            { disabled: true, title: "Tabs3", value: "Tabs3" },
+            { disabled: true, title: "Tabs4", value: "Tabs4" },
+        ],
+        fullWidth: false
+    },
+    render: (args: any) => {
         return <div className='max-w-[955px] w-[920px]'>
-            <Tabs defaultValue={aTabs[0]}>
-                <TabsList>
-                    {aTabs.map((tab) => {
-                        return <TabsTrigger value={tab} key={tab} disabled>{tab}</TabsTrigger>
-                    })}
-                </TabsList>
+            <Tabs defaultValue={args.tabs[0].value}>
+                <TabsList tabs={args.tabs} {...args} />
 
-                <TabsContent value={aTabs[0]}>Content {aTabs[0]}</TabsContent>
-                <TabsContent value={aTabs[1]}>Content {aTabs[1]}</TabsContent>
-                <TabsContent value={aTabs[2]}>Content {aTabs[2]}</TabsContent>
-                <TabsContent value={aTabs[3]}>Content {aTabs[3]}</TabsContent>
+                <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+                <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+                <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+                <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
             </Tabs>
         </div>
     }

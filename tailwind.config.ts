@@ -68,6 +68,7 @@ const config: Config = {
       },
       fontWeight: {
         fontWR: "400",
+        fontWM: "500",
         fontWB: "700",
         fontWSB: "600",
       },

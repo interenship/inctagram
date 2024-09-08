@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Select, SelectTrigger, SelectValue, SelectContent } from "./index";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "./index";
 import FlagRussia from "../../../../public/icons/Flag-Russia";
 import FlagUnitedKingdom from "../../../../public/icons/FlagUnitedKingdom";
-import SelectItem from "@/shared/ui/Select/SelectItem";
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -29,7 +34,7 @@ export const Default: Story = {
   render: (args) => (
     <Select {...args}>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select-box" />
+        <SelectValue placeholder="Test" />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="Select-box">Select-box</SelectItem>

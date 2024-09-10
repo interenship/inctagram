@@ -1,22 +1,5 @@
 import {ComponentProps} from "react";
 import {cn} from "@/features/utils/cn";
-import {cva} from "class-variance-authority";
-
-// const inputVariants = cva(["font-semibold", "border", "rounded"], {
-//     variants: {
-//         intent: {
-//             primary: [
-//                 "bg-blue-500",
-//                 "text-white",
-//                 "border-transparent",
-//                 "hover:bg-blue-600",
-//             ]
-//         },
-//     },
-//     defaultVariants: {
-//         intent: "primary",
-//     },
-// });
 
 type InputProps = ComponentProps<'input'> & {
     searchIcon?: boolean

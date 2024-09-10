@@ -2,15 +2,16 @@ import { cn } from '@/features/utils/cn';
 import { VariantProps } from 'class-variance-authority';
 import React, { ComponentProps, ElementType } from 'react';
 import { buttonVariants } from '.';
+import { Slot } from '@radix-ui/react-slot';
 
-type Props<E extends ElementType> = ComponentProps<E>
+type Props = ComponentProps<'button'>
     & VariantProps<typeof buttonVariants>
-    & { as?: E, href?: string, fullWidth?: boolean }
+    & { asChild?: boolean, fullWidth?: boolean }
 
-export const Button = <E extends ElementType = 'button'>({
-    variant = 'primary', className, as, fullWidth = false, ...props
-}: Props<E>) => {
-    const Component = as || 'button';
+export const Button = ({
+    variant = 'primary', className, asChild = false, fullWidth = false, ...props
+}: Props) => {
+    const Component = asChild ? Slot : "button"
 
     return (
         <Component

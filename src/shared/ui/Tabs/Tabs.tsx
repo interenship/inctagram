@@ -1,4 +1,6 @@
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+import { cn } from "@/features/utils/cn"
+import { Content, Root } from "@radix-ui/react-tabs"
+import { forwardRef } from "react"
 
 export type TabType = {
     disabled?: boolean
@@ -6,6 +8,18 @@ export type TabType = {
     value: string
 }
 
-const Tabs = TabsPrimitive.Root
+const Tabs = Root
 
-export { Tabs }
+const TabsContent = forwardRef<
+    React.ElementRef<typeof Content>,
+    React.ComponentPropsWithoutRef<typeof Content>
+>(({ className, ...props }, ref) => (
+    <Content
+        ref={ref}
+        className={cn("text-white", className)}
+        {...props}
+    />
+))
+TabsContent.displayName = Content.displayName
+
+export { Tabs, TabsContent }

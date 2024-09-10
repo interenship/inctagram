@@ -18,10 +18,9 @@ const meta: Meta<typeof Button> = {
       },
     },
   },
-  // Todo Спросить на проверке по поводу args в Meta. Плохо или хорошо, в чём разница
   args: {
     children: 'Button',
-    as: 'button',
+    asChild: false,
     disabled: false,
     className: '',
     fullWidth: false,
@@ -39,8 +38,6 @@ export const Primary: Story = {
 };
 export const Secondary: Story = {
   args: {
-    // Todo 1 из вариантов документации
-    ...Primary.args,
     variant: 'secondary',
   },
 };
@@ -68,10 +65,9 @@ export const FullWidth: Story = {
 export const AsLink: Story = {
   args: {
     variant: 'outline',
-    as: 'a',
-    href: '/'
+    asChild: true
   },
   render: (args) => {
-    return <Button {...args}>Button as Link</Button>
+    return <Button {...args}><a>Button as Link</a></Button>
   }
 };

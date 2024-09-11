@@ -7,7 +7,7 @@ const TypographyVariants = cva([""], {
   variants: {
     variant: {
       Large: ["text-fontXXL leading-lineHL font-fontWSB"],
-      h1: ["text-fontXL leading-lineHL font-fontWB"],
+      h1: ["text-fontXL leading-lineHL font-fontWB "],
       h2: ["text-fontL leading-lineHM font-fontWB"],
       h3: ["text-fontHS leading-lineHM font-fontWSB"],
       regular16: ["text-fontM leading-lineHM font-fontWR"],

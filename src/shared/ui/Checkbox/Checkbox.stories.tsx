@@ -1,6 +1,4 @@
-import { cn } from "@/features/utils/cn";
 import { Checkbox } from "@/shared/ui/Checkbox";
-import { Typography } from "@/shared/ui/Typography";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";
@@ -8,63 +6,60 @@ import { useState } from "react";
 const meta = {
   component: Checkbox,
   tags: ["autodocs"],
+  args: {
+    id: "checkbox",
+    labelText: "Check-box",
+  },
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const BaseCheckbox: Story = {
-  args: {
-    defaultChecked: false,
-  },
+export const Default: Story = {
+  render: () => {
+    const [checkedValue, setCheckedValue] = useState(false);
 
-  render: ({ defaultChecked }) => {
-    const [checkedValue, setCheckedValue] = useState(defaultChecked);
+    const getCheckedValue = (value: boolean) => {
+      setCheckedValue(value);
+    };
 
-    return <Checkbox checked={checkedValue} onCheckedChange={setCheckedValue} />;
+    return <Checkbox checked={checkedValue} onCheckedChange={getCheckedValue} />;
   },
 };
 
-export const DisabledCheckbox: Story = {
+export const Disabled: Story = {
   args: {
-    id: "checkbox",
     disabled: true,
   },
 };
-export const DisabledCheckedCheckbox: Story = {
+
+export const DisabledChecked: Story = {
   args: {
-    id: "checkbox",
-    disabled: true,
     checked: true,
   },
 };
 
-export const CheckboxWithLabel: Story = {
-  args: {
-    labelText: "Check-box",
-    defaultChecked: false,
-    id: "checkbox",
-  },
-  render: ({ labelText, defaultChecked, id }) => {
-    const [checkedValue, setCheckedValue] = useState(defaultChecked);
+export const WithLabel: Story = {
+  render: ({ labelText, id }) => {
+    const [checkedValue, setCheckedValue] = useState(false);
 
-    return <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={setCheckedValue} />;
+    const getCheckedValue = (value: boolean) => {
+      setCheckedValue(value);
+    };
+
+    return <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={getCheckedValue} />;
   },
 };
 
-export const DisabledCheckboxWithLabel: Story = {
+export const DisabledWithLabel: Story = {
   args: {
-    labelText: "Check-box",
-    id: "checkbox",
     disabled: true,
   },
 };
 
-export const DisabledCheckedCheckboxWithLabel: Story = {
+export const DisabledCheckedWithLabel: Story = {
   args: {
-    labelText: "Check-box",
-    id: "checkbox",
     disabled: true,
     checked: true,
   },

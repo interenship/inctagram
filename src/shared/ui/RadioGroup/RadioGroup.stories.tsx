@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {RadioGroup, RadioGroupItem} from "./RadioGroup";
-import {Typography} from "../Typography";
-import {cn} from "@/features/utils/cn";
+import {RadioGroup} from "./RadioGroup";
+import {RadioGroupItem} from "@/shared/ui/RadioGroup/RadioGroupItem";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
@@ -27,54 +26,36 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Default: Story = {
   render: (args) => (
     <RadioGroup {...args}>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-one" id="option-one"/>
-        <Typography.REGULAR14 as="label"
-                              htmlFor="option-one"
-                              className={cn(args.disabled ? "text-light-900 cursor-not-allowed" : "text-light-100")}
-        >
-          RadioGroup
-        </Typography.REGULAR14>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-two" id="option-two"/>
-        <Typography.REGULAR14
-          as="label"
-          htmlFor="option-two"
-          className={cn(args.disabled ? "text-light-900" : "text-light-100")}
-        >
-          RadioGroup
-        </Typography.REGULAR14>
-      </div>
+      <RadioGroupItem
+        value="option-one"
+        id="option-one"
+        labelText="RadioGroup"
+      />
+      <RadioGroupItem
+        value="option-two"
+        id="option-two"
+        labelText="RadioGroup"
+      />
     </RadioGroup>
   ),
 };
 
 export const Disabled: Story = {
-  render: (args) => (
-    <RadioGroup {...args}>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-one" id="option-one"/>
-        <Typography.REGULAR14 as="label"
-                              htmlFor="option-one"
-                              className={cn(args.disabled ? "text-light-900" : "text-light-100")}
-        >
-          RadioGroup
-        </Typography.REGULAR14>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-two" id="option-two"/>
-        <Typography.REGULAR14
-          as="label"
-          htmlFor="option-two"
-          className={cn(args.disabled ? "text-light-900" : "text-light-100")}
-        >
-          RadioGroup
-        </Typography.REGULAR14>
-      </div>
-    </RadioGroup>
-  ),
   args: {
     disabled: true,
   },
+  render: (args) => (
+    <RadioGroup {...args}>
+      <RadioGroupItem
+        value="option-one"
+        id="option-one"
+        labelText="RadioGroup"
+      />
+      <RadioGroupItem
+        value="option-two"
+        id="option-two"
+        labelText="RadioGroup"
+      />
+    </RadioGroup>
+  ),
 };

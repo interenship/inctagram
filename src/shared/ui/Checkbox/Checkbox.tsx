@@ -8,22 +8,22 @@ type Checkbox = {
 } & ComponentPropsWithoutRef<typeof Root>;
 
 const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
-  const { className, id, labelText, ...restProps } = props;
+  const { className, id, labelText, disabled = false, ...restProps } = props;
 
   const styles = {
     root: cn(
       "hover:shadow-[0px_0px_0px_6px_#333333] focus:shadow-[0px_0px_0px_6px_#171717] active:shadow-[0px_0px_0px_6px_#4c4c4c]  peer flex justify-center items-center w-[18px] h-[18px] border border-light-500 rounded-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground ",
-      restProps.disabled && "hover:shadow-none focus:shadow-none active:shadow-none",
+      disabled && "hover:shadow-none focus:shadow-none active:shadow-none",
       className
     ),
     indicator: cn("flex justify-center items-center leading-none bg-white"),
     label: cn("block max-w-max", labelText && "flex items-center gap-3"),
-    labelText: cn("text-slate-50", props.disabled && "text-light-900"),
+    labelText: cn("text-slate-50", disabled && "text-light-900"),
   };
 
   return (
     <label htmlFor={id} className={styles.label}>
-      <Root ref={ref} className={styles.root} {...props} id={id}>
+      <Root ref={ref} className={styles.root} id={id} disabled={disabled} {...restProps}>
         <Indicator className={styles.indicator}>
           <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path

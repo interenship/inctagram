@@ -6,7 +6,7 @@ import {
   SelectContent,
   SelectItem,
 } from "./index";
-import FlagRussia from "@/shared/assets/icons/components/Flag-Russia";
+import FlagRussia from "@/shared/assets/icons/components/FlagRussia";
 import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
 
 const meta: Meta<typeof Select> = {

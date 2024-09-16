@@ -9,7 +9,7 @@ import {
   Viewport,
   Value,
 } from "@radix-ui/react-select";
-import ChevronDown from "@/shared/assets/icons/components/chevron-down";
+import ChevronDown from "@/shared/assets/icons/components/ChevronDown";
 import { cn } from "@/features/utils/cn";
 
 const Select = Root;

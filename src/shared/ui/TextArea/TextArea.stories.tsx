@@ -10,6 +10,7 @@ const meta: Meta<typeof Textarea> = {
   args: {
     disabled: false,
     placeholder: "Text-area",
+    labelText: "Text-area",
   },
   argTypes: {
     placeholder: {
@@ -23,28 +24,21 @@ export default meta;
 
 type Story = StoryObj<typeof Textarea>;
 
-export const Primary: Story = {
-  args: {
-    labelText: "Text-area",
-  },
-};
+export const Primary: Story = {};
 export const Disabled: Story = {
   args: {
-    labelText: "Text-area",
     disabled: true,
   },
 };
 
 export const CustomPlaceholder: Story = {
   args: {
-    labelText: "Text-area",
     placeholder: "Custom!",
   },
 };
 
 export const Error: Story = {
   args: {
-    labelText: "Text-area",
     error: "Error text",
   },
 };

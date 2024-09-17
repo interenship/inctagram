@@ -1,20 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { Alerts } from './Alerts';
+import { Alerts, AlertsStatus } from './Alerts';
 
 
 const meta: Meta<typeof Alerts> = {
-  component: Alerts,
-  tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-  },
+	component: Alerts,
+	tags: ['autodocs'],
+	parameters: {
+		layout: 'centered',
+	},
+	args: {
+		isShow: true,
+		message: "",
+		status: AlertsStatus.success
+	},
+	argTypes: {
+		status: {
+			control: 'radio',
+			options: [AlertsStatus.success, AlertsStatus.failed]
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof Alerts>;
 
 export const Succes: Story = {
-  args: {
-  },
+	args: {
+		message: "Your settings are saved"
+	}
+};
+export const Failed: Story = {
+	args: {
+		message: "Server is not available",
+		status: AlertsStatus.failed
+	}
 };

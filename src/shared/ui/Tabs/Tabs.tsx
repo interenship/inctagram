@@ -13,13 +13,15 @@ const Tabs = Root
 const TabsContent = forwardRef<
     React.ElementRef<typeof Content>,
     React.ComponentPropsWithoutRef<typeof Content>
->(({ className, ...props }, ref) => (
-    <Content
+>((props, ref) => {
+    const { className, ...restProps } = props;
+
+    return <Content
         ref={ref}
         className={cn("text-white", className)}
-        {...props}
+        {...restProps}
     />
-))
+})
 TabsContent.displayName = Content.displayName
 
 export { Tabs, TabsContent }

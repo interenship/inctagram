@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
 import { Root, Indicator } from "@radix-ui/react-checkbox";
 import { cn } from "@/features/utils/cn";
 import { Typography } from "@/shared/ui/Typography";
@@ -11,8 +11,11 @@ type Checkbox = {
 const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
   const { className, id, labelText, disabled = false, ...restProps } = props;
 
+  const generatedId = useId();
+  const finalId = id ?? generatedId;
+
   return (
-    <label htmlFor={id} className={cn("block max-w-max", labelText && "flex items-center gap-3")}>
+    <label htmlFor={finalId} className={cn("block max-w-max", labelText && "flex items-center gap-3")}>
       <Root
         ref={ref}
         className={cn(
@@ -20,7 +23,7 @@ const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
           disabled && "hover:shadow-none focus:shadow-none active:shadow-none",
           className
         )}
-        id={id}
+        id={finalId}
         disabled={disabled}
         {...restProps}
       >

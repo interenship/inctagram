@@ -11,7 +11,7 @@ import RussianFlag from "@/shared/assets/icons/components/FlagRussia";
 import { Button } from "@/shared/ui/Button";
 import { Typography } from "@/shared/ui/Typography";
 import Link from "next/link";
-import Bell from "../../../../public/icons/Bell";
+import Bell from "@/shared/assets/icons/components/Bell";
 
 type Language = "English" | "Russian";
 
@@ -44,7 +44,7 @@ export const Header = ({ isLogged }: { isLogged: boolean }) => {
           <div className="flex  gap-9">
             {isLogged && (
               <span className="relative mr-[10px] flex items-center cursor-pointer">
-                <Bell fillColor="black" outlineColor="white" />
+                <Bell />
                 <div className="h-[13px] w-[13px] bg-danger-500 rounded-[50%] flex items-center justify-center absolute top-[6px] right-[1px]">
                   <span className="text-light-100 text-[10px]">
                     {notificationsNr}

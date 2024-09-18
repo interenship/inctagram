@@ -1,15 +1,6 @@
 import React, { ComponentProps } from "react";
 
-interface BellProps extends ComponentProps<"svg"> {
-  fillColor?: string;
-  outlineColor?: string;
-}
-
-const Bell = ({
-  fillColor = "black",
-  outlineColor = "white",
-  ...props
-}: BellProps) => {
+const Bell = (props: ComponentProps<"svg">) => {
   return (
     <svg
       width="24"

@@ -4,7 +4,9 @@ import { Header } from "@/shared/ui/Header/Header";
 const meta: Meta<typeof Header> = {
   component: Header,
   tags: ["autodocs"],
-  parameters: {},
+  parameters: {
+    layout: "fullscreen",
+  },
   argTypes: {
     isLogged: {
       control: "boolean",

@@ -49,7 +49,7 @@ export const TypographyAsButton: Story = {
           onClick={() => {
             setValue(value + 1);
           }}
-          className={" bg-slate-50 p-2 rounded mb-5"}
+          className={"bg-slate-100 p-2 rounded mb-5"}
         >
           Press Button
         </Typography.H1>

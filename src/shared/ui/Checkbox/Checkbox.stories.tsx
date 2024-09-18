@@ -53,14 +53,16 @@ export const WithLabel: Story = {
   args: {
     labelText,
   },
-  render: ({ labelText, id }) => {
+  render: ({ labelText, id, ...restArgs }) => {
     const [checkedValue, setCheckedValue] = useState(false);
 
     const getCheckedValue = (value: boolean) => {
       setCheckedValue(value);
     };
 
-    return <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={getCheckedValue} />;
+    return (
+      <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={getCheckedValue} {...restArgs} />
+    );
   },
 };
 

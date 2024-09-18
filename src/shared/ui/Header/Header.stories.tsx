@@ -1,19 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Header from "./Header";
+import { Header } from "@/shared/ui/Header/Header";
 
 const meta: Meta<typeof Header> = {
   component: Header,
   tags: ["autodocs"],
   parameters: {},
+  argTypes: {
+    isLogged: {
+      control: "boolean",
+      description: "Контролирует, вошел ли пользователь в систему или нет",
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const NotLoggedIn: Story = {
-  render: () => <Header isLogged={false} />,
+  args: {
+    isLogged: false,
+  },
 };
 
 export const LoggedIn: Story = {
-  render: () => <Header isLogged={true} />,
+  args: {
+    isLogged: true,
+  },
 };

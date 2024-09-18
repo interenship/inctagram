@@ -28,18 +28,8 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Default: Story = {
   render: (args) => (
     <RadioGroup {...args}>
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-one"
-        id="option-one"
-        labelText="RadioGroup"
-      />
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-two"
-        id="option-two"
-        labelText="RadioGroup"
-      />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
     </RadioGroup>
   ),
 };
@@ -50,18 +40,8 @@ export const Disabled: Story = {
   },
   render: (args) => (
     <RadioGroup {...args}>
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-one"
-        id="option-one"
-        labelText="RadioGroup"
-      />
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-two"
-        id="option-two"
-        labelText="RadioGroup"
-      />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
     </RadioGroup>
   ),
 };
@@ -72,24 +52,9 @@ export const DirectionColumn: Story = {
   },
   render: (args) => (
     <RadioGroup {...args}>
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-one"
-        id="option-one"
-        labelText="RadioGroup"
-      />
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-two"
-        id="option-two"
-        labelText="RadioGroup"
-      />
-      <RadioGroupItem
-        disabled={args?.disabled}
-        value="option-three"
-        id="option-three"
-        labelText="RadioGroup"
-      />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
+      <RadioGroupItem disabled={args?.disabled} labelText="RadioGroup" />
     </RadioGroup>
   ),
 };

@@ -65,7 +65,15 @@ export const FullWidth: Story = {
 export const AsLink: Story = {
   args: {
     variant: 'outline',
-    asChild: true
+    asChild: true,
+    children: '<a>Button as Link</a>'
+  },
+  argTypes: {
+    children: {
+      table: {
+        readonly: true,
+      }
+    },
   },
   render: (args) => {
     return <Button {...args}><a>Button as Link</a></Button>

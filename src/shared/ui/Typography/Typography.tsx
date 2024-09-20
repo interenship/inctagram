@@ -31,10 +31,7 @@ const createTypographyComponent = <T extends ElementType>(basicClassName: Compon
   // eslint-disable-next-line react/display-name
   return (props: Props<T>) => {
     const { as, className, ...restProps } = props;
-    const Component = as || COMPONENTS[basicClassName];
-
-    console.log(clsx(typographyVariants({ variant: basicClassName }), className));
-    
+    const Component = as || COMPONENTS[basicClassName];    
 
     return <Component className={clsx(typographyVariants({ variant: basicClassName }), className)} {...restProps} />;
   };

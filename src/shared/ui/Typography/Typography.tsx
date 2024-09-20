@@ -1,15 +1,14 @@
 import { ComponentProps, ElementType, FC, ReactNode } from "react";
-
 import { VariantProps, cva } from "class-variance-authority";
-import { cn } from "@/features/utils/cn";
+import clsx from "clsx";
 
-const TypographyVariants = cva([""], {
+const typographyVariants = cva("", {
   variants: {
     variant: {
       Large: ["text-fontXXL leading-lineHL font-fontWSB"],
       h1: ["text-fontXL leading-lineHL font-fontWB"],
       h2: ["text-fontL leading-lineHM font-fontWB"],
-      h3: ["text-fontHS leading-lineHM font-fontWSB"],
+      h3: ["text-fontXS leading-lineHM font-fontWSB"],
       regular16: ["text-fontM leading-lineHM font-fontWR"],
       bold16: ["text-fontM leading-lineHM font-fontWB"],
       regular14: ["text-fontS leading-lineHM font-fontWR"],
@@ -18,22 +17,26 @@ const TypographyVariants = cva([""], {
       small: ["text-fontXS leading-lineHS font-fontWR"],
       semiBoldSmall: ["text-fontXS leading-lineHS font-fontWSB"],
       regularLink: ["text-fontS leading-lineHM font-fontWR text-accent-100 underline underline-offset-8"],
-      smallLink: ["texts-fontXS leading-lineHS font-fontWR text-accent-100 underline underline-offset-8"],
+      smallLink: ["text-fontXS leading-lineHS font-fontWR text-accent-100 underline underline-offset-8"],
     },
   },
 });
 
-type Props<T extends ElementType> = VariantProps<typeof TypographyVariants> & {
-  as?: T;
-  children?: ReactNode;
+type Props<T extends ElementType> = VariantProps<typeof typographyVariants> & {
+  as?: T,
+  children?: ReactNode,
 } & ComponentProps<T>;
 
 const createTypographyComponent = <T extends ElementType>(basicClassName: Component): FC<Props<T>> => {
+  // eslint-disable-next-line react/display-name
   return (props: Props<T>) => {
     const { as, className, ...restProps } = props;
     const Component = as || COMPONENTS[basicClassName];
 
-    return <Component className={cn([TypographyVariants({ variant: basicClassName }), className])} {...restProps} />;
+    console.log(clsx(typographyVariants({ variant: basicClassName }), className));
+    
+
+    return <Component className={clsx(typographyVariants({ variant: basicClassName }), className)} {...restProps} />;
   };
 };
 

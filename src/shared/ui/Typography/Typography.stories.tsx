@@ -21,8 +21,8 @@ const stylesForTypography = "flex flex-col bg-slate-50 gap-2 p-10";
 export const AllTypography = {
   render: () => (
     <div className={stylesForTypography}>
-      <Typography.LARGE className={"bg-slate-600"}>{testText}</Typography.LARGE>
-      <Typography.H1>{testText}</Typography.H1>
+      <Typography.LARGE className='text-red-600'>{testText}</Typography.LARGE>
+      <Typography.H1 >{testText}</Typography.H1>
       <Typography.H2>{testText}</Typography.H2>
       <Typography.H3>{testText}</Typography.H3>
       <Typography.REGULAR16>{testText}</Typography.REGULAR16>

@@ -3,6 +3,7 @@ import { Textarea } from "./TextArea";
 
 const meta: Meta<typeof Textarea> = {
   component: Textarea,
+  title: 'Components/Textarea',
   tags: ["autodocs"],
   parameters: {
     layout: "centered",

@@ -1,0 +1,23 @@
+import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
+import { icons } from "./iconography";
+
+<Meta title="Design System/Iconography" />
+
+## <h1 style={{margin: '0'}}>Usage</h1>
+All the icons in the design system are available as React components. You can use them like this:
+```tsx
+import { Close } from "@/shared/assets/icons/components"
+
+// ...
+
+return <Close />
+```
+
+## <h1 style={{margin: '0'}}>Icons</h1>
+<IconGallery>
+    {Object.keys(icons).map((iconName) => (
+        <IconItem key={iconName} name={iconName}>
+            <div>{React.createElement(icons[iconName])}</div>
+        </IconItem>
+    ))}
+</IconGallery>

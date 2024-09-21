@@ -5,6 +5,7 @@ import "../src/app/styles/globals.css";
 
 const preview: Preview = {
   parameters: {
+    brandTitle: 'Inctagram',
     backgrounds: {
       default: "dark",
       values: [
@@ -20,6 +21,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        order: ['Getting started', 'Design System'],
+      },
+
+    }
   },
 };
 

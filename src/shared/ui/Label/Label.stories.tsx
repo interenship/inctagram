@@ -13,14 +13,24 @@ const meta: Meta<typeof Label> = {
       description:
         "Отключает компонент, делая его недоступным для взаимодействия.",
     },
+    required: {
+      control: "boolean",
+      description: "Добавить отображение звёздочки для обязательных полей.",
+    },
     id: {
       control: { type: "text" },
       description: "Ваш id.",
+    },
+    children: {
+      control: { type: "text" },
+      description: "Текст, которые будут отображены внутри компонента Label.",
     },
   },
   args: {
     disabled: false,
     id: "email",
+    required: false,
+    children: "Your email address",
   },
 };
 
@@ -28,12 +38,14 @@ export default meta;
 type Story = StoryObj<typeof Label>;
 
 export const Default: Story = {
-  render: (args) => <Label {...args}>Your email address</Label>,
+  render: (args) => <Label {...args}>{args.children}</Label>,
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
+    required: true,
+    children: "Your password is required.",
   },
-  render: (args) => <Label {...args}>Your email address</Label>,
+  render: (args) => <Label {...args}>{args.children}</Label>,
 };

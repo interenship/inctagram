@@ -3,15 +3,18 @@ import { Root } from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/features/utils/cn";
 
-const labelVariants = cva("text-fontS leading-lineHM font-fontWR");
+const labelVariants = cva(
+  "text-fontS leading-lineHM font-fontWR text-light-100",
+);
 
-type LabelProps = { disabled?: boolean } & ComponentPropsWithoutRef<
-  typeof Root
-> &
+type LabelProps = {
+  disabled?: boolean;
+  required?: boolean;
+} & ComponentPropsWithoutRef<typeof Root> &
   VariantProps<typeof labelVariants>;
 
 const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
-  const { className, id, disabled, ...restProps } = props;
+  const { className, id, required, children, disabled, ...restProps } = props;
   const generatedId = useId();
   const finalId = id ?? generatedId;
 
@@ -21,13 +24,14 @@ const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
       htmlFor={finalId}
       className={cn(
         labelVariants(),
-        disabled
-          ? "text-light-900 cursor-not-allowed"
-          : "text-light-100 hover:cursor-pointer",
+        disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
         className,
       )}
       {...restProps}
-    />
+    >
+      {children}
+      {required && <span className="ml-0.5 text-danger-500">*</span>}
+    </Root>
   );
 });
 Label.displayName = Root.displayName;

@@ -9,12 +9,11 @@ const labelVariants = cva(
 
 type LabelProps = {
   disabled?: boolean;
-  required?: boolean;
 } & ComponentPropsWithoutRef<typeof Root> &
   VariantProps<typeof labelVariants>;
 
 const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
-  const { className, id, required, children, disabled, ...restProps } = props;
+  const { className, id, children, disabled, ...restProps } = props;
   const generatedId = useId();
   const finalId = id ?? generatedId;
 
@@ -30,7 +29,6 @@ const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
       {...restProps}
     >
       {children}
-      {required && <span className="ml-0.5 text-danger-500">*</span>}
     </Root>
   );
 });

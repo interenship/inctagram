@@ -7,7 +7,7 @@ type LabelProps = {
 } & ComponentPropsWithoutRef<typeof Root>;
 
 const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
-  const { className, id, children, disabled, ...restProps } = props;
+  const { className, id, disabled, ...restProps } = props;
   const generatedId = useId();
   const finalId = id ?? generatedId;
 
@@ -21,9 +21,7 @@ const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
         className,
       )}
       {...restProps}
-    >
-      {children}
-    </Root>
+    />
   );
 });
 Label.displayName = Root.displayName;

@@ -15,7 +15,8 @@ const meta: Meta<typeof Label> = {
     },
     id: {
       control: { type: "text" },
-      description: "Ваш id.",
+      description:
+        "Уникальный идентификатор для связывания с элементом управления формы.",
     },
     children: {
       control: { type: "text" },
@@ -32,14 +33,11 @@ const meta: Meta<typeof Label> = {
 export default meta;
 type Story = StoryObj<typeof Label>;
 
-export const Default: Story = {
-  render: (args) => <Label {...args}>{args.children}</Label>,
-};
+export const Default: Story = {};
 
 export const Disabled: Story = {
   args: {
     disabled: true,
     children: "Your password is required.",
   },
-  render: (args) => <Label {...args}>{args.children}</Label>,
 };

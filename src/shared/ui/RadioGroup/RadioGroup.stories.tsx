@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RadioGroup } from "./RadioGroup";
 import { RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroupItem";
 import { useState } from "react";
+import { Typography } from "../Typography/Typography";
 
 const valueExamples: { label: string; value: string }[] = [
   {
@@ -70,6 +71,9 @@ export const Default: Story = {
     console.log("Selected value:", value);
     return (
       <>
+        <Label htmlFor={args.name} className={"mb-5"}>
+          <Typography.H1>Choose a color</Typography.H1>
+        </Label>
         <RadioGroup
           value={value}
           onValueChange={(value) => setValue(value)}

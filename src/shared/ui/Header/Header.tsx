@@ -14,21 +14,20 @@ import Link from "next/link";
 import Bell from "@/shared/assets/icons/components/Bell";
 import { cn } from "@/features/utils/cn";
 
-type Language = "English" | "Russian";
-
 type HeaderProps = {
   isLogged: boolean;
   className?: string;
 };
 
 export const Header = (props: HeaderProps) => {
-  const { isLogged, className } = props;
-  const [language, setLanguage] = useState<Language>("English");
+  enum Language {
+    English = "English",
+    Russian = "Russian",
+  }
 
-  const languageOptions = {
-    English: "English",
-    Russian: "Russian",
-  };
+  const { isLogged, className } = props;
+
+  const [language, setLanguage] = useState<Language>(Language.English);
 
   let notificationsNr = 3;
 
@@ -36,25 +35,24 @@ export const Header = (props: HeaderProps) => {
     setLanguage(value);
   };
 
-  const flagComponents = {
-    Russian: <RussianFlag />,
-    English: <FlagUnitedKingdom />,
-  };
-
   const renderFlag = () => {
-    return flagComponents[language] || <FlagUnitedKingdom />;
+    return language === Language.English ? (
+      <FlagUnitedKingdom />
+    ) : (
+      <RussianFlag />
+    );
   };
 
   return (
-    <>
-      <header
+    <header className="flex flex-col w-full">
+      <div
         className={cn(
-          "w-full h-[60px] bg-dark-700 flex justify-between items-center px-[64px] ",
+          "flex justify-between items-center h-[60px] px-[64px]",
           className,
         )}
       >
-        <Typography.LARGE>
-          <span className="text-light-100">Inctagram</span>
+        <Typography.LARGE className="text-light-100 cursor-pointer">
+          Inctagram
         </Typography.LARGE>
         <div className="flex gap-9">
           {isLogged && (
@@ -75,8 +73,8 @@ export const Header = (props: HeaderProps) => {
               <SelectValue placeholder="English" />
             </SelectTrigger>
             <SelectContent className="w-[163px] text-[16px]">
-              <SelectItem value={languageOptions.English}>English</SelectItem>
-              <SelectItem value={languageOptions.Russian}>Russian</SelectItem>
+              <SelectItem value={Language.English}>English</SelectItem>
+              <SelectItem value={Language.Russian}>Russian</SelectItem>
             </SelectContent>
           </Select>
           {!isLogged && (
@@ -102,8 +100,8 @@ export const Header = (props: HeaderProps) => {
             </div>
           )}
         </div>
-      </header>
-      <div className="w-full h-[1px] bg-dark-300 "></div>
-    </>
+      </div>
+      <div className="w-full h-[1px] bg-dark-300"></div>
+    </header>
   );
 };

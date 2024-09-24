@@ -17,8 +17,8 @@ const typographyVariants = cva([""], {
       bold14: ["text-[0.875rem] leading-6 font-bold"],
       small: ["text-xs font-normal"],
       semiBoldSmall: ["text-xs font-semibold"],
-      regularLink: ["text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-8"],
-      smallLink: ["text-xs font-normal text-accent-100 underline underline-offset-8"],
+      regularLink: ["text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-4"],
+      smallLink: ["text-xs font-normal text-accent-100 underline underline-offset-4"],
     },
   },
 });
@@ -33,7 +33,7 @@ const createTypographyComponent = <T extends ElementType>(variant: Component): F
     const { as, className, ...restProps } = props;
     const Component = as || COMPONENTS[variant];
 
-    return <Component className={cn([typographyVariants({ variant }), className])} {...restProps} />;
+    return <Component className={cn(typographyVariants({ variant }), className)} {...restProps} />;
   };
 };
 

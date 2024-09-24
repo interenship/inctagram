@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Label } from "./index";
+import { Typography } from "@/shared/ui/Typography";
 
 const meta: Meta<typeof Label> = {
   component: Label,
@@ -26,7 +27,11 @@ const meta: Meta<typeof Label> = {
   args: {
     disabled: false,
     id: "email",
-    children: "Your email address",
+    children: (
+      <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+        Your email address
+      </Typography.REGULAR14>
+    ),
   },
 };
 
@@ -38,6 +43,10 @@ export const Default: Story = {};
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: "Your password is required.",
+    children: (
+      <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+        Your password is required.
+      </Typography.REGULAR14>
+    ),
   },
 };

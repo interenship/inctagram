@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { Root } from "@radix-ui/react-label";
 import { cn } from "@/features/utils/cn";
 
@@ -7,16 +7,14 @@ type LabelProps = {
 } & ComponentPropsWithoutRef<typeof Root>;
 
 const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
-  const { className, id, disabled, ...restProps } = props;
-  const generatedId = useId();
-  const finalId = id ?? generatedId;
+  const { className, id, disabled = false, ...restProps } = props;
 
   return (
     <Root
       ref={ref}
-      htmlFor={finalId}
+      htmlFor={id}
       className={cn(
-        "block text-fontS leading-lineHM font-fontWR text-light-100",
+        "block text-light-100",
         disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
         className,
       )}

@@ -5,7 +5,6 @@ import { Typography } from "@/shared/ui/Typography";
 
 type RadioGroupItemProps = {
   labelText?: string;
-  // value: string;
 } & ComponentPropsWithoutRef<typeof Item>;
 
 const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
@@ -30,7 +29,7 @@ const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
           id={finalId}
           value={value}
           className={cn(
-            "group flex justify-center items-center relative rounded-full border-2 border-light-100 w-[20px] h-[20px] transition-all duration-300  ",
+            "group flex justify-center items-center relative rounded-full border-2 border-light-100 w-5 h-5 transition-all duration-300  ",
             disabled
               ? "cursor-not-allowed opacity-50"
               : "hover:bg-dark-300 hover:shadow-[0px_0px_0px_6px_#333333] focus:bg-dark-500 focus:shadow-[0px_0px_0px_6px_#171717] active:bg-dark-100 active:shadow-[0px_0px_0px_6px_#4c4c4c]",
@@ -40,7 +39,7 @@ const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
         >
           <Indicator
             className={cn(
-              "flex items-center justify-center w-[10px] h-[10px] rounded-full bg-light-100",
+              "flex items-center justify-center w-2.5 h-2.5 rounded-full bg-light-100",
               className,
             )}
           />

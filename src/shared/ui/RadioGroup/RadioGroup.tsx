@@ -2,30 +2,20 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { Root } from "@radix-ui/react-radio-group";
 import { cn } from "@/features/utils/cn";
 
-type RadioGroupProps = {
-  orientation?: "horizontal" | "vertical";
-  // value: string;
-  // disabled?: boolean;
-  // onValueChange: (value: string) => void;
-  /**The name used when using this component inside a form*/
-  // name?: string;
-} & ComponentPropsWithoutRef<typeof Root>;
+type RadioGroupProps = ComponentPropsWithoutRef<typeof Root>;
 
 const RadioGroup = forwardRef<ElementRef<typeof Root>, RadioGroupProps>(
   (props, ref) => {
     const {
       className,
-      // value,
-      // disabled,
-      // onValueChange,
+      name,
+      onValueChange,
       orientation = "horizontal",
       ...restProps
     } = props;
     return (
       <Root
-        // value={value}
-        // disabled={disabled}
-        // onValueChange={onValueChange}
+        onValueChange={onValueChange}
         className={cn(
           "flex items-start gap-11 w-44",
           orientation === "vertical" ? "flex-col" : "flex-row",

@@ -34,7 +34,6 @@ const meta: Meta<typeof RadioGroup> = {
       control: "boolean",
       description:
         "Отключает компонент, делая его недоступным для взаимодействия.",
-      orientation: "Расположение элементов, горизонтально или вертикально.",
     },
     orientation: {
       control: {
@@ -45,7 +44,7 @@ const meta: Meta<typeof RadioGroup> = {
     },
     value: {
       control: "text",
-      description: "Текущее значение радиогруппы.",
+      description: "Текущее выбранное значение в компоненте.",
     },
     onValueChange: {
       action: "changed",
@@ -54,7 +53,16 @@ const meta: Meta<typeof RadioGroup> = {
     },
     name: {
       control: "text",
-      description: "Имя, используемое при работе с компонентом внутри формы.",
+      description: "Имя группы компонента, используется при отправке формы.",
+    },
+    className: {
+      control: "text",
+      description: "Дополнительный CSS-класс для настройки стилей компонента.",
+    },
+    id: {
+      control: "text",
+      description:
+        "Уникальный идентификатор для связывания компонента с текстом в теге label.",
     },
   },
   args: {
@@ -79,10 +87,9 @@ export const Default: Story = {
           <Typography.H1>Choose a color</Typography.H1>
           <RadioGroup
             value={value}
-            onValueChange={(value) => setValue(value)}
             disabled={args.disabled}
             orientation={args.orientation}
-            name={args.name}
+            onValueChange={(value) => setValue(value)}
           >
             {valueExamples.map((option) => (
               <RadioGroupItem

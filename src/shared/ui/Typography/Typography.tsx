@@ -3,37 +3,37 @@ import { ComponentProps, ElementType, FC, ReactNode } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/features/utils/cn";
 
-const TypographyVariants = cva([""], {
+const typographyVariants = cva([""], {
   variants: {
     variant: {
-      Large: ["text-fontXXL leading-lineHL font-fontWSB"],
-      h1: ["text-fontXL leading-lineHL font-fontWB"],
-      h2: ["text-fontL leading-lineHM font-fontWB"],
-      h3: ["text-fontHS leading-lineHM font-fontWSB"],
-      regular16: ["text-fontM leading-lineHM font-fontWR"],
-      bold16: ["text-fontM leading-lineHM font-fontWB"],
-      regular14: ["text-fontS leading-lineHM font-fontWR"],
-      medium14: ["text-fontS leading-lineHM font-fontWM"],
-      bold14: ["text-fontS leading-lineHM font-fontWB"],
-      small: ["text-fontXS leading-lineHS font-fontWR"],
-      semiBoldSmall: ["text-fontXS leading-lineHS font-fontWSB"],
-      regularLink: ["text-fontS leading-lineHM font-fontWR text-accent-100 underline underline-offset-8"],
-      smallLink: ["texts-fontXS leading-lineHS font-fontWR text-accent-100 underline underline-offset-8"],
+      Large: ["text-[1.625rem] leading-9 font-semibold"],
+      h1: ["text-[1.25rem] leading-9 font-bold"],
+      h2: ["text-[1.125rem] leading-6 font-bold"],
+      h3: ["text-base font-semibold"],
+      regular16: ["text-base font-normal"],
+      bold16: ["text-base font-bold"],
+      regular14: ["text-[0.875rem] leading-6 font-normal"],
+      medium14: ["text-[0.875rem] leading-6 font-medium"],
+      bold14: ["text-[0.875rem] leading-6 font-bold"],
+      small: ["text-xs font-normal"],
+      semiBoldSmall: ["text-xs font-semibold"],
+      regularLink: ["text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-8"],
+      smallLink: ["text-xs font-normal text-accent-100 underline underline-offset-8"],
     },
   },
 });
 
-type Props<T extends ElementType> = VariantProps<typeof TypographyVariants> & {
+type Props<T extends ElementType> = VariantProps<typeof typographyVariants> & {
   as?: T;
   children?: ReactNode;
 } & ComponentProps<T>;
 
-const createTypographyComponent = <T extends ElementType>(basicClassName: Component): FC<Props<T>> => {
+const createTypographyComponent = <T extends ElementType>(variant: Component): FC<Props<T>> => {
   return (props: Props<T>) => {
     const { as, className, ...restProps } = props;
-    const Component = as || COMPONENTS[basicClassName];
+    const Component = as || COMPONENTS[variant];
 
-    return <Component className={cn([TypographyVariants({ variant: basicClassName }), className])} {...restProps} />;
+    return <Component className={cn([typographyVariants({ variant }), className])} {...restProps} />;
   };
 };
 

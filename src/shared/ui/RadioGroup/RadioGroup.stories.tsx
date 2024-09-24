@@ -17,6 +17,10 @@ const valueExamples: { label: string; value: string }[] = [
     label: "Green",
     value: "green",
   },
+  {
+    label: "Blue",
+    value: "blue",
+  },
 ];
 
 const meta: Meta<typeof RadioGroup> = {
@@ -39,14 +43,14 @@ const meta: Meta<typeof RadioGroup> = {
       },
       description: "Расположение элементов, горизонтально или вертикально.",
     },
+    value: {
+      control: "text",
+      description: "Текущее значение радиогруппы.",
+    },
     onValueChange: {
       action: "changed",
       description:
         "Функция обратного вызова, вызываемая при изменении значения.",
-    },
-    value: {
-      control: "text",
-      description: "Текущее значение радиогруппы.",
     },
     name: {
       control: "text",
@@ -73,26 +77,26 @@ export const Default: Story = {
       <>
         <label htmlFor={args.name} className={"mb-5 text-white"}>
           <Typography.H1>Choose a color</Typography.H1>
+          <RadioGroup
+            value={value}
+            onValueChange={(value) => setValue(value)}
+            disabled={args.disabled}
+            orientation={args.orientation}
+            name={args.name}
+          >
+            {valueExamples.map((option) => (
+              <RadioGroupItem
+                key={option.value}
+                disabled={args?.disabled}
+                labelText={option.label}
+                value={option.value}
+              />
+            ))}
+          </RadioGroup>
+          <div className={"mt-5 text-white w-full"}>
+            Selected value: {value ? value : "----"}
+          </div>
         </label>
-        <RadioGroup
-          value={value}
-          onValueChange={(value) => setValue(value)}
-          disabled={args.disabled}
-          orientation={args.orientation}
-          name={args.name}
-        >
-          {valueExamples.map((option) => (
-            <RadioGroupItem
-              key={option.value}
-              disabled={args?.disabled}
-              labelText={option.label}
-              value={option.value}
-            />
-          ))}
-        </RadioGroup>
-        <div className={"mt-5 text-white w-full"}>
-          Selected value: {value ? value : "----"}
-        </div>
       </>
     );
   },

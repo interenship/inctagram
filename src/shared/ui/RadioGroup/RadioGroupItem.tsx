@@ -5,7 +5,7 @@ import { Typography } from "@/shared/ui/Typography";
 
 type RadioGroupItemProps = {
   labelText?: string;
-  value: string;
+  // value: string;
 } & ComponentPropsWithoutRef<typeof Item>;
 
 const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
@@ -20,7 +20,7 @@ const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
         className={cn(
           "flex items-center justify-center",
           disabled
-            ? "text-light-900 cursor-not-allowed"
+            ? "cursor-not-allowed opacity-50"
             : "text-light-100 hover:cursor-pointer",
           className,
         )}

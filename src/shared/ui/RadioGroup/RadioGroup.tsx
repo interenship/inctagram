@@ -4,28 +4,28 @@ import { cn } from "@/features/utils/cn";
 
 type RadioGroupProps = {
   orientation?: "horizontal" | "vertical";
-  disabled?: boolean;
-  onValueChange: (value: string) => void;
-  value: string;
+  // value: string;
+  // disabled?: boolean;
+  // onValueChange: (value: string) => void;
   /**The name used when using this component inside a form*/
-  name?: string;
+  // name?: string;
 } & ComponentPropsWithoutRef<typeof Root>;
 
 const RadioGroup = forwardRef<ElementRef<typeof Root>, RadioGroupProps>(
   (props, ref) => {
     const {
       className,
-      value,
-      disabled,
-      onValueChange,
+      // value,
+      // disabled,
+      // onValueChange,
       orientation = "horizontal",
       ...restProps
     } = props;
     return (
       <Root
-        disabled={disabled}
-        onValueChange={onValueChange}
-        value={value}
+        // value={value}
+        // disabled={disabled}
+        // onValueChange={onValueChange}
         className={cn(
           "flex items-start gap-11 w-44",
           orientation === "vertical" ? "flex-col" : "flex-row",

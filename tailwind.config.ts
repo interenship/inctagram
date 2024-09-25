@@ -58,25 +58,6 @@ const config: Config = {
           900: "#8D9094",
         },
       },
-      fontSize: {
-        fontXS: "0.75rem", //12px
-        fontS: "0.875rem", //14px
-        fontM: "1rem", //16px
-        fontL: "1.125rem", //18px
-        fontXL: "1.25rem", //20
-        fontXXL: "1.625rem", //26px
-      },
-      fontWeight: {
-        fontWR: "400",
-        fontWM: "500",
-        fontWB: "700",
-        fontWSB: "600",
-      },
-      lineHeight: {
-        lineHS: "16px",
-        lineHM: "24px",
-        lineHL: "36px",
-      },
     },
   },
   plugins: [],

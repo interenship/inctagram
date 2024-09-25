@@ -3,6 +3,7 @@ import { RadioGroup } from "./RadioGroup";
 import { RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroupItem";
 import { useState } from "react";
 import { Typography } from "@/shared/ui/Typography";
+import { cn } from "@/features/utils/cn";
 
 const valueExamples: { label: string; value: string }[] = [
   {
@@ -85,25 +86,42 @@ export const Default: Story = {
       <>
         <label htmlFor={args.name} className={"mb-5 text-white"}>
           <Typography.H1>Choose a color</Typography.H1>
-          <RadioGroup
-            value={value}
-            disabled={args.disabled}
-            orientation={args.orientation}
-            onValueChange={(value) => setValue(value)}
-          >
-            {valueExamples.map((option) => (
+        </label>
+        <RadioGroup
+          value={value}
+          disabled={args.disabled}
+          orientation={args.orientation}
+          onValueChange={(value) => setValue(value)}
+        >
+          {valueExamples.map((option) => (
+            <div key={option.value}>
               <RadioGroupItem
-                key={option.value}
                 disabled={args?.disabled}
                 labelText={option.label}
                 value={option.value}
               />
-            ))}
-          </RadioGroup>
-          <div className={"mt-5 text-white w-full"}>
-            Selected value: {value ? value : "----"}
-          </div>
-        </label>
+              <label
+                htmlFor={option.value}
+                className={cn(
+                  "flex items-center justify-center",
+                  args.disabled
+                    ? "cursor-not-allowed opacity-50"
+                    : "text-light-100 hover:cursor-pointer",
+                  className,
+                )}
+              >
+                {labelText && (
+                  <Typography.REGULAR14 className={"ml-2"}>
+                    {labelText}
+                  </Typography.REGULAR14>
+                )}
+              </label>
+            </div>
+          ))}
+        </RadioGroup>
+        <div className={"mt-5 text-white w-full"}>
+          Selected value: {value ? value : "----"}
+        </div>
       </>
     );
   },

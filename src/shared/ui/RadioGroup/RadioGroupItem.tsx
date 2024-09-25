@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { Indicator, Item } from "@radix-ui/react-radio-group";
 import { cn } from "@/features/utils/cn";
 import { Typography } from "@/shared/ui/Typography";

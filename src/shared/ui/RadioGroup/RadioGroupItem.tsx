@@ -10,27 +10,14 @@ type RadioGroupItemProps = {
 
 const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
   (props, ref) => {
-    const { className, value, disabled, labelText, id, ...restProps } = props;
-    const generatedId = useId();
-    const finalId = id ?? generatedId;
+    const { className, disabled = false, labelText, id, ...restProps } = props;
 
     return (
-      <div>
-        <Label
-          htmlFor={finalId}
-          disabled={disabled}
-          className={cn("flex items-center justify-center", className)}
-        >
-          {labelText && (
-            <Typography.REGULAR14 className={"ml-2"}>
-              {labelText}
-            </Typography.REGULAR14>
-          )}
-        </Label>
+      <div className={cn("flex items-center justify-center")}>
         <Item
           ref={ref}
           id={id}
-          value={value}
+          // value={value}
           className={cn(
             "group flex justify-center items-center relative rounded-full border-2 border-light-100 w-5 h-5 transition-all duration-300  ",
             disabled
@@ -47,6 +34,13 @@ const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
             )}
           />
         </Item>
+        <Label htmlFor={id} disabled={disabled}>
+          {labelText && (
+            <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+              {labelText}
+            </Typography.REGULAR14>
+          )}
+        </Label>
       </div>
     );
   },

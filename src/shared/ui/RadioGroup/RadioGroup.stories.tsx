@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RadioGroup } from "./RadioGroup";
 import { useState } from "react";
-import { Typography } from "@/shared/ui/Typography";
-import { Label } from "@/shared/ui/Label";
 import { RadioGroupItem } from "./index";
 
 const valueExamples: { label: string; value: string }[] = [
@@ -52,10 +50,6 @@ const meta: Meta<typeof RadioGroup> = {
       description:
         "Функция обратного вызова, вызываемая при изменении значения.",
     },
-    name: {
-      control: "text",
-      description: "Имя группы компонента, используется при отправке формы.",
-    },
     className: {
       control: "text",
       description: "Дополнительный CSS-класс для настройки стилей компонента.",
@@ -70,7 +64,6 @@ const meta: Meta<typeof RadioGroup> = {
     disabled: false,
     orientation: "horizontal",
     value: "",
-    name: "color",
   },
 };
 
@@ -88,23 +81,15 @@ export const Default: Story = {
           value={value}
           disabled={args.disabled}
           orientation={args.orientation}
-          onValueChange={(value) => setValue(value)}
+          onValueChange={(newValue) => setValue(newValue)}
         >
           {valueExamples.map((option) => (
             <div key={option.value}>
-              <Label
-                disabled={args.disabled}
-                className={"mb-5 text-light-100"}
-                htmlFor={args.name}
-              >
-                <Typography.REGULAR14 className={"ml-2 text-light-100"}>
-                  {option.label}
-                </Typography.REGULAR14>
-              </Label>
               <RadioGroupItem
                 disabled={args?.disabled}
                 labelText={option.label}
                 value={option.value}
+                id={option.value}
               />
             </div>
           ))}

@@ -10,7 +10,6 @@ const meta = {
     checked: {
       control: { type: "boolean" },
     },
-    labelText: { control: { type: "text" } },
   },
   args: {
     id: "checkbox",
@@ -50,32 +49,26 @@ export const DisabledChecked: Story = {
 };
 
 export const WithLabel: Story = {
-  args: {
-    labelText,
-  },
-  render: ({ labelText, id, ...restArgs }) => {
+  args: {},
+  render: ({ id, ...restArgs }) => {
     const [checkedValue, setCheckedValue] = useState(false);
 
     const getCheckedValue = (value: boolean) => {
       setCheckedValue(value);
     };
 
-    return (
-      <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={getCheckedValue} {...restArgs} />
-    );
+    return <Checkbox id={id} checked={checkedValue} onCheckedChange={getCheckedValue} {...restArgs} />;
   },
 };
 
 export const DisabledWithLabel: Story = {
   args: {
-    labelText,
     disabled: true,
   },
 };
 
 export const DisabledCheckedWithLabel: Story = {
   args: {
-    labelText,
     disabled: true,
     checked: true,
   },

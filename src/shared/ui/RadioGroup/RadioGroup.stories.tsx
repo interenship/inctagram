@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RadioGroup } from "./RadioGroup";
-import { RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroupItem";
 import { useState } from "react";
 import { Typography } from "@/shared/ui/Typography";
-import { cn } from "@/features/utils/cn";
+import { Label } from "@/shared/ui/Label";
+import { RadioGroupItem } from "./index";
 
 const valueExamples: { label: string; value: string }[] = [
   {
@@ -84,9 +84,6 @@ export const Default: Story = {
     console.log("Selected value:", value);
     return (
       <>
-        <label htmlFor={args.name} className={"mb-5 text-white"}>
-          <Typography.H1>Choose a color</Typography.H1>
-        </label>
         <RadioGroup
           value={value}
           disabled={args.disabled}
@@ -95,27 +92,20 @@ export const Default: Story = {
         >
           {valueExamples.map((option) => (
             <div key={option.value}>
+              <Label
+                disabled={args.disabled}
+                className={"mb-5 text-light-100"}
+                htmlFor={args.name}
+              >
+                <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+                  {option.label}
+                </Typography.REGULAR14>
+              </Label>
               <RadioGroupItem
                 disabled={args?.disabled}
                 labelText={option.label}
                 value={option.value}
               />
-              <label
-                htmlFor={option.value}
-                className={cn(
-                  "flex items-center justify-center",
-                  args.disabled
-                    ? "cursor-not-allowed opacity-50"
-                    : "text-light-100 hover:cursor-pointer",
-                  className,
-                )}
-              >
-                {labelText && (
-                  <Typography.REGULAR14 className={"ml-2"}>
-                    {labelText}
-                  </Typography.REGULAR14>
-                )}
-              </label>
             </div>
           ))}
         </RadioGroup>

@@ -52,6 +52,8 @@ const primaryMenuItems: MenuItem[] = [
   { href: "/search", label: "Search", icon: SearchOutline },
 ];
 
+const logOut = () => {};
+
 const secondaryMenuItems: MenuItem[] = [
   {
     href: "/statistics",
@@ -123,27 +125,26 @@ const renderMenuItem = (props: MenuItem) => {
 
 export const Sidebar = () => {
   return (
-    <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex justify-center items-center relative">
-      <div>
-        <div className="flex flex-col gap-6 mb-[60px] mt-[72px]">
-          {primaryMenuItems.map(renderMenuItem)}
-        </div>
-        <div className="flex flex-col gap-6 mb-[180px]">
-          {secondaryMenuItems.map(renderMenuItem)}
-        </div>
-
-        <Button asChild variant="text" className="text-light-100">
-          <Link
-            className="flex gap-3 group mb-[180px] focus:ring-2 focus:ring-accent-500 focus:outline-none rounded"
-            href={"/logout"}
-          >
-            <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />
-            <Typography.MEDIUM14 className="group-hover:text-accent-100 group-active:text-accent-500">
-              Log out
-            </Typography.MEDIUM14>
-          </Link>
-        </Button>
+    <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex flex-col justify-center items-center relative">
+      <div className="flex flex-col gap-[20px] mb-[60px] mt-[72px]">
+        {primaryMenuItems.map(renderMenuItem)}
       </div>
+      <div className="flex flex-col gap-[20px] mb-[180px]">
+        {secondaryMenuItems.map(renderMenuItem)}
+      </div>
+      <Button
+        asChild
+        variant="text"
+        className="text-light-100 cursor-pointer"
+        onClick={logOut}
+      >
+        <div className="flex gap-3 group mb-[180px] focus:ring-2 focus:ring-accent-500 focus:outline-none rounded">
+          <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />
+          <Typography.MEDIUM14 className="group-hover:text-accent-100 group-active:text-accent-500">
+            Log out
+          </Typography.MEDIUM14>
+        </div>
+      </Button>
       <div className="w-[1px] h-lvh bg-dark-300 absolute top-0 right-0"></div>
     </nav>
   );

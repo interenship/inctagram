@@ -37,7 +37,7 @@ export const Default: Story = {
           <Typography.H1>Card Tittle</Typography.H1>
         </CardTitle>
 
-        <CardDescription className={"mx-auto"}>
+        <CardDescription className="mx-auto">
           <Typography.BOLD14>Card Description</Typography.BOLD14>
         </CardDescription>
       </CardHeader>

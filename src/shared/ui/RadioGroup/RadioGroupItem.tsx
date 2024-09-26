@@ -6,12 +6,11 @@ type RadioGroupItemProps = ComponentPropsWithoutRef<typeof Item>;
 
 const RadioGroupItem = forwardRef<ElementRef<typeof Item>, RadioGroupItemProps>(
   (props, ref) => {
-    const { className, disabled = false, id, ...restProps } = props;
+    const { className, disabled = false, ...restProps } = props;
 
     return (
       <Item
         ref={ref}
-        id={id}
         className={cn(
           "group flex justify-center items-center relative rounded-full border-2 border-light-100 w-5 h-5 transition-all duration-300  ",
           disabled

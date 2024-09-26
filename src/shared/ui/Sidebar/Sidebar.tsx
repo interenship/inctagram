@@ -19,6 +19,7 @@ import {
 } from "@/shared/assets/icons/components";
 import { Typography } from "@/shared/ui/Typography";
 import { cn } from "@/features/utils/cn";
+import { Button } from "@/shared/ui/Button";
 
 interface MenuItem {
   href: string;
@@ -72,49 +73,51 @@ const renderMenuItem = (props: MenuItem) => {
   const isActive = router.pathname === href;
 
   return (
-    <Link
-      key={href}
-      href={disabled ? "#" : href}
-      className={cn(
-        "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:outline-none rounded w-[124px]",
-        {
-          "cursor-not-allowed pointer-events-none": disabled,
-        },
-      )}
-    >
-      {isActive && FilledIcon ? (
-        <FilledIcon
-          className={cn(
-            "transition-colors w-6 h-6 text-light-100 duration-200 ease-in-out",
-            {
-              "group-hover:text-accent-500 text-accent-500": isActive,
-              "text-dark-100": disabled,
-            },
-          )}
-        />
-      ) : (
-        <Icon
-          className={cn(
-            "transition-colors text-light-100 w-6 h-6 group-hover:text-accent-100 duration-200 ease-in-out",
-            {
-              "text-accent-500": isActive,
-              "text-dark-100": disabled,
-            },
-          )}
-        />
-      )}
-      <Typography.MEDIUM14
+    <Button asChild variant="text" className="text-light-100">
+      <Link
+        key={href}
+        href={disabled ? "#" : href}
         className={cn(
-          "transition-colors duration-200 ease-in-out group-hover:text-accent-100",
+          "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:outline-none rounded",
           {
-            "group-hover:text-accent-500 text-accent-500 font-bold": isActive,
-            "text-dark-100": disabled,
+            "cursor-not-allowed pointer-events-none": disabled,
           },
         )}
       >
-        {label}
-      </Typography.MEDIUM14>
-    </Link>
+        {isActive && FilledIcon ? (
+          <FilledIcon
+            className={cn(
+              "transition-colors w-6 h-6 text-light-100 duration-200 ease-in-out",
+              {
+                "group-hover:text-accent-500 text-accent-500": isActive,
+                "text-dark-100": disabled,
+              },
+            )}
+          />
+        ) : (
+          <Icon
+            className={cn(
+              "transition-colors text-light-100 w-6 h-6 group-hover:text-accent-100 duration-200 ease-in-out",
+              {
+                "text-accent-500": isActive,
+                "text-dark-100": disabled,
+              },
+            )}
+          />
+        )}
+        <Typography.MEDIUM14
+          className={cn(
+            "transition-colors duration-200 ease-in-out group-hover:text-accent-100",
+            {
+              "group-hover:text-accent-500 text-accent-500 font-bold": isActive,
+              "text-dark-100": disabled,
+            },
+          )}
+        >
+          {label}
+        </Typography.MEDIUM14>
+      </Link>
+    </Button>
   );
 };
 
@@ -125,20 +128,21 @@ export const Sidebar = () => {
         <div className="flex flex-col gap-6 mb-[60px] mt-[72px]">
           {primaryMenuItems.map(renderMenuItem)}
         </div>
-
         <div className="flex flex-col gap-6 mb-[180px]">
           {secondaryMenuItems.map(renderMenuItem)}
         </div>
 
-        <Link
-          className="flex gap-3 group mb-[200px] focus:ring-2 focus:ring-accent-500 focus:outline-none rounded"
-          href={"/logout"}
-        >
-          <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />
-          <Typography.MEDIUM14 className="group-hover:text-accent-100 group-active:text-accent-500">
-            Log out
-          </Typography.MEDIUM14>
-        </Link>
+        <Button asChild variant="text" className="text-light-100">
+          <Link
+            className="flex gap-3 group mb-[180px] focus:ring-2 focus:ring-accent-500 focus:outline-none rounded"
+            href={"/logout"}
+          >
+            <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />
+            <Typography.MEDIUM14 className="group-hover:text-accent-100 group-active:text-accent-500">
+              Log out
+            </Typography.MEDIUM14>
+          </Link>
+        </Button>
       </div>
       <div className="w-[1px] h-lvh bg-dark-300 absolute top-0 right-0"></div>
     </nav>

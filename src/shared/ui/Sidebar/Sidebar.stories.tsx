@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Sidebar from "./Sidebar";
+import { Sidebar } from "@/shared/ui/Sidebar/Sidebar";
 
 const meta: Meta<typeof Sidebar> = {
   component: Sidebar,
@@ -7,6 +7,7 @@ const meta: Meta<typeof Sidebar> = {
   parameters: {
     layout: "left",
   },
+  args: {},
 };
 
 export default meta;

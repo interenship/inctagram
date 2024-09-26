@@ -11,15 +11,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InputWithDefaultType: Story = {
-  args: {
-    label: "Input without a type (text by default)",
-  },
+  args: {},
 };
 
 export const TextInput: Story = {
   args: {
     type: "text",
-    label: "Email",
     className: "w-[280px]",
     disabled: false,
   },
@@ -28,7 +25,6 @@ export const TextInput: Story = {
 export const TextInputError: Story = {
   args: {
     type: "text",
-    label: "Email",
     className: "w-[280px]",
     error: "Random error text",
   },
@@ -37,7 +33,6 @@ export const TextInputError: Story = {
 export const TextInputDisabled: Story = {
   args: {
     type: "text",
-    label: "Email",
     className: "w-[280px]",
     disabled: true,
   },
@@ -46,7 +41,6 @@ export const TextInputDisabled: Story = {
 export const SearchInput: Story = {
   args: {
     type: "search",
-    label: "Input Text",
   },
 };
 
@@ -67,7 +61,6 @@ export const SearchInputDisabled: Story = {
 export const PasswordInput: Story = {
   args: {
     type: "password",
-    label: "Password",
   },
 };
 
@@ -75,14 +68,12 @@ export const PasswordInputError: Story = {
   args: {
     type: "password",
     error: "Some error occurred",
-    label: "Password",
   },
 };
 
 export const PasswordInputDisabled: Story = {
   args: {
     type: "password",
-    label: "Password",
     disabled: true,
   },
 };

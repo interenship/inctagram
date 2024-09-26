@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RadioGroup } from "./RadioGroup";
 import { useState } from "react";
 import { RadioGroupItem } from "./index";
+import { Typography } from "@/shared/ui/Typography";
+import { Label } from "@/shared/ui/Label";
 
 const valueExamples: { label: string; value: string }[] = [
   {
@@ -84,13 +86,22 @@ export const Default: Story = {
           onValueChange={(newValue) => setValue(newValue)}
         >
           {valueExamples.map((option) => (
-            <div key={option.value}>
+            <div
+              key={option.value}
+              className="flex items-center justify-center"
+            >
               <RadioGroupItem
-                disabled={args?.disabled}
-                labelText={option.label}
+                disabled={args.disabled}
                 value={option.value}
                 id={option.value}
               />
+              <Label htmlFor={option.value} disabled={args.disabled}>
+                {option.label && (
+                  <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+                    {option.label}
+                  </Typography.REGULAR14>
+                )}
+              </Label>
             </div>
           ))}
         </RadioGroup>

@@ -12,12 +12,21 @@ import Close from "@/shared/assets/icons/components/Close";
 
 type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
-  //2 callbacks onChange, clearInput
+  onClear?: () => void;
+
+  //2 callbacks onChange
 };
 
 export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
   (props: TextFieldProps, ref) => {
-    const { type, disabled = false, className, error, ...restProps } = props;
+    const {
+      type,
+      disabled = false,
+      className,
+      error,
+      onClear,
+      ...restProps
+    } = props;
 
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const inputType = type === "password" && isPasswordVisible ? "text" : type;
@@ -54,7 +63,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
           {/* Кнопка очистки появляется только если есть значение в поле */}
           {type === "search" && inputValue && (
             <Close
-              onClick={clearInput}
+              onClick={onClear}
               className={cn(
                 "fill-light-900 absolute right-1 top-1.5 group-active:fill-light-100 cursor-pointer",
                 disabled && "fill-dark-100 group-active:fill-dark-100",

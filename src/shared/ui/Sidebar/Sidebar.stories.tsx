@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
 import Sidebar from "./Sidebar";
 
 const meta: Meta<typeof Sidebar> = {
@@ -8,7 +7,6 @@ const meta: Meta<typeof Sidebar> = {
   parameters: {
     layout: "left",
   },
-  args: {},
 };
 
 export default meta;

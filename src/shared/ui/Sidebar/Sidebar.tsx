@@ -76,7 +76,7 @@ const renderMenuItem = (props: MenuItem) => {
       key={href}
       href={disabled ? "#" : href}
       className={cn(
-        "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:outline-none rounded w-[130px]",
+        "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:outline-none rounded w-[124px]",
         {
           "cursor-not-allowed pointer-events-none": disabled,
         },
@@ -118,7 +118,7 @@ const renderMenuItem = (props: MenuItem) => {
   );
 };
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex justify-center items-center relative">
       <div>
@@ -144,5 +144,3 @@ const Sidebar = () => {
     </nav>
   );
 };
-
-export default Sidebar;

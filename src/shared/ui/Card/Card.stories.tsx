@@ -33,7 +33,7 @@ export const Default: Story = {
   render: () => (
     <Card>
       <CardHeader>
-        <CardTitle className={"mx-auto"}>
+        <CardTitle className="mx-auto">
           <Typography.H1>Card Tittle</Typography.H1>
         </CardTitle>
 

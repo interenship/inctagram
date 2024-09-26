@@ -14,10 +14,10 @@ const meta: Meta<typeof Label> = {
       description:
         "Отключает компонент, делая его недоступным для взаимодействия.",
     },
-    id: {
+    htmlFor: {
       control: { type: "text" },
       description:
-        "Уникальный идентификатор для связывания с элементом управления формы.",
+        "Уникальный идентификатор для связывания с компонентом, например, с input.",
     },
     children: {
       control: { type: "text" },
@@ -26,7 +26,7 @@ const meta: Meta<typeof Label> = {
   },
   args: {
     disabled: false,
-    id: "email",
+    htmlFor: "email",
     children: (
       <Typography.REGULAR14 className={"ml-2 text-light-100"}>
         Your email address

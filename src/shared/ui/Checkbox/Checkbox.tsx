@@ -1,13 +1,12 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
 import { Root, Indicator } from "@radix-ui/react-checkbox";
 import { cn } from "@/features/utils/cn";
-import { Typography } from "@/shared/ui/Typography";
 import { CheckmarkOutline } from "@/shared/assets/icons/components";
 
 type Checkbox = ComponentPropsWithoutRef<typeof Root>;
 
 const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
-  const { className, id, disabled = false, ...restProps } = props;
+  const { className, id, disabled, ...restProps } = props;
 
   const generatedId = useId();
   const finalId = id ?? generatedId;
@@ -24,7 +23,7 @@ const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
       disabled={disabled}
       {...restProps}
     >
-      <Indicator className={cn("flex justify-center items-center leading-none bg-white")}>
+      <Indicator className={cn("text-light-300")}>
         <CheckmarkOutline />
       </Indicator>
     </Root>

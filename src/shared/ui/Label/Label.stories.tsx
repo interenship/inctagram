@@ -21,7 +21,8 @@ const meta: Meta<typeof Label> = {
     },
     children: {
       control: { type: "text" },
-      description: "Текст, которые будут отображены внутри компонента Label.",
+      description:
+        "Содержимое, которое будет отображено внутри компонента Label. Это может быть текст или JSX-элементы, такие как Typography.",
     },
   },
   args: {

@@ -1,7 +1,7 @@
 import { cn } from "@/features/utils/cn";
 import { Checkbox } from "@/shared/ui/Checkbox";
+import { Label } from "@/shared/ui/Label";
 import { Typography } from "@/shared/ui/Typography";
-import { Label } from "@radix-ui/react-select";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";
@@ -62,10 +62,7 @@ export const DisabledChecked: Story = {
 };
 
 export const WithLabel: Story = {
-  args: {
-    disabled: true,
-  },
-  render: ({ disabled }) => {
+  render: () => {
     const [checkedValue, setCheckedValue] = useState(false);
 
     const getCheckedValue = (value: boolean) => {
@@ -75,7 +72,7 @@ export const WithLabel: Story = {
     return (
       <div className={cn("flex items-center gap-2 max-w-max")}>
         <Checkbox id={idForCheckbox} checked={checkedValue} onCheckedChange={getCheckedValue} />
-        <Label id={idForCheckbox}>
+        <Label htmlFor={idForCheckbox}>
           <Typography.REGULAR14 className={"text-light-100"}>{labelText}</Typography.REGULAR14>
         </Label>
       </div>
@@ -91,20 +88,10 @@ export const DisabledWithLabel: Story = {
     return (
       <div className={cn("flex items-center gap-2 max-w-max")}>
         <Checkbox disabled={disabled} id={idForCheckbox} />
-        <Typography.REGULAR14 disabled as={"label"} htmlFor={idForCheckbox} className={cn("text-light-100")}>
-          {labelText}
-        </Typography.REGULAR14>
-        <Typography.LARGE disabled className={"text-lime-300"}>
-          text
-        </Typography.LARGE>
+        <Label htmlFor={idForCheckbox} disabled>
+          <Typography.REGULAR14 className={"text-light-100"}>{labelText}</Typography.REGULAR14>
+        </Label>
       </div>
     );
-  },
-};
-
-export const DisabledCheckedWithLabel: Story = {
-  args: {
-    disabled: true,
-    checked: true,
   },
 };

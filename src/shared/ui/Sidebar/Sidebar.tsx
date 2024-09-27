@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import {
   Bookmark,
   BookmarkOutline,
@@ -18,18 +16,11 @@ import {
   TrendingUpOutline,
 } from "@/shared/assets/icons/components";
 import { Typography } from "@/shared/ui/Typography";
-import { cn } from "@/features/utils/cn";
 import { Button } from "@/shared/ui/Button";
+import { renderMenuItems } from "@/shared/ui/Sidebar/MenuItems";
+import { MenuItem } from "@/shared/ui/Sidebar/types";
 
-interface MenuItem {
-  href: string;
-  label: string;
-  icon: React.ElementType;
-  filledIcon?: React.ElementType;
-  disabled?: boolean;
-}
-
-const primaryMenuItems: MenuItem[] = [
+const upperMenuItems: MenuItem[] = [
   { href: "/", label: "Home", icon: HomeOutline, filledIcon: Home },
   {
     href: "/create",
@@ -52,9 +43,7 @@ const primaryMenuItems: MenuItem[] = [
   { href: "/search", label: "Search", icon: SearchOutline },
 ];
 
-const logOut = () => {};
-
-const secondaryMenuItems: MenuItem[] = [
+const middleMenuItems: MenuItem[] = [
   {
     href: "/statistics",
     label: "Statistics",
@@ -68,69 +57,17 @@ const secondaryMenuItems: MenuItem[] = [
     filledIcon: Bookmark,
   },
 ];
-const renderMenuItem = (props: MenuItem) => {
-  const { href, label, icon: Icon, filledIcon: FilledIcon, disabled } = props;
-  const router = useRouter();
 
-  const isActive = router.pathname === href;
-
-  return (
-    <Button asChild variant="text" className="text-light-100">
-      <Link
-        key={href}
-        href={disabled ? "#" : href}
-        className={cn(
-          "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:outline-none rounded",
-          {
-            "cursor-not-allowed pointer-events-none": disabled,
-          },
-        )}
-      >
-        {isActive && FilledIcon ? (
-          <FilledIcon
-            className={cn(
-              "transition-colors w-6 h-6 text-light-100 duration-200 ease-in-out",
-              {
-                "group-hover:text-accent-500 text-accent-500": isActive,
-                "text-dark-100": disabled,
-              },
-            )}
-          />
-        ) : (
-          <Icon
-            className={cn(
-              "transition-colors text-light-100 w-6 h-6 group-hover:text-accent-100 duration-200 ease-in-out",
-              {
-                "text-accent-500": isActive,
-                "text-dark-100": disabled,
-              },
-            )}
-          />
-        )}
-        <Typography.MEDIUM14
-          className={cn(
-            "transition-colors duration-200 ease-in-out group-hover:text-accent-100",
-            {
-              "group-hover:text-accent-500 text-accent-500 font-bold": isActive,
-              "text-dark-100": disabled,
-            },
-          )}
-        >
-          {label}
-        </Typography.MEDIUM14>
-      </Link>
-    </Button>
-  );
-};
+const logOut = () => {};
 
 export const Sidebar = () => {
   return (
-    <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex flex-col justify-center items-center relative">
-      <div className="flex flex-col gap-[20px] mb-[60px] mt-[72px]">
-        {primaryMenuItems.map(renderMenuItem)}
+    <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex flex-col justify-center items-center border-r-[1px] border-dark-300">
+      <div className="flex flex-col gap-[14px] mb-[60px] mt-[72px]">
+        {upperMenuItems.map(renderMenuItems)}
       </div>
-      <div className="flex flex-col gap-[20px] mb-[180px]">
-        {secondaryMenuItems.map(renderMenuItem)}
+      <div className="flex flex-col gap-[14px] mb-[140px]">
+        {middleMenuItems.map(renderMenuItems)}
       </div>
       <Button
         asChild
@@ -145,7 +82,6 @@ export const Sidebar = () => {
           </Typography.MEDIUM14>
         </div>
       </Button>
-      <div className="w-[1px] h-lvh bg-dark-300 absolute top-0 right-0"></div>
     </nav>
   );
 };

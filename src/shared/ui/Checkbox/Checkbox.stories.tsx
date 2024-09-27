@@ -9,25 +9,18 @@ import { useState } from "react";
 const meta = {
   component: Checkbox,
   tags: ["autodocs"],
-  argTypes: {
-    checked: {
-      control: { type: "boolean" },
-      description: "Переводит состояние чекбокса в выбран или не выбран",
-    },
-    disabled: {
-      control: { type: "boolean" },
-      description: "Отключает компонент, делая его недоступным для взаимодействия.",
-    },
+  parameters: {
+    layout: "centered",
   },
 } satisfies Meta<typeof Checkbox>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
 
 const idForCheckbox = "checkbox";
 
 const labelText = "Check-box";
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => {

@@ -6,7 +6,7 @@ import { CheckmarkOutline } from "@/shared/assets/icons/components";
 type Checkbox = ComponentPropsWithoutRef<typeof Root>;
 
 const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
-  const { className, id, disabled, ...restProps } = props;
+  const { className, id, disabled = false, ...restProps } = props;
 
   const generatedId = useId();
   const finalId = id ?? generatedId;

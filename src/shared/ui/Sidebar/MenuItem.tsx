@@ -4,16 +4,27 @@ import Link from "next/link";
 import { cn } from "@/features/utils/cn";
 import { Typography } from "@/shared/ui/Typography";
 import React from "react";
-import { MenuItem } from "@/shared/ui/Sidebar/types";
+import { MenuItemProps } from "@/shared/ui/Sidebar/types";
 
-export const RenderMenuItems = (props: MenuItem) => {
-  const { href, label, icon: Icon, filledIcon: FilledIcon, disabled } = props;
+export const MenuItem = (props: MenuItemProps) => {
+  const {
+    href,
+    label,
+    icon: Icon,
+    filledIcon: FilledIcon,
+    disabled,
+    className,
+  } = props;
   const router = useRouter();
 
   const isActive = router.pathname === href;
 
   return (
-    <Button asChild variant="text" className="text-light-100">
+    <Button
+      asChild
+      variant="text"
+      className={cn("text-light-100 mb-[10px]", className)}
+    >
       <Link
         key={href}
         href={disabled ? "#" : href}

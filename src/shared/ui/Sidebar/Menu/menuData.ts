@@ -14,7 +14,7 @@ import {
   TrendingUpOutline,
 } from "@/shared/assets/icons/components";
 
-export const menuItemsData = {
+export const menuData = {
   home: { href: "/", label: "Home", icon: HomeOutline, filledIcon: Home },
   create: {
     href: "/create",

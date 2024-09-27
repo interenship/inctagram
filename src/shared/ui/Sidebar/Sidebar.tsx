@@ -17,7 +17,7 @@ import {
 } from "@/shared/assets/icons/components";
 import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
-import { renderMenuItems } from "@/shared/ui/Sidebar/MenuItems";
+import { RenderMenuItems } from "@/shared/ui/Sidebar/MenuItems";
 import { MenuItem } from "@/shared/ui/Sidebar/types";
 
 const upperMenuItems: MenuItem[] = [
@@ -64,10 +64,10 @@ export const Sidebar = () => {
   return (
     <nav className="w-[220px] h-screen bg-dark-700 text-light-100 flex flex-col justify-center items-center border-r-[1px] border-dark-300">
       <div className="flex flex-col gap-[14px] mb-[60px] mt-[72px]">
-        {upperMenuItems.map(renderMenuItems)}
+        {upperMenuItems.map(RenderMenuItems)}
       </div>
       <div className="flex flex-col gap-[14px] mb-[140px]">
-        {middleMenuItems.map(renderMenuItems)}
+        {middleMenuItems.map(RenderMenuItems)}
       </div>
       <Button
         asChild

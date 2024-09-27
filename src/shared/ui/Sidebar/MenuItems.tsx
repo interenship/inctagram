@@ -6,7 +6,7 @@ import { Typography } from "@/shared/ui/Typography";
 import React from "react";
 import { MenuItem } from "@/shared/ui/Sidebar/types";
 
-export const renderMenuItems = (props: MenuItem) => {
+export const RenderMenuItems = (props: MenuItem) => {
   const { href, label, icon: Icon, filledIcon: FilledIcon, disabled } = props;
   const router = useRouter();
 

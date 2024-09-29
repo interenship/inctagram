@@ -3,6 +3,7 @@ import {
   forwardRef,
   ElementRef,
   ComponentPropsWithoutRef,
+  ChangeEvent,
 } from "react";
 import { cn } from "@/features/utils/cn";
 import SvgSearch from "@/shared/assets/icons/components/Search";
@@ -13,17 +14,17 @@ import Close from "@/shared/assets/icons/components/Close";
 type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
   onClear?: () => void;
-
-  //2 callbacks onChange
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
-  (props: TextFieldProps, ref) => {
+  (props, ref) => {
     const {
       type,
       disabled = false,
       className,
       error,
+      onChange,
       onClear,
       ...restProps
     } = props;
@@ -44,6 +45,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             ref={ref}
             type={inputType}
             disabled={disabled}
+            onChange={onChange}
             className={cn(
               [
                 "w-full px-2.5 border rounded-sm border-dark-100 bg-transparent leading-6 text-light-900 font-normal text-base h-9 [&::-webkit-search-cancel-button]:hidden",
@@ -60,8 +62,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             {...restProps}
           />
 
-          {/* Кнопка очистки появляется только если есть значение в поле */}
-          {type === "search" && inputValue && (
+          {type === "search" && (
             <Close
               onClick={onClear}
               className={cn(

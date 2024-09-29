@@ -136,3 +136,36 @@ export const TextInputWithoutLabel: Story = {
     );
   },
 };
+
+export const TextInputWithLabel: Story = {
+  args: {
+    type: "text",
+    disabled: false,
+  },
+
+  render: (args) => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+    };
+
+    const onClear = () => {
+      setValue("");
+    };
+
+    return (
+      <>
+        <label htmlFor="textfield" className={cn("text-white")}>
+          Label
+        </label>
+        <TextField
+          {...args}
+          value={value}
+          onClear={onClear}
+          onChange={onChange}
+        />
+      </>
+    );
+  },
+};

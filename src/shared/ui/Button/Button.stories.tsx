@@ -5,7 +5,6 @@ import { Button } from '.';
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  title: 'Components/Button',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

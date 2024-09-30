@@ -25,7 +25,6 @@ const preview: Preview = {
       storySort: {
         order: ['Getting started', 'Design System'],
       },
-
     }
   },
 };

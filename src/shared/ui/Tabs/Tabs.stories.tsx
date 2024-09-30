@@ -3,7 +3,6 @@ import { Tabs, TabsContent, TabsList } from '.';
 
 const meta: Meta<typeof Tabs> = {
     component: Tabs,
-    title: 'Components/Tabs',
     tags: ['autodocs'],
     parameters: {
         layout: 'centered',

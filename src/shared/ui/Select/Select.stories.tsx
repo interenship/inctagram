@@ -11,7 +11,6 @@ import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdo
 
 const meta: Meta<typeof Select> = {
   component: Select,
-  title: 'Components/Select',
   tags: ["autodocs"],
   parameters: {
     layout: "centered",

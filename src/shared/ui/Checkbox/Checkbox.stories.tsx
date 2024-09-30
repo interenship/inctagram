@@ -5,7 +5,6 @@ import { useState } from "react";
 
 const meta = {
   component: Checkbox,
-  title: 'Components/Checkbox',
   tags: ["autodocs"],
   argTypes: {
     checked: {

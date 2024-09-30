@@ -26,6 +26,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
       error,
       onChange,
       onClear,
+      value,
       ...restProps
     } = props;
 
@@ -43,6 +44,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
         >
           <input
             ref={ref}
+            value={value}
             type={inputType}
             disabled={disabled}
             onChange={onChange}
@@ -62,7 +64,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             {...restProps}
           />
 
-          {type === "search" && (
+          {type === "search" && value && (
             <Close
               onClick={onClear}
               className={cn(

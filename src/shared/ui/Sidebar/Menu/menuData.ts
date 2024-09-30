@@ -15,35 +15,35 @@ import {
 } from "@/shared/assets/icons/components";
 
 export const menuData = {
-  home: { href: "/", label: "Home", icon: HomeOutline, filledIcon: Home },
+  home: { href: "/", text: "Home", icon: HomeOutline, filledIcon: Home },
   create: {
     href: "/create",
-    label: "Create",
+    text: "Create",
     icon: PlusSquareOutline,
     filledIcon: PlusSquare,
   },
   profile: {
     href: "/profile",
-    label: "My profile",
+    text: "My profile",
     icon: PersonOutline,
     filledIcon: Person,
   },
   messenger: {
     href: "/messenger",
-    label: "Messenger",
+    text: "Messenger",
     icon: MessageCircleOutline,
     filledIcon: MessageCircle,
   },
-  search: { href: "/search", label: "Search", icon: SearchOutline },
+  search: { href: "/search", text: "Search", icon: SearchOutline },
   statistics: {
     href: "/statistics",
-    label: "Statistics",
+    text: "Statistics",
     icon: TrendingUpOutline,
     filledIcon: TrendingUp,
   },
   favorites: {
     href: "/favorites",
-    label: "Favorites",
+    text: "Favorites",
     icon: BookmarkOutline,
     filledIcon: Bookmark,
   },

@@ -25,14 +25,14 @@ export const MenuItem = (props: MenuItemProps) => {
     <Button
       asChild
       variant="text"
-      className={cn("text-light-100 mb-[10px]", className)}
+      className={cn("text-light-100 mb-[10px] group", className)}
       disabled={disabled}
     >
       <Link
         key={href}
         href={href}
         className={cn(
-          "flex gap-3 group focus-visible:ring-2 focus-visible:ring-accent-500 focus:outline-none rounded",
+          "flex gap-3 focus-visible:ring-2 focus-visible:ring-accent-500 focus:outline-none rounded",
           {
             "cursor-not-allowed pointer-events-none": disabled,
           },
@@ -41,7 +41,7 @@ export const MenuItem = (props: MenuItemProps) => {
       >
         <RenderIcon
           className={cn(
-            "transition-colors w-6 h-6 text-light-100 duration-200 ease-in-out",
+            "transition-colors w-6 h-6 text-light-100 duration-200 ease-in-out group-hover:text-accent-100",
             {
               "group-hover:text-accent-500 text-accent-500": isActive,
               "text-dark-100": disabled,

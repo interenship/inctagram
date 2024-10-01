@@ -9,7 +9,7 @@ import { MenuItemProps } from "@/shared/ui/Sidebar/types";
 export const MenuItem = (props: MenuItemProps) => {
   const {
     href,
-    text,
+    title,
     icon: Icon,
     filledIcon: FilledIcon,
     disabled,
@@ -57,7 +57,7 @@ export const MenuItem = (props: MenuItemProps) => {
             },
           )}
         >
-          {text}
+          {title}
         </Typography.MEDIUM14>
       </Link>
     </Button>

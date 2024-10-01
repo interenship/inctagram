@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TextField } from "@/shared/ui/TextField/TextField";
+import { TextField, TextFieldProps } from "@/shared/ui/TextField/TextField";
 import { ChangeEvent, useState } from "react";
 import { cn } from "@/features/utils/cn";
 
@@ -10,6 +10,38 @@ const meta: Meta<typeof TextField> = {
 
 export default meta;
 type Story = StoryObj<typeof TextField>;
+
+const TextFieldWrapper = (props: TextFieldProps) => {
+  const [value, setValue] = useState("");
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const onClear = () => {
+    setValue("");
+  };
+
+  return (
+    <TextField {...props} value={value} onClear={onClear} onChange={onChange} />
+  );
+};
+
+export const SearchInputWrapperWithLabel: Story = {
+  args: {
+    type: "search",
+    disabled: false,
+  },
+
+  render: (args) => (
+    <>
+      <label htmlFor="textfield" className={cn("text-white")}>
+        Label
+      </label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
+};
 
 export const SearchInputWithLabel: Story = {
   args: {

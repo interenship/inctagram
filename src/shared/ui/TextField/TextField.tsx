@@ -11,7 +11,7 @@ import SvgEyeOutline from "@/shared/assets/icons/components/EyeOutline";
 import SvgEyeOffOutline from "@/shared/assets/icons/components/EyeOffOutline";
 import Close from "@/shared/assets/icons/components/Close";
 
-type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
+export type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
   onClear?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -30,8 +30,14 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
       ...restProps
     } = props;
 
+    const TextFieldType = {
+      passwordType: "password",
+      searchType: "search",
+    };
+
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const inputType = type === "password" && isPasswordVisible ? "text" : type;
+    const inputType =
+      type === TextFieldType.passwordType && isPasswordVisible ? "text" : type;
 
     const togglePasswordVisibility = () => {
       setIsPasswordVisible(!isPasswordVisible);
@@ -58,13 +64,13 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
                 "enabled:focus:border-accent-500 enabled:focus:outline-none",
               ],
               error && "border-danger-500",
-              type === "search" && "pl-[35px] pr-[35px]",
-              type === "password" && "pr-[35px]",
+              type === TextFieldType.searchType && "pl-[35px] pr-[35px]",
+              type === TextFieldType.passwordType && "pr-[35px]",
             )}
             {...restProps}
           />
 
-          {type === "search" && value && (
+          {type === TextFieldType.searchType && value && (
             <Close
               onClick={onClear}
               className={cn(
@@ -74,7 +80,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             />
           )}
 
-          {type === "search" && (
+          {type === TextFieldType.searchType && (
             <SvgSearch
               className={cn(
                 "fill-light-900 absolute left-1.5 top-1.5 group-active:fill-light-100",
@@ -83,7 +89,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             />
           )}
 
-          {type === "password" && !isPasswordVisible && (
+          {type === TextFieldType.passwordType && !isPasswordVisible && (
             <SvgEyeOutline
               onClick={togglePasswordVisibility}
               className={cn(
@@ -93,7 +99,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             />
           )}
 
-          {type === "password" && isPasswordVisible && (
+          {type === TextFieldType.passwordType && isPasswordVisible && (
             <SvgEyeOffOutline
               onClick={togglePasswordVisibility}
               className={cn(

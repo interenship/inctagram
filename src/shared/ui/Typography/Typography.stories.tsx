@@ -7,7 +7,6 @@ import { Typography } from "./Typography";
 const meta = {
   component: Typography.H1,
   tags: ["autodocs"],
-  title: "Components/Typography",
 } satisfies Meta<typeof Typography.H1>;
 
 export default meta;
@@ -21,7 +20,7 @@ const stylesForTypography = "flex flex-col bg-slate-50 gap-2 p-10";
 export const AllTypography = {
   render: () => (
     <div className={stylesForTypography}>
-      <Typography.LARGE className={"bg-slate-600"}>{testText}</Typography.LARGE>
+      <Typography.LARGE className={"text-red-600"}>{testText}</Typography.LARGE>
       <Typography.H1>{testText}</Typography.H1>
       <Typography.H2>{testText}</Typography.H2>
       <Typography.H3>{testText}</Typography.H3>
@@ -49,7 +48,7 @@ export const TypographyAsButton: Story = {
           onClick={() => {
             setValue(value + 1);
           }}
-          className={" bg-slate-50 p-2 rounded mb-5"}
+          className={"bg-slate-100 p-2 rounded mb-5"}
         >
           Press Button
         </Typography.H1>

@@ -38,6 +38,7 @@ export const SearchInputWrapperWithLabel: Story = {
       <label htmlFor="textfield" className={cn("text-white")}>
         Label
       </label>
+      Label
       <TextFieldWrapper {...args} />
     </>
   ),

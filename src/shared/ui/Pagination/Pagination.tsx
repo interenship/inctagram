@@ -1,5 +1,10 @@
 import React from "react";
 import { DOTS, usePagination } from "@/shared/ui/Pagination/hooks/usePagination";
+import { PaginationItem } from "@/shared/ui/Pagination/PaginationList/PaginationItem";
+import { PaginationList } from "@/shared/ui/Pagination/PaginationList";
+import { cn } from "@/features/utils/cn";
+import { ArrowIosBack, ArrowIosForward } from "@/shared/assets/icons/components";
+import { PaginationArrow } from "@/shared/ui/Pagination/PaginationList/PaginationArrow";
 
 type PaginationProps = {
   onPageChange: (number: number) => void;
@@ -33,43 +38,30 @@ export const Pagination = (props: PaginationProps) => {
   };
 
   let lastPage = paginationRange && paginationRange[paginationRange.length - 1];
-  return (
-    <ul
-    // className={classnames("pagination-container", { [className]: className })}
-    >
-      <li
-        // className={classnames("pagination-item", {
-        //   disabled: currentPage === 1,
-        // })}
-        onClick={onPrevious}
-      >
-        <div className="arrow left" />
-      </li>
-      {paginationRange &&
-        paginationRange.map((pageNumber) => {
-          if (pageNumber === DOTS) {
-            return <li className="pagination-item dots">&#8230;</li>;
-          }
 
-          return (
-            <li
-              // className={classnames("pagination-item", {
-              //   selected: pageNumber === currentPage,
-              // })}
-              onClick={() => onPageChange(Number(pageNumber))}
-            >
-              {pageNumber}
-            </li>
-          );
-        })}
-      <li
-        // className={classnames("pagination-item", {
-        //   disabled: currentPage === lastPage,
-        // })}
-        onClick={onNext}
-      >
-        {/* <div className="arrow right" /> */}
-      </li>
-    </ul>
+  return (
+    <PaginationList>
+      <PaginationArrow disabled={currentPage === 1} onClick={onPrevious}>
+        <ArrowIosBack />
+      </PaginationArrow>
+      {paginationRange?.map((pageNumber) =>
+        pageNumber === DOTS ? (
+          <PaginationItem key={DOTS} className="pagination-item dots">
+            &#8230;
+          </PaginationItem>
+        ) : (
+          <PaginationItem
+            key={pageNumber}
+            active={pageNumber === currentPage}
+            onClick={() => onPageChange(Number(pageNumber))}
+          >
+            {pageNumber}
+          </PaginationItem>
+        )
+      )}
+      <PaginationArrow disabled={currentPage === lastPage} onClick={onNext}>
+        <ArrowIosForward />
+      </PaginationArrow>
+    </PaginationList>
   );
 };

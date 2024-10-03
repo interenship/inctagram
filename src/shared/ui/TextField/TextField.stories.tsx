@@ -2,10 +2,14 @@ import { Meta, StoryObj } from "@storybook/react";
 import { TextField, TextFieldProps } from "@/shared/ui/TextField/TextField";
 import { ChangeEvent, useState } from "react";
 import { cn } from "@/features/utils/cn";
+import { Label } from "@/shared/ui/Label";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
   tags: ["autodocs"],
+  args: {
+    disabled: false,
+  },
 };
 
 export default meta;
@@ -27,178 +31,98 @@ const TextFieldWrapper = (props: TextFieldProps) => {
   );
 };
 
-export const SearchInputWrapperWithLabel: Story = {
-  args: {
-    type: "search",
-    disabled: false,
-  },
-
+export const TextInputWithLabel: Story = {
   render: (args) => (
     <>
-      <label htmlFor="textfield" className={cn("text-white")}>
-        Label
-      </label>
-      Label
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Text input
+      </Label>
       <TextFieldWrapper {...args} />
     </>
   ),
 };
 
-export const SearchInputWithLabel: Story = {
-  args: {
-    type: "search",
-    disabled: false,
-  },
-
-  render: (args) => {
-    const [value, setValue] = useState("");
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    };
-
-    const onClear = () => {
-      setValue("");
-    };
-
-    return (
-      <>
-        <label htmlFor="textfield" className={cn("text-white")}>
-          Label
-        </label>
-        <TextField
-          {...args}
-          value={value}
-          onClear={onClear}
-          onChange={onChange}
-        />
-      </>
-    );
-  },
+export const TextInputWithoutLabel: Story = {
+  render: (args) => (
+    <>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
 };
 
-export const SearchInputWithoutLabel: Story = {
+export const TextInputError: Story = {
   args: {
-    type: "search",
-    disabled: false,
+    error: "Error",
   },
 
-  render: (args) => {
-    const [value, setValue] = useState("");
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    };
-
-    const onClear = () => {
-      setValue("");
-    };
-
-    return (
-      <>
-        <TextField
-          {...args}
-          value={value}
-          onClear={onClear}
-          onChange={onChange}
-        />
-      </>
-    );
-  },
+  render: (args) => (
+    <>
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Text input with error
+      </Label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
 };
 
-export const PasswordInputWithLabel: Story = {
+export const SearchInput: Story = {
+  args: {
+    type: "search",
+  },
+
+  render: (args) => (
+    <>
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Search
+      </Label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
+};
+
+export const SearchInputError: Story = {
+  args: {
+    type: "search",
+    error: "Error",
+  },
+
+  render: (args) => (
+    <>
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Search
+      </Label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
+};
+
+export const PasswordInput: Story = {
   args: {
     type: "password",
-    disabled: false,
   },
 
-  render: (args) => {
-    const [value, setValue] = useState("");
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    };
-
-    const onClear = () => {
-      setValue("");
-    };
-
-    return (
-      <>
-        <label htmlFor="textfield" className={cn("text-white")}>
-          Label
-        </label>
-        <TextField
-          {...args}
-          value={value}
-          onClear={onClear}
-          onChange={onChange}
-        />
-      </>
-    );
-  },
+  render: (args) => (
+    <>
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Password
+      </Label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
 };
 
-export const TextInputWithoutLabel: Story = {
+export const PasswordInputError: Story = {
   args: {
-    type: "text",
-    disabled: false,
+    type: "password",
+    error: "Error",
   },
 
-  render: (args) => {
-    const [value, setValue] = useState("");
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    };
-
-    const onClear = () => {
-      setValue("");
-    };
-
-    return (
-      <>
-        <TextField
-          {...args}
-          value={value}
-          onClear={onClear}
-          onChange={onChange}
-        />
-      </>
-    );
-  },
-};
-
-export const TextInputWithLabel: Story = {
-  args: {
-    type: "text",
-    disabled: false,
-  },
-
-  render: (args) => {
-    const [value, setValue] = useState("");
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    };
-
-    const onClear = () => {
-      setValue("");
-    };
-
-    return (
-      <>
-        <label htmlFor="textfield" className={cn("text-white")}>
-          Label
-        </label>
-        <TextField
-          {...args}
-          value={value}
-          onClear={onClear}
-          onChange={onChange}
-        />
-      </>
-    );
-  },
+  render: (args) => (
+    <>
+      <Label htmlFor="textfield" className={cn("text-white")}>
+        Password
+      </Label>
+      <TextFieldWrapper {...args} />
+    </>
+  ),
 };

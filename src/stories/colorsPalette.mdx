@@ -1,7 +1,18 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { Meta, ColorPalette, ColorItem, Title, Canvas } from '@storybook/blocks';
 
-<Meta title="shared/ui/ColorsPalette" />
+<Meta title="Design System/ColorsPalette" />
 
+## <h1 style={{margin: '0'}}>Usage</h1>
+All colors in the design system are available as variables in Tailwind. You can use them like this:
+```html
+<!-- Применить фон для div -->
+<div className='bg-light-100'>
+  <!-- Применить текст цвета для p -->
+  <p className='text-warning-500'>text</p>
+</div>
+```
+
+## <h1 style={{margin: '0'}}>Colors</h1>
 <ColorPalette>
   <ColorItem
     title="Accent"

@@ -1,9 +1,8 @@
 import {
-  useState,
-  forwardRef,
-  ElementRef,
   ComponentPropsWithoutRef,
-  ChangeEvent,
+  ElementRef,
+  forwardRef,
+  useState,
 } from "react";
 import { cn } from "@/features/utils/cn";
 import SvgSearch from "@/shared/assets/icons/components/Search";
@@ -14,7 +13,6 @@ import Close from "@/shared/assets/icons/components/Close";
 export type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
   error?: string;
   onClear?: () => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
@@ -24,7 +22,6 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
       disabled = false,
       className,
       error,
-      onChange,
       onClear,
       value,
       ...restProps
@@ -44,7 +41,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
     };
 
     return (
-      <>
+      <div className={cn("flex flex-col")}>
         <div
           className={cn("relative group", disabled && "pointer-events-none")}
         >
@@ -53,7 +50,6 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             value={value}
             type={inputType}
             disabled={disabled}
-            onChange={onChange}
             className={cn(
               [
                 "w-full px-2.5 border rounded-sm border-dark-100 bg-transparent leading-6 text-light-900 font-normal text-base h-9 [&::-webkit-search-cancel-button]:hidden",
@@ -115,7 +111,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
             {error}
           </div>
         )}
-      </>
+      </div>
     );
   },
 );

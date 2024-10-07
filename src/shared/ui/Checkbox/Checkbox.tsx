@@ -3,9 +3,9 @@ import { Root, Indicator } from "@radix-ui/react-checkbox";
 import { cn } from "@/features/utils/cn";
 import { CheckmarkOutline } from "@/shared/assets/icons/components";
 
-type Checkbox = ComponentPropsWithoutRef<typeof Root>;
+type CheckboxProps = ComponentPropsWithoutRef<typeof Root>;
 
-const Checkbox = forwardRef<ElementRef<typeof Root>, Checkbox>((props, ref) => {
+const Checkbox = forwardRef<ElementRef<typeof Root>, CheckboxProps>((props: CheckboxProps, ref) => {
   const { className, id, disabled = false, ...restProps } = props;
 
   const generatedId = useId();

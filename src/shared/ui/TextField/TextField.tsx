@@ -2,6 +2,7 @@ import {
   ComponentPropsWithoutRef,
   ElementRef,
   forwardRef,
+  useId,
   useState,
 } from "react";
 import { cn } from "@/features/utils/cn";
@@ -17,6 +18,8 @@ export type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
 
 export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
   (props, ref) => {
+    const generatedId = useId();
+
     const {
       type,
       disabled = false,
@@ -24,6 +27,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
       error,
       onClear,
       value,
+      id = generatedId,
       ...restProps
     } = props;
 
@@ -46,6 +50,7 @@ export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
           className={cn("relative group", disabled && "pointer-events-none")}
         >
           <input
+            id={id}
             ref={ref}
             value={value}
             type={inputType}

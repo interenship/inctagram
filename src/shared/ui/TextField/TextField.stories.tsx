@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TextField, TextFieldProps } from "@/shared/ui/TextField/TextField";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useId, useState } from "react";
 import { cn } from "@/features/utils/cn";
 import { Label } from "@/shared/ui/Label";
 
@@ -17,6 +17,7 @@ type Story = StoryObj<typeof TextField>;
 
 const TextFieldWrapper = (props: TextFieldProps) => {
   const [value, setValue] = useState("");
+  const generatedId = useId();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -27,19 +28,29 @@ const TextFieldWrapper = (props: TextFieldProps) => {
   };
 
   return (
-    <TextField {...props} value={value} onClear={onClear} onChange={onChange} />
+    <TextField
+      {...props}
+      id={props.id || generatedId}
+      value={value}
+      onClear={onClear}
+      onChange={onChange}
+    />
   );
 };
 
 export const TextInputWithLabel: Story = {
-  render: (args) => (
-    <>
-      <Label htmlFor="textfield" className={cn("text-white")}>
-        Text input
-      </Label>
-      <TextFieldWrapper {...args} />
-    </>
-  ),
+  render: (args) => {
+    const generatedId = useId(); // Генерация id для label и input
+
+    return (
+      <>
+        <Label htmlFor={args.id || generatedId} className={cn("text-white")}>
+          Text input
+        </Label>
+        <TextFieldWrapper id={args.id || generatedId} {...args} />
+      </>
+    );
+  },
 };
 
 export const TextInputWithoutLabel: Story = {

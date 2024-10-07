@@ -8,7 +8,6 @@ export interface TextareaProps
   labelText?: string;
   error?: string;
   placeholder?: string;
-  id?: string;
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(

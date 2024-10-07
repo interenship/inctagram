@@ -63,13 +63,6 @@ export const Disabled: Story = {
   },
 };
 
-export const DisabledChecked: Story = {
-  args: {
-    checked: true,
-    disabled: true,
-  },
-};
-
 export const WithLabel: Story = {
   render: (args) => <CheckboxWithHook {...args} />,
 };

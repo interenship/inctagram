@@ -1,42 +1,43 @@
 import { TextareaHTMLAttributes, forwardRef, useId } from "react";
 import { cn } from "@/features/utils/cn";
 import { Typography } from "@/shared/ui/Typography";
+import { Label } from "@/shared/ui/Label";
 
 export interface TextareaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText?: string;
   error?: string;
   placeholder?: string;
+  id?: string;
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, ref) => {
-    const textareaId = useId();
+    const generatedId = useId();
     const {
       className,
       disabled,
       placeholder = "Text-area",
       labelText,
       error,
+      id = generatedId,
       ...restProps
     } = props;
 
     return (
       <>
         {labelText && (
-          <Typography.REGULAR14>
-            <label
-              htmlFor={textareaId}
-              className={cn("block text-sm mb-1 text-light-900", {
-                "text-dark-100": disabled,
-              })}
-            >
-              {labelText}
-            </label>
-          </Typography.REGULAR14>
+          <Label
+            htmlFor={id}
+            className={cn("block text-sm mb-1 text-light-900", {
+              "text-dark-100": disabled,
+            })}
+          >
+            <Typography.REGULAR14>{labelText}</Typography.REGULAR14>
+          </Label>
         )}
         <textarea
-          id={textareaId}
+          id={id}
           disabled={disabled}
           placeholder={placeholder}
           className={cn(

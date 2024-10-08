@@ -9,5 +9,7 @@ type PaginationArrowProps = {
 
 export const PaginationArrow = (props: PaginationArrowProps) => {
   const { className, disabled = false, ...restProps } = props;
-  return <li {...restProps} className={cn(disabled && "pointer-events-none opacity-50", className)} />;
+  return (
+    <li {...restProps} className={cn(disabled && "pointer-events-none opacity-50", "cursor-pointer", className)} />
+  );
 };

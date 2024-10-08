@@ -3,6 +3,7 @@ import { TextField, TextFieldProps } from "@/shared/ui/TextField/TextField";
 import { ChangeEvent, useState } from "react";
 import { cn } from "@/features/utils/cn";
 import { Label } from "@/shared/ui/Label";
+import { Typography } from "@/shared/ui/Typography";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
@@ -43,7 +44,7 @@ export const TextInputWithLabel: Story = {
           htmlFor={args.id}
           className={cn("text-white")}
         >
-          Text input
+          <Typography.REGULAR16>Text input</Typography.REGULAR16>
         </Label>
         <TextFieldWrapper {...args} />
       </>
@@ -63,7 +64,7 @@ export const TextInputError: Story = {
   render: (args) => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        Text input with error
+        <Typography.REGULAR16>Text input with error</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -82,7 +83,7 @@ export const TextInputDisabled: Story = {
         htmlFor={args.id}
         className={cn("text-white")}
       >
-        Text input disabled
+        <Typography.REGULAR16>Text input disabled</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -97,7 +98,7 @@ export const SearchInputWithLabel: Story = {
   render: (args) => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        Search
+        <Typography.REGULAR16>Search</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -121,7 +122,7 @@ export const SearchInputError: Story = {
   render: (args) => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        Search
+        <Typography.REGULAR16>Search</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -141,7 +142,7 @@ export const SearchInputDisabled: Story = {
         htmlFor={args.id}
         className={cn("text-white")}
       >
-        Search input disabled
+        <Typography.REGULAR16>Search input disabled</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -156,7 +157,7 @@ export const PasswordInputWithLabel: Story = {
   render: (args) => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        Password
+        <Typography.REGULAR16>Password</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -180,7 +181,7 @@ export const PasswordInputError: Story = {
   render: (args) => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        Password Error
+        <Typography.REGULAR16>Password Error</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -200,7 +201,7 @@ export const PasswordInputDisabled: Story = {
         htmlFor="textfield"
         className={cn("text-white")}
       >
-        Password input disabled
+        <Typography.REGULAR16>Password input disabled</Typography.REGULAR16>
       </Label>
       <TextFieldWrapper {...args} />
     </>

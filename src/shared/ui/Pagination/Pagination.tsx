@@ -16,7 +16,7 @@ type PaginationProps = {
   siblingCount: number;
   currentPage: number;
   pageSize: number;
-  className?: number;
+  className?: string;
 };
 
 export const Pagination = (props: PaginationProps) => {

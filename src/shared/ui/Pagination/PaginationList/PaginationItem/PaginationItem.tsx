@@ -15,9 +15,9 @@ export const PaginationItem = (props: PaginationItemProps) => {
     <li
       {...restProps}
       className={cn(
-        "cursor-pointer",
-        active && "flex justify-center items-center text-dark-900 rounded-sm bg-light-100 size-6",
-        disabled && "pointer-events-none opacity-50",
+        "cursor-pointer flex justify-center items-center rounded-sm size-6 hover:bg-dark-500",
+        active && "text-dark-900 bg-light-100 ",
+        disabled && "pointer-events-none opacity-50 ",
         className
       )}
     >

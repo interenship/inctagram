@@ -1,8 +1,8 @@
 import { cn } from "@/features/utils/cn";
 import { Checkbox } from "@/shared/ui/Checkbox";
+import { CheckboxProps } from "@/shared/ui/Checkbox/Checkbox";
 import { Label } from "@/shared/ui/Label";
 import { Typography } from "@/shared/ui/Typography";
-import { CheckboxProps } from "@radix-ui/react-checkbox";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";

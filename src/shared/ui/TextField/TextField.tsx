@@ -17,7 +17,7 @@ export type TextFieldProps = ComponentPropsWithoutRef<"input"> & {
 };
 
 export const TextField = forwardRef<ElementRef<"input">, TextFieldProps>(
-  (props, ref) => {
+  (props: TextFieldProps, ref) => {
     const generatedId = useId();
 
     const {

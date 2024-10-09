@@ -68,7 +68,7 @@ export const Pagination = (props: PaginationProps) => {
         <div className="flex items-center gap-1">
           <Typography.REGULAR14 className={"text-light-100"}>Show</Typography.REGULAR14>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger size="small">
               <SelectValue placeholder="10" />
             </SelectTrigger>
             <SelectContent>

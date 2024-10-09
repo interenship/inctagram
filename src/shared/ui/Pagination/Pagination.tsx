@@ -50,9 +50,7 @@ export const Pagination = (props: PaginationProps) => {
           </PaginationArrow>
           {paginationRange?.map((pageNumber) =>
             pageNumber === DOTS ? (
-              <PaginationItem key={DOTS} className="cursor-auto">
-                &#8230;
-              </PaginationItem>
+              <PaginationItem className="cursor-auto">&#8230;</PaginationItem>
             ) : (
               <PaginationItem
                 key={pageNumber}

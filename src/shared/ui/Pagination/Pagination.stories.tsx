@@ -1,9 +1,9 @@
-import { Pagination } from "@/shared/ui/Pagination";
+import { Pagination as PaginationComponent } from "@/shared/ui/Pagination";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 const meta = {
-  component: Pagination,
+  component: PaginationComponent,
   tags: ["autodocs"],
   args: {
     onPageChange: () => {},
@@ -12,13 +12,13 @@ const meta = {
     currentPage: 1,
     pageSize: 10,
   },
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta<typeof PaginationComponent>;
 
 export default meta;
 
-type Story = StoryObj<typeof Pagination>;
+type Story = StoryObj<typeof PaginationComponent>;
 
-export const Primary: Story = {
+export const Pagination: Story = {
   render: ({ currentPage, onPageChange, ...args }) => {
     const [state, setState] = useState(currentPage);
 
@@ -26,6 +26,6 @@ export const Primary: Story = {
       setState(value);
     };
 
-    return <Pagination currentPage={state} onPageChange={handlePage} {...args} />;
+    return <PaginationComponent currentPage={state} onPageChange={handlePage} {...args} />;
   },
 };

@@ -37,4 +37,6 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error= false }: Props,ref) => 
   );
 });
 
+ReCaptcha.displayName = "ReCaptcha";
+
 export { ReCaptcha };

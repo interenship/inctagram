@@ -46,6 +46,24 @@ export const Default: Story = {
   ),
 };
 
+export const Small: Story = {
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger size="small">
+        <SelectValue placeholder="100" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="10">10</SelectItem>
+        <SelectItem value="20">20</SelectItem>
+        <SelectItem value="30">30</SelectItem>
+        <SelectItem value="40">40</SelectItem>
+        <SelectItem value="50">50</SelectItem>
+        <SelectItem value="100">100</SelectItem>
+      </SelectContent>
+    </Select>
+  ),
+};
+
 export const Disabled: Story = {
   render: (args) => (
     <Select {...args}>

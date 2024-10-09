@@ -12,34 +12,55 @@ import {
 import ChevronDown from "@/shared/assets/icons/components/ChevronDown";
 import { cn } from "@/features/utils/cn";
 
+export type Size = "small" | "medium";
+
 const Select = Root;
 const SelectValue = Value;
 
 type SelectTriggerProps = React.ComponentPropsWithoutRef<typeof Trigger> & {
   IconComponent?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  size?: Size;
 };
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
   SelectTriggerProps
->(({ className, disabled, children, IconComponent, ...props }, ref) => (
-  <Trigger
-    ref={ref}
-    disabled={disabled}
-    className={cn(
-      "group flex text-light-100 h-9 w-full rounded-[2px] items-center leading-6 justify-between border border-dark-100 bg-background px-3 py-1.5 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 active:border-light-100",
-      "data-[state=open]:border-white",
+>(
+  (
+    { className, disabled, children, IconComponent, size = "medium", ...props },
+    ref,
+  ) => {
+    const triggerClasses = cn(
+      "group flex text-light-100 items-center leading-6 justify-between border border-dark-100 bg-background px-3 py-1.5 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+      {
+        "h-9": size === "medium",
+        "h-[24px] text-[14px] px-[5px] py-0": size === "small",
+      },
       className,
-    )}
-    {...props}
-  >
-    {IconComponent && <IconComponent className="mr-2" />}
-    <span>{children}</span>
-    <Icon asChild>
-      <ChevronDown className="group-data-[state=open]:rotate-180 transition-transform" />
-    </Icon>
-  </Trigger>
-));
+    );
+    return (
+      <Trigger
+        ref={ref}
+        disabled={disabled}
+        className={triggerClasses}
+        {...props}
+      >
+        {IconComponent && <IconComponent className="mr-2" />}
+        <span>{children}</span>
+        <Icon asChild>
+          <ChevronDown
+            className={cn(
+              "group-data-[state=open]:rotate-180 transition-transform",
+              {
+                "w-[18px] h-[18px] pl-[2px]": size === "small",
+              },
+            )}
+          />
+        </Icon>
+      </Trigger>
+    );
+  },
+);
 
 SelectTrigger.displayName = Trigger.displayName;
 

@@ -26,20 +26,14 @@ type Story = StoryObj<typeof meta>;
 const labelText = "Check-box";
 
 export const Default: Story = {
-  render: (args) => {
+  render: args => {
     const [checkedValue, setCheckedValue] = useState(false);
 
     const getCheckedValue = (value: boolean) => {
       setCheckedValue(value);
     };
 
-    return (
-      <Checkbox
-        checked={checkedValue}
-        onCheckedChange={getCheckedValue}
-        {...args}
-      />
-    );
+    return <Checkbox checked={checkedValue} onCheckedChange={getCheckedValue} {...args} />;
   },
 };
 

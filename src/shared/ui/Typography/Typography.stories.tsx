@@ -12,8 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const testText =
-  "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
+const testText = "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
 
 const stylesForTypography = "flex flex-col bg-slate-50 gap-2 p-10";
 

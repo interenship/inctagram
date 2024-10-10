@@ -56,7 +56,7 @@ export const FullWidth: Story = {
     variant: "primary",
     fullWidth: true,
   },
-  render: (args) => {
+  render: args => {
     return (
       <div className="flex w-[50vw] justify-center">
         <Button {...args}>Button</Button>
@@ -77,7 +77,7 @@ export const AsLink: Story = {
       },
     },
   },
-  render: (args) => {
+  render: args => {
     return (
       <Button {...args}>
         <a>Button as Link</a>

@@ -35,7 +35,7 @@ export const Alerts = (props: AlertsProps) => {
       setTimeout(() => {
         setIsShow(false);
         setMessage("");
-      }, 5500),
+      }, 5500)
     );
   }
 
@@ -52,7 +52,7 @@ export const Alerts = (props: AlertsProps) => {
       setTimeout(() => {
         setIsShow(false);
         setMessage("");
-      }, 5500),
+      }, 5500)
     );
   }
 
@@ -67,7 +67,7 @@ export const Alerts = (props: AlertsProps) => {
       setTimeout(() => {
         setIsShow(false);
         setMessage("");
-      }, 1500),
+      }, 1500)
     );
   }
 
@@ -79,19 +79,14 @@ export const Alerts = (props: AlertsProps) => {
             "h=[50px] flex min-w-[390px] max-w-[800px] justify-between gap-[10px] rounded-sm px-6 py-3",
             status === AlertsStatus.success &&
               "border border-solid border-success-500 bg-success-900",
-            status === AlertsStatus.failed &&
-              "border border-solid border-danger-500 bg-danger-900",
+            status === AlertsStatus.failed && "border border-solid border-danger-500 bg-danger-900"
           )}
           onMouseEnter={fPauseTimer}
           onMouseLeave={fReturnTimer}
         >
           <div className="flex max-w-[95%] gap-[5px] text-white">
-            {status === AlertsStatus.success && (
-              <Typography.BOLD16>SUCCESS!</Typography.BOLD16>
-            )}
-            {status === AlertsStatus.failed && (
-              <Typography.BOLD16>ERROR!</Typography.BOLD16>
-            )}
+            {status === AlertsStatus.success && <Typography.BOLD16>SUCCESS!</Typography.BOLD16>}
+            {status === AlertsStatus.failed && <Typography.BOLD16>ERROR!</Typography.BOLD16>}
 
             <Typography.REGULAR16>{message}</Typography.REGULAR16>
           </div>

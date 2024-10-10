@@ -1,23 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@/shared/ui/Button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/ui/Select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Typography } from "@/shared/ui/Typography";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./index";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./index";
 
 const meta: Meta<typeof Card> = {
   component: Card,

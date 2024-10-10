@@ -13,13 +13,11 @@ const meta: Meta<typeof Label> = {
   argTypes: {
     disabled: {
       control: "boolean",
-      description:
-        "Отключает компонент, делая его недоступным для взаимодействия.",
+      description: "Отключает компонент, делая его недоступным для взаимодействия.",
     },
     htmlFor: {
       control: { type: "text" },
-      description:
-        "Уникальный идентификатор для связывания с компонентом, например, с input.",
+      description: "Уникальный идентификатор для связывания с компонентом, например, с input.",
     },
     children: {
       control: { type: "text" },

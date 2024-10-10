@@ -14,10 +14,7 @@ const Label = forwardRef<ElementRef<typeof Root>, LabelProps>((props, ref) => {
   return (
     <Root
       ref={ref}
-      className={cn(
-        disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
-        className,
-      )}
+      className={cn(disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer", className)}
       {...restProps}
     />
   );

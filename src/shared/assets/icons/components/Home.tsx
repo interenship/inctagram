@@ -1,25 +1,18 @@
-import type { SVGProps } from "react";
-import { Ref, forwardRef, memo } from "react";
+import type { Ref, SVGProps } from "react";
+import { forwardRef, memo } from "react";
 
 interface SvgHomeProps extends SVGProps<SVGSVGElement> {
   isFilled?: boolean;
 }
 
-const SvgHome = (
-  { isFilled = false, ...props }: SvgHomeProps,
-  ref: Ref<SVGSVGElement>,
-) => (
+const SvgHome = ({ isFilled = false, ...props }: SvgHomeProps, ref: Ref<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="none"
     ref={ref}
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <g clipPath="url(#clip0_306_4265)">

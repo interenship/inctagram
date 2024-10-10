@@ -6,13 +6,7 @@ import Bell from "@/shared/assets/icons/components/Bell";
 import RussianFlag from "@/shared/assets/icons/components/FlagRussia";
 import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
 import { Button } from "@/shared/ui/Button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/ui/Select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Typography } from "@/shared/ui/Typography";
 
 type HeaderProps = {
@@ -37,40 +31,24 @@ export const Header = (props: HeaderProps) => {
   };
 
   const renderFlag = () => {
-    return language === Language.English ? (
-      <FlagUnitedKingdom />
-    ) : (
-      <RussianFlag />
-    );
+    return language === Language.English ? <FlagUnitedKingdom /> : <RussianFlag />;
   };
 
   return (
     <header className="flex w-full flex-col">
-      <div
-        className={cn(
-          "flex h-[60px] items-center justify-between px-[64px]",
-          className,
-        )}
-      >
-        <Typography.LARGE className="cursor-pointer text-light-100">
-          Inctagram
-        </Typography.LARGE>
+      <div className={cn("flex h-[60px] items-center justify-between px-[64px]", className)}>
+        <Typography.LARGE className="cursor-pointer text-light-100">Inctagram</Typography.LARGE>
         <div className="flex gap-9">
           {isLogged && (
             <span className="relative mr-[10px] flex cursor-pointer items-center">
               <Bell />
               <div className="absolute right-px top-[6px] flex size-[13px] items-center justify-center rounded-[50%] bg-danger-500">
-                <span className="text-[10px] text-light-100">
-                  {notificationsNr}
-                </span>
+                <span className="text-[10px] text-light-100">{notificationsNr}</span>
               </div>
             </span>
           )}
           <Select onValueChange={handleLanguageChange}>
-            <SelectTrigger
-              className="h-[36px] w-[163px] "
-              IconComponent={renderFlag}
-            >
+            <SelectTrigger className="h-[36px] w-[163px] " IconComponent={renderFlag}>
               <SelectValue placeholder="English" />
             </SelectTrigger>
             <SelectContent className="w-[163px] text-[16px]">

@@ -1,18 +1,8 @@
 import type { Ref, SVGProps } from "react";
 import { forwardRef, memo } from "react";
 
-const SvgOutlineBell = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    fill="none"
-    ref={ref}
-    {...props}
-  >
+const SvgOutlineBell = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" ref={ref} {...props}>
     <path
       fill="#000"
       fillRule="evenodd"

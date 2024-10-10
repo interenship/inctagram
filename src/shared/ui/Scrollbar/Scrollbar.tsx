@@ -1,27 +1,42 @@
 import React from "react";
 import { Typography } from "@/shared/ui/Typography";
 
-export const Scrollbar = () => {
+export type ScrollbarProps = {
+  type?: "horizontal" | "vertical";
+};
+
+export const Scrollbar = (props: ScrollbarProps) => {
+  const { type = "vertical" } = props;
+
   return (
-    <div>
-      <h1 className={"text-white mb-[40px] text-center"}>
-        <Typography.H1>Scroll visual demonstration</Typography.H1>
-      </h1>
-      <p className={"text-white pb-[50px]"}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at
-        deserunt eaque eum impedit magni minus molestiae natus, nesciunt nostrum
-        provident quae quas quo saepe tenetur, ut vel veritatis voluptates.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-        amet cumque delectus dolores earum enim explicabo fugiat harum
-        laboriosam laborum libero minus nobis perferendis perspiciatis quidem
-        recusandae sapiente soluta, tempora. Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. At distinctio eos fuga modi neque nesciunt
-        optio quae quibusdam similique ut? Aliquid aperiam architecto iste minus
-        molestiae natus necessitatibus sit vero. Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Ad eum iure nulla officia perspiciatis
-        rerum similique vero voluptatem? Aliquid architecto corporis cum enim
-        excepturi impedit in ipsa iusto officiis tenetur.
-      </p>
-    </div>
+    <>
+      {type === "vertical" && (
+        <div>
+          <Typography.REGULAR16 className={"text-white mb-4"}>
+            Vertical scroll
+          </Typography.REGULAR16>
+          <div
+            className={
+              "w-[800px] h-[200px] border border-dark-100 overflow-y-scroll box-border before:content-[''] before:block before:h-[1000px]"
+            }
+          ></div>
+        </div>
+      )}
+
+      {type === "horizontal" && (
+        <div>
+          <Typography.REGULAR16 className={"text-white mb-4"}>
+            Horizontal scroll
+          </Typography.REGULAR16>
+          <div
+            className={
+              "h-[200px] w-[800px] border border-dark-100 overflow-x-scroll box-border relative"
+            }
+          >
+            <div className="w-[3000px] h-full"></div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };

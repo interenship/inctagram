@@ -10,5 +10,10 @@ export default meta;
 
 type Story = StoryObj<typeof Scrollbar>;
 
-export const VerticalScroll: Story = {};
-export const HorizontalScroll: Story = {};
+export const VerticalScroll: Story = {
+  render: (args) => <Scrollbar type={"vertical"} {...args} />,
+};
+
+export const HorizontalScroll: Story = {
+  render: (args) => <Scrollbar type={"horizontal"} {...args} />,
+};

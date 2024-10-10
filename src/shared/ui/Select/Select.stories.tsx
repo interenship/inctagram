@@ -1,13 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "./index";
+
 import FlagRussia from "@/shared/assets/icons/components/FlagRussia";
 import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./index";
 
 const meta: Meta<typeof Select> = {
   component: Select,

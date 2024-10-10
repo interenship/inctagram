@@ -1,5 +1,7 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 import { Root } from "@radix-ui/react-radio-group";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
+import { forwardRef } from "react";
+
 import { cn } from "@/features/utils/cn";
 
 type RadioGroupProps = ComponentPropsWithoutRef<typeof Root>;
@@ -10,7 +12,7 @@ const RadioGroup = forwardRef<ElementRef<typeof Root>, RadioGroupProps>(
     return (
       <Root
         className={cn(
-          "flex items-start gap-11 w-44",
+          "flex w-44 items-start gap-11",
           orientation === "vertical" ? "flex-col" : "flex-row",
           className,
         )}

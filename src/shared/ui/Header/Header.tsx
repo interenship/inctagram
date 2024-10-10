@@ -1,4 +1,11 @@
+import Link from "next/link";
 import React, { useState } from "react";
+
+import { cn } from "@/features/utils/cn";
+import Bell from "@/shared/assets/icons/components/Bell";
+import RussianFlag from "@/shared/assets/icons/components/FlagRussia";
+import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
+import { Button } from "@/shared/ui/Button";
 import {
   Select,
   SelectContent,
@@ -6,13 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/ui/Select";
-import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
-import RussianFlag from "@/shared/assets/icons/components/FlagRussia";
-import { Button } from "@/shared/ui/Button";
 import { Typography } from "@/shared/ui/Typography";
-import Link from "next/link";
-import Bell from "@/shared/assets/icons/components/Bell";
-import { cn } from "@/features/utils/cn";
 
 type HeaderProps = {
   isLogged: boolean;
@@ -29,7 +30,7 @@ export const Header = (props: HeaderProps) => {
 
   const [language, setLanguage] = useState<Language>(Language.English);
 
-  let notificationsNr = 3;
+  const notificationsNr = 3;
 
   const handleLanguageChange = (value: Language) => {
     setLanguage(value);
@@ -44,22 +45,22 @@ export const Header = (props: HeaderProps) => {
   };
 
   return (
-    <header className="flex flex-col w-full">
+    <header className="flex w-full flex-col">
       <div
         className={cn(
-          "flex justify-between items-center h-[60px] px-[64px]",
+          "flex h-[60px] items-center justify-between px-[64px]",
           className,
         )}
       >
-        <Typography.LARGE className="text-light-100 cursor-pointer">
+        <Typography.LARGE className="cursor-pointer text-light-100">
           Inctagram
         </Typography.LARGE>
         <div className="flex gap-9">
           {isLogged && (
-            <span className="relative mr-[10px] flex items-center cursor-pointer">
+            <span className="relative mr-[10px] flex cursor-pointer items-center">
               <Bell />
-              <div className="h-[13px] w-[13px] bg-danger-500 rounded-[50%] flex items-center justify-center absolute top-[6px] right-[1px]">
-                <span className="text-light-100 text-[10px]">
+              <div className="absolute right-px top-[6px] flex size-[13px] items-center justify-center rounded-[50%] bg-danger-500">
+                <span className="text-[10px] text-light-100">
                   {notificationsNr}
                 </span>
               </div>
@@ -67,7 +68,7 @@ export const Header = (props: HeaderProps) => {
           )}
           <Select onValueChange={handleLanguageChange}>
             <SelectTrigger
-              className="w-[163px] h-[36px] "
+              className="h-[36px] w-[163px] "
               IconComponent={renderFlag}
             >
               <SelectValue placeholder="English" />
@@ -79,21 +80,17 @@ export const Header = (props: HeaderProps) => {
           </Select>
           {!isLogged && (
             <div className="flex items-center gap-6">
-              <Button
-                className="cursor-pointer"
-                variant={"text"}
-                asChild={true}
-              >
-                <Link href={"/login"}>
+              <Button className="cursor-pointer" variant="text" asChild>
+                <Link href="/login">
                   <Typography.REGULAR16>Log in</Typography.REGULAR16>
                 </Link>
               </Button>
               <Button
-                variant={"primary"}
+                variant="primary"
                 className="width-[100px] height-[36px] cursor-pointer"
-                asChild={true}
+                asChild
               >
-                <Link href={"/signUp"}>
+                <Link href="/signUp">
                   <Typography.REGULAR16>Sign up</Typography.REGULAR16>
                 </Link>
               </Button>
@@ -101,7 +98,7 @@ export const Header = (props: HeaderProps) => {
           )}
         </div>
       </div>
-      <div className="w-full h-[1px] bg-dark-300"></div>
+      <div className="h-px w-full bg-dark-300" />
     </header>
   );
 };

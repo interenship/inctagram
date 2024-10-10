@@ -1,7 +1,7 @@
-import { Checkbox } from "@/shared/ui/Checkbox";
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { useState } from "react";
+
+import { Checkbox } from "@/shared/ui/Checkbox";
 
 const meta = {
   component: Checkbox,
@@ -33,7 +33,13 @@ export const Default: Story = {
       setCheckedValue(value);
     };
 
-    return <Checkbox checked={checkedValue} onCheckedChange={getCheckedValue} {...args} />;
+    return (
+      <Checkbox
+        checked={checkedValue}
+        onCheckedChange={getCheckedValue}
+        {...args}
+      />
+    );
   },
 };
 
@@ -61,7 +67,13 @@ export const WithLabel: Story = {
     };
 
     return (
-      <Checkbox id={id} checked={checkedValue} labelText={labelText} onCheckedChange={getCheckedValue} {...restArgs} />
+      <Checkbox
+        id={id}
+        checked={checkedValue}
+        labelText={labelText}
+        onCheckedChange={getCheckedValue}
+        {...restArgs}
+      />
     );
   },
 };

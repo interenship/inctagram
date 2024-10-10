@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RadioGroup } from "./RadioGroup";
 import { useState } from "react";
-import { RadioGroupItem } from "./index";
-import { Typography } from "@/shared/ui/Typography";
+
 import { Label } from "@/shared/ui/Label";
+import { Typography } from "@/shared/ui/Typography";
+
+import { RadioGroupItem } from "./index";
+import { RadioGroup } from "./RadioGroup";
 
 const valueExamples: { label: string; value: string }[] = [
   {
@@ -97,7 +99,7 @@ export const Default: Story = {
               />
               <Label htmlFor={option.value} disabled={args.disabled}>
                 {option.label && (
-                  <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+                  <Typography.REGULAR14 className="ml-2 text-light-100">
                     {option.label}
                   </Typography.REGULAR14>
                 )}
@@ -105,8 +107,8 @@ export const Default: Story = {
             </div>
           ))}
         </RadioGroup>
-        <div className={"mt-5 text-white w-full"}>
-          Selected value: {value ? value : "----"}
+        <div className="mt-5 w-full text-white">
+          Selected value: {value || "----"}
         </div>
       </>
     );

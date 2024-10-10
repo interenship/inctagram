@@ -1,4 +1,15 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/shared/ui/Button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/shared/ui/Select";
+import { Typography } from "@/shared/ui/Typography";
+
 import {
   Card,
   CardContent,
@@ -7,15 +18,6 @@ import {
   CardHeader,
   CardTitle,
 } from "./index";
-import { Typography } from "@/shared/ui/Typography";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/ui/Select";
-import { Button } from "@/shared/ui/Button";
 
 const meta: Meta<typeof Card> = {
   component: Card,
@@ -50,7 +52,7 @@ export const Default: Story = {
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
-              <SelectContent position="popper" className={"w-full bg-gray-500"}>
+              <SelectContent position="popper" className="w-full bg-gray-500">
                 <SelectItem value="next">Next.js</SelectItem>
                 <SelectItem value="sveltekit">SvelteKit</SelectItem>
                 <SelectItem value="astro">Astro</SelectItem>
@@ -60,9 +62,9 @@ export const Default: Story = {
           </div>
         </div>
       </CardContent>
-      <CardFooter className={"flex-col"}>
+      <CardFooter className="flex-col">
         <p>Card Footer</p>
-        <div className={"w-full flex justify-between"}>
+        <div className="flex w-full justify-between">
           <Button>Cancel</Button>
           <Button>Deploy</Button>
         </div>

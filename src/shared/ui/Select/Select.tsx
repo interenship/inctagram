@@ -1,16 +1,18 @@
 "use client";
-import * as React from "react";
+
 import {
-  Root,
-  Trigger,
+  Content,
   Icon,
   Portal,
-  Content,
-  Viewport,
+  Root,
+  Trigger,
   Value,
+  Viewport,
 } from "@radix-ui/react-select";
-import ChevronDown from "@/shared/assets/icons/components/ChevronDown";
+import * as React from "react";
+
 import { cn } from "@/features/utils/cn";
+import ChevronDown from "@/shared/assets/icons/components/ChevronDown";
 
 const Select = Root;
 const SelectValue = Value;
@@ -27,7 +29,7 @@ const SelectTrigger = React.forwardRef<
     ref={ref}
     disabled={disabled}
     className={cn(
-      "group flex text-light-100 h-9 w-full rounded-[2px] items-center leading-6 justify-between border border-dark-100 bg-background px-3 py-1.5 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 active:border-light-100",
+      "bg-background ring-offset-background placeholder:text-muted-foreground group flex h-9 w-full items-center justify-between rounded-[2px] border border-dark-100 px-3 py-1.5 text-sm leading-6 text-light-100 focus:border-blue-500 focus:outline-none focus:ring-0 active:border-light-100 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
       "data-[state=open]:border-white",
       className,
     )}
@@ -36,7 +38,7 @@ const SelectTrigger = React.forwardRef<
     {IconComponent && <IconComponent className="mr-2" />}
     <span>{children}</span>
     <Icon asChild>
-      <ChevronDown className="group-data-[state=open]:rotate-180 transition-transform" />
+      <ChevronDown className="transition-transform group-data-[state=open]:rotate-180" />
     </Icon>
   </Trigger>
 ));
@@ -51,7 +53,7 @@ const SelectContent = React.forwardRef<
     <Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 overflow-hidden border rounded-[2px] border-light-100 bg-dark-900 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-96 overflow-hidden rounded-[2px] border border-light-100 bg-dark-900 shadow-md",
         position === "popper" &&
           "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
         className,
@@ -73,4 +75,4 @@ const SelectContent = React.forwardRef<
 
 SelectContent.displayName = Content.displayName;
 
-export { Select, SelectTrigger, SelectContent, SelectValue };
+export { Select, SelectContent, SelectTrigger, SelectValue };

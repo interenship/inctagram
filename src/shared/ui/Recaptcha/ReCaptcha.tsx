@@ -31,7 +31,7 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error= false }: Props,ref) => 
         </div>
       </div>
       { error && (
-          <Typography.SMALL color="danger500" className={"mt-2"}>Please verify that you are not a robot</Typography.SMALL>
+          <Typography.SMALL className={"text-danger-600 mt-2"}>Please verify that you are not a robot</Typography.SMALL>
       )}
       </>
   );

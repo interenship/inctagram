@@ -11,17 +11,17 @@ const meta: Meta<typeof ReCaptchaComponent> = {
 export default meta;
 type Story = StoryObj<typeof ReCaptchaComponent>;
 
-export const ReCaptcha: Story = {
+export const Recaptcha: Story = {
   render: () => {
 
     return (
-      <div className={"flex gap-10"}>
+      <div className="flex gap-10">
         <div>
-          <Typography.SMALL color='dark300'>Default</Typography.SMALL>
+          <Typography.SMALL className="text-dark-100">Default</Typography.SMALL>
           <ReCaptchaComponent />
         </div>
         <div>
-          <Typography.SMALL color='danger500'>Error</Typography.SMALL>
+          <Typography.SMALL className="text-danger-600">Error</Typography.SMALL>
           <ReCaptchaComponent error={true} />
         </div>
       </div>

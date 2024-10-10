@@ -24,19 +24,6 @@ const typographyVariants = cva([""], {
         "text-xs font-normal text-accent-100 underline underline-offset-4",
       ],
     },
-    color: {
-      accent100: "text-accent-100",
-      accent300: "text-accent-300",
-      success100: "text-success-100",
-      danger500: "text-danger-500",
-      light100: "text-light-100",
-      dark300: "text-dark-300",
-      dark700: "text-dark-700",
-  
-    },
-  },
-  defaultVariants: {
-    color: "light100",
   },
 });
 
@@ -46,15 +33,15 @@ type Props<T extends ElementType> = VariantProps<typeof typographyVariants> & {
 } & ComponentProps<T>;
 
 const createTypographyComponent = <T extends ElementType>(
-  variant: Component,
+  variant: Component
 ): FC<Props<T>> => {
   return (props: Props<T>) => {
-    const { as,color, className, ...restProps } = props;
+    const { as, className, ...restProps } = props;
     const Component = as || COMPONENTS[variant];
 
     return (
       <Component
-        className={cn(typographyVariants({ variant, color }), className)}
+        className={cn(typographyVariants({ variant }), className)}
         {...restProps}
       />
     );

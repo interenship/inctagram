@@ -7,6 +7,7 @@ type Props = {
   error?: boolean;
 };
 
+
 const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error= false }: Props,ref) => {
   const key = "6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ";
 

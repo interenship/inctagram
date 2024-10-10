@@ -1,28 +1,8 @@
 import type { SVGProps } from "react";
 import { Ref, forwardRef, memo } from "react";
-const SvgCheckmarkOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>
-) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    fill="none"
-    ref={ref}
-    {...props}
-  >
-    <g clipPath="url(#checkmark-outline_svg__a)">
-      <path
-        fill="#000"
-        d="M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1.001 1.001 0 0 1 1.46-1.37l4.12 4.39 8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33z"
-      />
-    </g>
-    <defs>
-      <clipPath id="checkmark-outline_svg__a">
-        <path fill="currentColor" d="M0 0h24v24H0z" />
-      </clipPath>
-    </defs>
+const SvgCheckmarkOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+  <svg height="18" viewBox="0 0 18 18" width="18" fill="currentColor" ref={ref} {...props}>
+    <path d="M16 0H2C0.89 0 0 0.9 0 2V16C0 17.1 0.89 18 2 18H16C17.11 18 18 17.1 18 16V2C18 0.9 17.11 0 16 0ZM7 14L2 9L3.41 7.59L7 11.17L14.59 3.58L16 5L7 14Z" />
   </svg>
 );
 const ForwardRef = forwardRef(SvgCheckmarkOutline);

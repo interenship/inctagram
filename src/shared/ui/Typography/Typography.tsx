@@ -29,12 +29,16 @@ type Props<T extends ElementType> = VariantProps<typeof typographyVariants> & {
 } & ComponentProps<T>;
 
 const createTypographyComponent = <T extends ElementType>(variant: Component): FC<Props<T>> => {
-  return (props: Props<T>) => {
+  const TypographyComponent: FC<Props<T>> = (props: Props<T>) => {
     const { as, className, ...restProps } = props;
     const Component = as || COMPONENTS[variant];
 
     return <Component className={cn(typographyVariants({ variant }), className)} {...restProps} />;
   };
+
+  TypographyComponent.displayName = variant; 
+
+  return TypographyComponent;
 };
 
 const COMPONENTS = {

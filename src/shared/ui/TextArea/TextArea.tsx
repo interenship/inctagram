@@ -55,8 +55,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {...restProps}
         />
         {error && (
-          <Typography.REGULAR14>
-            <span className="text-danger-500 pl-[1px] text-xs">{error}</span>
+          <Typography.REGULAR14 color="danger500">
+            {error}
           </Typography.REGULAR14>
         )}
       </>

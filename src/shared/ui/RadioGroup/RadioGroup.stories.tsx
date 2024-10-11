@@ -97,7 +97,7 @@ export const Default: Story = {
               />
               <Label htmlFor={option.value} disabled={args.disabled}>
                 {option.label && (
-                  <Typography.REGULAR14 className={"ml-2 text-light-100"}>
+                  <Typography.REGULAR14 className={"ml-2"}>
                     {option.label}
                   </Typography.REGULAR14>
                 )}

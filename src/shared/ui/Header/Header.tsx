@@ -51,7 +51,7 @@ export const Header = (props: HeaderProps) => {
           className,
         )}
       >
-        <Typography.LARGE className="text-light-100 cursor-pointer">
+        <Typography.LARGE className="cursor-pointer">
           Inctagram
         </Typography.LARGE>
         <div className="flex gap-9">

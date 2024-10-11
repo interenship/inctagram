@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";
 
-const meta = {
+const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   tags: ["autodocs"],
   argTypes: {
@@ -18,7 +18,7 @@ const meta = {
   args: {
     id: "checkbox",
   },
-} satisfies Meta<typeof Checkbox>;
+}
 
 export default meta;
 
@@ -39,7 +39,7 @@ const CheckboxWithHook = (args: CheckboxProps) => {
           Checkbox
         </Label>
       </div>
-      <Typography.MEDIUM14 className={"text-light-100"}>Checked: {checkedValue ? "true" : "false"}</Typography.MEDIUM14>
+      <Typography.MEDIUM14 >Checked: {checkedValue ? "true" : "false"}</Typography.MEDIUM14>
     </>
   );
 };

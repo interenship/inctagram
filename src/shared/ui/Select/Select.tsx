@@ -19,7 +19,7 @@ type SelectTriggerProps = React.ComponentPropsWithoutRef<typeof Trigger> & {
 const SelectTrigger = React.forwardRef<React.ElementRef<typeof Trigger>, SelectTriggerProps>(
   ({ className, disabled, children, IconComponent, size = "medium", ...props }, ref) => {
     const triggerClasses = cn(
-      "group flex text-light-100 items-center leading-6 justify-between border border-dark-100 bg-background px-3 py-1.5 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:border-blue-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+      "bg-background ring-offset-background placeholder:text-muted-foreground group flex items-center justify-between border border-dark-100 px-3 py-1.5 text-sm leading-6 text-light-100 focus:border-blue-500 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
       {
         "h-9": size === "medium",
         "h-[24px] text-[14px] px-[5px] py-0": size === "small",

@@ -2,8 +2,8 @@ import type { TextareaHTMLAttributes } from "react";
 import { forwardRef, useId } from "react";
 
 import { cn } from "@/features/utils/cn";
-import { Typography } from "@/shared/ui/Typography";
 import { Label } from "@/shared/ui/Label";
+import { Typography } from "@/shared/ui/Typography";
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText?: string;

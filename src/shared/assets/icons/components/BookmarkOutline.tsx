@@ -24,7 +24,6 @@ const SvgBookmarkOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGEleme
     </defs>
   </svg>
 );
-
 const ForwardRef = forwardRef(SvgBookmarkOutline);
 const Memo = memo(ForwardRef);
 export default Memo;

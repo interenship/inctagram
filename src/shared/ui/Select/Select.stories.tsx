@@ -42,7 +42,7 @@ export const Default: Story = {
 };
 
 export const Small: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger size="small">
         <SelectValue placeholder="100" />

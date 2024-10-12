@@ -1,5 +1,6 @@
+import type { ReactNode } from "react";
+
 import { cn } from "@/features/utils/cn";
-import { ReactNode } from "react";
 
 type PaginationList = {
   className?: string;
@@ -8,5 +9,5 @@ type PaginationList = {
 
 export const PaginationList = (props: PaginationList) => {
   const { className, ...restProps } = props;
-  return <ul {...restProps} className={cn("flex text-light-100 items-center gap-5", className)} />;
+  return <ul {...restProps} className={cn("flex items-center gap-5 text-light-100", className)} />;
 };

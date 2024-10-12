@@ -1,94 +1,53 @@
+import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 
-import { Checkbox } from "@/shared/ui/Checkbox";
+import { Checkbox } from "./Checkbox";
 
 const meta = {
+  argTypes: {
+    checked: { type: "boolean" },
+  },
   component: Checkbox,
   tags: ["autodocs"],
-  argTypes: {
-    checked: {
-      control: { type: "boolean" },
-    },
-    labelText: { control: { type: "text" } },
-  },
-  args: {
-    id: "checkbox",
-    disabled: false,
-    checked: false,
-  },
+  title: "Ui/Checkbox",
 } satisfies Meta<typeof Checkbox>;
 
+type Story = StoryObj<typeof meta>;
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-const labelText = "Check-box";
-
 export const Default: Story = {
-  render: (args) => {
-    const [checkedValue, setCheckedValue] = useState(false);
-
-    const getCheckedValue = (value: boolean) => {
-      setCheckedValue(value);
-    };
-
-    return (
-      <Checkbox
-        checked={checkedValue}
-        onCheckedChange={getCheckedValue}
-        {...args}
-      />
-    );
+  args: {
+    label: "Checkbox",
+    onClick: action("Button click invoked"),
   },
 };
 
-export const Disabled: Story = {
+export const CheckboxWithoutLabel: Story = {
+  args: {
+    onClick: action("Button click invoked"),
+  },
+};
+export const CheckboxChecked: Story = {
+  args: {
+    defaultChecked: true,
+    label: "Checked",
+  },
+};
+export const CheckboxUnchecked: Story = {
+  args: {
+    label: "Unchecked",
+  },
+};
+export const CheckboxDisabled: Story = {
   args: {
     disabled: true,
+    label: "Disabled",
   },
 };
-
-export const DisabledChecked: Story = {
+export const CheckboxDisabledChecked: Story = {
   args: {
-    checked: true,
-  },
-};
-
-export const WithLabel: Story = {
-  args: {
-    labelText,
-  },
-  render: ({ labelText, id, ...restArgs }) => {
-    const [checkedValue, setCheckedValue] = useState(false);
-
-    const getCheckedValue = (value: boolean) => {
-      setCheckedValue(value);
-    };
-
-    return (
-      <Checkbox
-        id={id}
-        checked={checkedValue}
-        labelText={labelText}
-        onCheckedChange={getCheckedValue}
-        {...restArgs}
-      />
-    );
-  },
-};
-
-export const DisabledWithLabel: Story = {
-  args: {
-    labelText,
+    defaultChecked: true,
     disabled: true,
-  },
-};
-
-export const DisabledCheckedWithLabel: Story = {
-  args: {
-    labelText,
-    disabled: true,
-    checked: true,
+    label: "Disabled",
   },
 };

@@ -1,18 +1,8 @@
 import type { Ref, SVGProps } from "react";
 import { forwardRef, memo } from "react";
 
-const SvgCalendar = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={24}
-    height={24}
-    fill="none"
-    ref={ref}
-    {...props}
-  >
+const SvgCalendar = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" ref={ref} {...props}>
     <g clipPath="url(#calendar_svg__a)">
       <path
         fill="#000"

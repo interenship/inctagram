@@ -35,8 +35,7 @@ const meta: Meta<typeof RadioGroup> = {
   argTypes: {
     disabled: {
       control: "boolean",
-      description:
-        "Отключает компонент, делая его недоступным для взаимодействия.",
+      description: "Отключает компонент, делая его недоступным для взаимодействия.",
     },
     orientation: {
       control: {
@@ -51,8 +50,7 @@ const meta: Meta<typeof RadioGroup> = {
     },
     onValueChange: {
       action: "changed",
-      description:
-        "Функция обратного вызова, вызываемая при изменении значения.",
+      description: "Функция обратного вызова, вызываемая при изменении значения.",
     },
     className: {
       control: "text",
@@ -60,8 +58,7 @@ const meta: Meta<typeof RadioGroup> = {
     },
     id: {
       control: "text",
-      description:
-        "Уникальный идентификатор для связывания компонента с текстом в теге label.",
+      description: "Уникальный идентификатор для связывания компонента с текстом в теге label.",
     },
   },
   args: {
@@ -75,7 +72,7 @@ export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
 export const Default: Story = {
-  render: (args) => {
+  render: args => {
     const [value, setValue] = useState<string>("");
 
     console.log("Selected value:", value);
@@ -85,18 +82,11 @@ export const Default: Story = {
           value={value}
           disabled={args.disabled}
           orientation={args.orientation}
-          onValueChange={(newValue) => setValue(newValue)}
+          onValueChange={newValue => setValue(newValue)}
         >
-          {valueExamples.map((option) => (
-            <div
-              key={option.value}
-              className="flex items-center justify-center"
-            >
-              <RadioGroupItem
-                disabled={args.disabled}
-                value={option.value}
-                id={option.value}
-              />
+          {valueExamples.map(option => (
+            <div key={option.value} className="flex items-center justify-center">
+              <RadioGroupItem disabled={args.disabled} value={option.value} id={option.value} />
               <Label htmlFor={option.value} disabled={args.disabled}>
                 {option.label && (
                   <Typography.REGULAR14 className="ml-2 text-light-100">
@@ -107,9 +97,7 @@ export const Default: Story = {
             </div>
           ))}
         </RadioGroup>
-        <div className="mt-5 w-full text-white">
-          Selected value: {value || "----"}
-        </div>
+        <div className="mt-5 w-full text-white">Selected value: {value || "----"}</div>
       </>
     );
   },

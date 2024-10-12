@@ -47,18 +47,10 @@ export const Story: Story = {
         <Tabs defaultValue={args.tabs[0].value}>
           <TabsList tabs={args.tabs} {...args} />
 
-          <TabsContent value={args.tabs[0].value}>
-            Content {args.tabs[0].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[1].value}>
-            Content {args.tabs[1].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[2].value}>
-            Content {args.tabs[2].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[3].value}>
-            Content {args.tabs[3].title}
-          </TabsContent>
+          <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+          <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+          <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+          <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
         </Tabs>
       </div>
     );
@@ -81,18 +73,10 @@ export const FullWidth: Story = {
         <Tabs defaultValue={args.tabs[0].value}>
           <TabsList tabs={args.tabs} {...args} />
 
-          <TabsContent value={args.tabs[0].value}>
-            Content {args.tabs[0].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[1].value}>
-            Content {args.tabs[1].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[2].value}>
-            Content {args.tabs[2].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[3].value}>
-            Content {args.tabs[3].title}
-          </TabsContent>
+          <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+          <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+          <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+          <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
         </Tabs>
       </div>
     );
@@ -115,18 +99,10 @@ export const DisabledTabs: Story = {
         <Tabs defaultValue={args.tabs[0].value}>
           <TabsList tabs={args.tabs} {...args} />
 
-          <TabsContent value={args.tabs[0].value}>
-            Content {args.tabs[0].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[1].value}>
-            Content {args.tabs[1].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[2].value}>
-            Content {args.tabs[2].title}
-          </TabsContent>
-          <TabsContent value={args.tabs[3].value}>
-            Content {args.tabs[3].title}
-          </TabsContent>
+          <TabsContent value={args.tabs[0].value}>Content {args.tabs[0].title}</TabsContent>
+          <TabsContent value={args.tabs[1].value}>Content {args.tabs[1].title}</TabsContent>
+          <TabsContent value={args.tabs[2].value}>Content {args.tabs[2].title}</TabsContent>
+          <TabsContent value={args.tabs[3].value}>Content {args.tabs[3].title}</TabsContent>
         </Tabs>
       </div>
     );

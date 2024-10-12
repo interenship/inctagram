@@ -1,19 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 
 import { Typography } from "./Typography";
 
 const meta = {
   component: Typography.H1,
   tags: ["autodocs"],
+  title: "Ui/Typography",
 } satisfies Meta<typeof Typography.H1>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const testText =
-  "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
+const testText = "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
 
 const stylesForTypography = "flex flex-col bg-slate-50 gap-2 p-10";
 
@@ -35,25 +34,4 @@ export const AllTypography = {
       <Typography.SMALLLINK>{testText}</Typography.SMALLLINK>
     </div>
   ),
-};
-
-export const TypographyAsButton: Story = {
-  render: () => {
-    const [value, setValue] = useState(0);
-
-    return (
-      <>
-        <Typography.H1
-          as="button"
-          onClick={() => {
-            setValue(value + 1);
-          }}
-          className="mb-5 rounded bg-slate-100 p-2"
-        >
-          Press Button
-        </Typography.H1>
-        <Typography.LARGE style={{ color: "white" }}>{value}</Typography.LARGE>
-      </>
-    );
-  },
 };

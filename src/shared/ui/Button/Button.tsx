@@ -26,11 +26,7 @@ export const Button = (props: Props) => {
 
   return (
     <Component
-      className={cn(
-        buttonVariants({ variant }),
-        fullWidth && "w-full",
-        className,
-      )}
+      className={cn(buttonVariants({ variant }), fullWidth && "w-full", className)}
       {...restProps}
     />
   );

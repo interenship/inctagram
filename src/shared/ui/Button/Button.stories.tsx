@@ -3,12 +3,7 @@ import { fn } from "@storybook/test";
 
 import { Button } from ".";
 
-const meta: Meta<typeof Button> = {
-  component: Button,
-  tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
+const meta = {
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -26,7 +21,10 @@ const meta: Meta<typeof Button> = {
     fullWidth: false,
     onClick: fn(),
   },
-};
+  component: Button,
+  tags: ["autodocs"],
+  title: "Ui/Button",
+} satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof Button>;
@@ -56,7 +54,7 @@ export const FullWidth: Story = {
     variant: "primary",
     fullWidth: true,
   },
-  render: (args) => {
+  render: args => {
     return (
       <div className="flex w-[50vw] justify-center">
         <Button {...args}>Button</Button>
@@ -77,7 +75,7 @@ export const AsLink: Story = {
       },
     },
   },
-  render: (args) => {
+  render: args => {
     return (
       <Button {...args}>
         <a>Button as Link</a>

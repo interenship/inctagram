@@ -17,9 +17,7 @@ const TabsContent = forwardRef<
 >((props, ref) => {
   const { className, ...restProps } = props;
 
-  return (
-    <Content ref={ref} className={cn("text-white", className)} {...restProps} />
-  );
+  return <Content ref={ref} className={cn("text-white", className)} {...restProps} />;
 });
 TabsContent.displayName = Content.displayName;
 

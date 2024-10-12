@@ -14,7 +14,7 @@ const SelectItem = React.forwardRef<
       "focus:bg-accent focus:text-accent-foreground",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       "hover:cursor-pointer data-[highlighted]:bg-dark-300 data-[highlighted]:text-accent-500",
-      className,
+      className
     )}
     {...props}
   >

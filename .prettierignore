@@ -1,0 +1,5 @@
+**/.git
+**/.svn
+**/.hg
+.next
+**/node_modules

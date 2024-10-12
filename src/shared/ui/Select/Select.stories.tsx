@@ -1,13 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "./index";
+
 import FlagRussia from "@/shared/assets/icons/components/FlagRussia";
 import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdom";
+
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./index";
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -18,8 +14,7 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     disabled: {
       control: "boolean",
-      description:
-        "Отключает компонент, делая его недоступным для взаимодействия.",
+      description: "Отключает компонент, делая его недоступным для взаимодействия.",
     },
   },
   args: {
@@ -31,7 +26,7 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Test" />
@@ -47,7 +42,7 @@ export const Default: Story = {
 };
 
 export const Small: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger size="small">
         <SelectValue placeholder="100" />
@@ -65,7 +60,7 @@ export const Small: Story = {
 };
 
 export const Disabled: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select-box" />
@@ -84,7 +79,7 @@ export const Disabled: Story = {
 };
 
 export const WithRussianFlagIcon: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger className="w-[180px]" IconComponent={FlagRussia}>
         <SelectValue placeholder="Select-box" />
@@ -100,7 +95,7 @@ export const WithRussianFlagIcon: Story = {
 };
 
 export const WithUKFlagIcon: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger className="w-[180px]" IconComponent={FlagUnitedKingdom}>
         <SelectValue placeholder="Select-box" />

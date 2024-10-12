@@ -1,15 +1,16 @@
 import React from "react";
-import { MenuItem } from "@/shared/ui/Sidebar/Menu/MenuItem";
-import { menuData } from "@/shared/ui/Sidebar/Menu/menuData";
+
 import LogOutBtn from "@/shared/ui/Sidebar/LogOutBtn/LogOutBtn";
 import Menu from "@/shared/ui/Sidebar/Menu/Menu";
-const { home, create, profile, messenger, search, statistics, favorites } =
-  menuData;
+import { menuData } from "@/shared/ui/Sidebar/Menu/menuData";
+import { MenuItem } from "@/shared/ui/Sidebar/Menu/MenuItem";
+
+const { home, create, profile, messenger, search, statistics, favorites } = menuData;
 
 export const Sidebar = () => {
   const logOut = () => {};
   return (
-    <aside className="w-[220px] h-screen bg-dark-700 text-light-100  border-r-[1px] border-dark-300 pt-[72px]">
+    <aside className="h-screen w-[220px] border-r border-dark-300  bg-dark-700 pt-[72px] text-light-100">
       <Menu>
         <MenuItem {...home} />
         <MenuItem {...create} />

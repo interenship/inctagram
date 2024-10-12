@@ -1,7 +1,8 @@
 import React from "react";
+
 import { LogOutOutline } from "@/shared/assets/icons/components";
-import { Typography } from "@/shared/ui/Typography";
 import { Button } from "@/shared/ui/Button";
+import { Typography } from "@/shared/ui/Typography";
 
 type LogOutProps = {
   logOutFn: () => void;
@@ -12,7 +13,7 @@ const LogOutBtn = (props: LogOutProps) => {
   return (
     <Button
       variant="text"
-      className="text-light-100 cursor-pointer flex gap-3 group mb-[180px] focus:ring-2 focus:ring-accent-500 focus:outline-none rounded"
+      className="group mb-[180px] flex cursor-pointer gap-3 rounded text-light-100 focus:outline-none focus:ring-2 focus:ring-accent-500"
       onClick={logOutFn}
     >
       <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />

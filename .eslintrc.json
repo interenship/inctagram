@@ -1,6 +1,93 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
+    "airbnb-base", // Базовая конфигурация ESLint от Airbnb для JavaScript
+    "next/core-web-vitals", // Конфигурация для проектов на Next.js с учетом лучших практик
+    "plugin:prettier/recommended" // Интеграция Prettier с ESLint
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["classnames", "clsx", "ctl", "cva", "tv", "cn"] // Допустимые вызовы классов Tailwind CSS
+    }
+  },
+
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts"], // Применение этих настроек к файлам TypeScript
+      "plugins": [
+        "@typescript-eslint", // Плагин для поддержки TypeScript
+        "unused-imports", // Плагин для управления неиспользуемыми импортами
+        "tailwindcss", // Плагин для Tailwind CSS
+        "simple-import-sort" // Плагин для сортировки импортов
+      ],
+      "extends": [
+        "plugin:tailwindcss/recommended", // Рекомендуемые настройки для Tailwind CSS
+        "airbnb", // Конфигурация Airbnb для React
+        "airbnb-typescript", // Конфигурация Airbnb для TypeScript
+        "next/core-web-vitals", // Конфигурация для Next.js
+        "plugin:prettier/recommended" // Интеграция Prettier с ESLint
+      ],
+      "parser": "@typescript-eslint/parser", // Парсер для TypeScript
+      "parserOptions": {
+        "project": "./tsconfig.json" // Путь к tsconfig.json для определения конфигурации TypeScript
+      },
+      "rules": {
+        "react/no-unescaped-entities": "off", // Отключение правила для неэкранированных символов в JSX
+        "prettier/prettier": "error",
+        "tailwindcss/no-custom-classname": "off", // Отключение ограничения на пользовательские названия классов
+        "import/no-extraneous-dependencies": [
+          "warn",
+          {
+            "devDependencies": [
+              "**/*.stories.ts", // Разрешить devDependencies для файлов историй
+              "**/*.stories.tsx",
+              "**/*.test.ts", // Разрешить devDependencies для файлов тестов
+              "**/*.test.tsx"
+            ]
+          }
+        ],
+        "no-param-reassign": "off", // Отключение ограничения на переназначение параметров
+        "consistent-return": "off", // Отключение правила для согласованного возвращаемого значения
+        "no-empty-pattern": "off", // Отключение ограничения на пустые паттерны
+        "no-use-before-define": "off", // Отключение ограничения на использование перед определением
+        "no-shadow": "off", // Отключение ограничения на затенение переменных
+        "@typescript-eslint/no-shadow": "off", // Отключение ограничения на затенение переменных для TypeScript
+        "@typescript-eslint/no-use-before-define": "off", // Отключение ограничения на использование перед определением для TypeScript
+        "react/jsx-no-constructed-context-values": "off", // Отключение ограничения на нестандартные значения контекста
+        "import/extensions": "off", // Отключение ограничения на расширения импортов
+        "react/function-component-definition": "off", // Отключение правила для определения функциональных компонентов
+        "react/destructuring-assignment": "off", // Отключение правила для деструктуризации
+        "react/require-default-props": "off", // Отключение требования для определения свойств по умолчанию
+        "react/jsx-props-no-spreading": "off", // Отключение ограничения на распыление свойств JSX
+        "react/no-unstable-nested-components": "off", // Отключение ограничения на нестабильные вложенные компоненты
+        "@typescript-eslint/comma-dangle": "off", // Отключение ограничения на запятую в конце для TypeScript
+        "@typescript-eslint/consistent-type-imports": "error", // Обязательное использование единообразного импорта типов
+        "no-restricted-syntax": [
+          "error",
+          "ForInStatement", // Запрет использования цикла for..in
+          "LabeledStatement", // Запрет использования меток
+          "WithStatement" // Запрет использования оператора with
+        ],
+        "import/prefer-default-export": "off", // Отключение предпочтения экспорта по умолчанию
+        "simple-import-sort/imports": "error", // Обязательное использование сортировки импортов
+        "simple-import-sort/exports": "error", // Обязательное использование сортировки экспортов
+        "import/order": "off", // Отключение ограничения на порядок импортов
+        "@typescript-eslint/no-unused-vars": "off", // Отключение ограничения на неиспользуемые переменные для TypeScript
+        "unused-imports/no-unused-imports": "error", // Обязательное использование управления неиспользуемыми импортами
+        "no-unused-vars": "off", // Отключение ограничения на неиспользуемые переменные
+        "@typescript-eslint/naming-convention": "off", // Отключение ограничения на соглашения по именованию для TypeScript
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "vars": "all", // Все переменные
+            "varsIgnorePattern": "^_", // Игнорирование переменных, начинающихся с _
+            "args": "after-used", // После использования аргументов
+            "argsIgnorePattern": "^_" // Игнорирование аргументов, начинающихся с _
+          }
+        ]
+      }
+    }
   ]
 }

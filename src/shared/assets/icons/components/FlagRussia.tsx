@@ -1,6 +1,6 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 
-const FlagRussia = (props: ComponentProps<"svg">) => {
+const FlagRussia = () => {
   return (
     <svg
       width="24"

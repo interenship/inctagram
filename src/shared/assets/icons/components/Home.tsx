@@ -5,10 +5,7 @@ interface SvgHomeProps extends SVGProps<SVGSVGElement> {
   isFilled?: boolean;
 }
 
-const SvgHome = (
-  { isFilled = false, ...props }: SvgHomeProps,
-  ref: Ref<SVGSVGElement>,
-) => (
+const SvgHome = ({ isFilled = false, ...props }: SvgHomeProps, ref: Ref<SVGSVGElement>) => (
   <svg
     ref={ref}
     width="24"

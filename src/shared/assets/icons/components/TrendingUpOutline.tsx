@@ -1,10 +1,7 @@
 import type { SVGProps } from "react";
 import { Ref, forwardRef, memo } from "react";
 
-const SvgTrendingUpOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) => (
+const SvgTrendingUpOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"

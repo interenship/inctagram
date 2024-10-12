@@ -1,37 +1,31 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/shared/ui/Button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
+import { Typography } from "@/shared/ui/Typography";
+
 import {
-  Card,
+  Card as CardComponent,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./index";
-import { Typography } from "@/shared/ui/Typography";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/ui/Select";
-import { Button } from "@/shared/ui/Button";
+} from ".";
 
-const meta: Meta<typeof Card> = {
-  component: Card,
+const meta = {
+  component: CardComponent,
   tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
-};
+  title: "Ui/Card",
+} satisfies Meta<typeof CardComponent>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Card: Story = {
   render: () => (
-    <Card>
+    <CardComponent>
       <CardHeader>
         <CardTitle className="mx-auto">
           <Typography.H1>Card Tittle</Typography.H1>
@@ -50,7 +44,7 @@ export const Default: Story = {
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
-              <SelectContent position="popper" className={"w-full bg-gray-500"}>
+              <SelectContent position="popper" className="w-full bg-gray-500">
                 <SelectItem value="next">Next.js</SelectItem>
                 <SelectItem value="sveltekit">SvelteKit</SelectItem>
                 <SelectItem value="astro">Astro</SelectItem>
@@ -60,13 +54,13 @@ export const Default: Story = {
           </div>
         </div>
       </CardContent>
-      <CardFooter className={"flex-col"}>
+      <CardFooter className="flex-col">
         <p>Card Footer</p>
-        <div className={"w-full flex justify-between"}>
+        <div className="flex w-full justify-between">
           <Button>Cancel</Button>
           <Button>Deploy</Button>
         </div>
       </CardFooter>
-    </Card>
+    </CardComponent>
   ),
 };

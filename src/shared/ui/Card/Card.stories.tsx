@@ -2,25 +2,31 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@/shared/ui/Button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Typography } from "@/shared/ui/Typography";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./index";
+import {
+  Card as CardComponent,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from ".";
 
-const meta: Meta<typeof Card> = {
-  component: Card,
+const meta = {
+  component: CardComponent,
   tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
-};
+  title: "Ui/Card",
+} satisfies Meta<typeof CardComponent>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Card: Story = {
   render: () => (
-    <Card>
+    <CardComponent>
       <CardHeader>
         <CardTitle className="mx-auto">
           <Typography.H1>Card Tittle</Typography.H1>
@@ -56,6 +62,6 @@ export const Default: Story = {
           <Button>Deploy</Button>
         </div>
       </CardFooter>
-    </Card>
+    </CardComponent>
   ),
 };

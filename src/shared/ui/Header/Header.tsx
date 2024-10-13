@@ -14,13 +14,11 @@ type HeaderProps = {
   className?: string;
 };
 
-export const Header = (props: HeaderProps) => {
+export const Header = ({ isLogged, className }: HeaderProps) => {
   enum Language {
     English = "English",
     Russian = "Russian",
   }
-
-  const { isLogged, className } = props;
 
   const [language, setLanguage] = useState<Language>(Language.English);
 

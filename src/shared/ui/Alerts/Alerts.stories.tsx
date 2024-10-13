@@ -2,12 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Alerts, AlertsStatus } from ".";
 
-const meta: Meta<typeof Alerts> = {
+const meta = {
   component: Alerts,
-  tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
   args: {
     isShow: true,
     message: "",
@@ -19,7 +15,9 @@ const meta: Meta<typeof Alerts> = {
       options: [AlertsStatus.success, AlertsStatus.failed],
     },
   },
-};
+  tags: ["autodocs"],
+  title: "Ui/Alerts",
+} satisfies Meta<typeof Alerts>;
 
 export default meta;
 type Story = StoryObj<typeof Alerts>;

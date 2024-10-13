@@ -1,5 +1,5 @@
-import type { Ref, SVGProps } from "react";
-import { forwardRef, memo } from "react";
+import type { SVGProps } from "react";
+import { Ref, forwardRef, memo } from "react";
 
 const SvgEyeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => {
   return (
@@ -16,6 +16,7 @@ const SvgEyeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) 
     </svg>
   );
 };
+
 const ForwardRef = forwardRef(SvgEyeOutline);
 const Memo = memo(ForwardRef);
 export default Memo;

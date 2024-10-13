@@ -32,7 +32,7 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof Trigger>, SelectT
         <span>{children}</span>
         <Icon asChild>
           <ChevronDown
-            className={cn("group-data-[state=open]:rotate-180 transition-transform", {
+            className={cn("transition-transform group-data-[state=open]:rotate-180", {
               "w-[18px] h-[18px] pl-[2px]": size === "small",
             })}
           />

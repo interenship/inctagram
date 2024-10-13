@@ -28,18 +28,18 @@ export const Card: Story = {
     <CardComponent>
       <CardHeader>
         <CardTitle className="mx-auto">
-          <Typography.H1>Card Tittle</Typography.H1>
+          <Typography variant="h1">Card Tittle</Typography>
         </CardTitle>
 
         <CardDescription className="mx-auto">
-          <Typography.BOLD14>Card Description</Typography.BOLD14>
+          <Typography variant="bold14">Card Description</Typography>
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Typography.H2>Card Content</Typography.H2>
+        <Typography variant="h2">Card Content</Typography>
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
-            <Typography.H3>Framework</Typography.H3>
+            <Typography variant="h3">Framework</Typography>
             <Select>
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />

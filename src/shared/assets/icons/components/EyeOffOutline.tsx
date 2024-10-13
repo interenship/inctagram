@@ -1,5 +1,6 @@
-import type { SVGProps } from "react";
-import { Ref, forwardRef, memo } from "react";
+import type { Ref, SVGProps } from "react";
+import { forwardRef, memo } from "react";
+
 const SvgEyeOffOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" ref={ref} {...props}>
     <g fill="fill-current" clipPath="url(#eye-off-outline_svg__a)">

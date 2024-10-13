@@ -89,9 +89,9 @@ export const Default: Story = {
               <RadioGroupItem disabled={args.disabled} value={option.value} id={option.value} />
               <Label htmlFor={option.value} disabled={args.disabled}>
                 {option.label && (
-                  <Typography.REGULAR14 className="ml-2 text-light-100">
+                  <Typography variant="regular14" className="ml-2 text-light-100">
                     {option.label}
-                  </Typography.REGULAR14>
+                  </Typography>
                 )}
               </Label>
             </div>

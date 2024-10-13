@@ -22,7 +22,7 @@ export const PaginationItem = (props: PaginationItemProps) => {
         className
       )}
     >
-      <Typography.REGULAR14>{children}</Typography.REGULAR14>
+      <Typography variant="regular14">{children}</Typography>
     </li>
   );
 };

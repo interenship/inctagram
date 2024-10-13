@@ -1,75 +1,53 @@
-import { cn } from "@/features/utils/cn";
-import { Checkbox } from "@/shared/ui/Checkbox";
-import { CheckboxProps } from "@/shared/ui/Checkbox/Checkbox";
-import { Label } from "@/shared/ui/Label";
-import { Typography } from "@/shared/ui/Typography";
+import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { useState } from "react";
+import { Checkbox } from "./Checkbox";
 
-const meta: Meta<typeof Checkbox> = {
+const meta = {
+  argTypes: {
+    checked: { type: "boolean" },
+  },
   component: Checkbox,
   tags: ["autodocs"],
-  argTypes: {
-    checked: { control: "boolean" },
-    disabled: { control: "boolean" },
-    id: { type: "string" },
-  },
-  args: {
-    id: "checkbox",
-  },
-}
-
-export default meta;
+  title: "Ui/Checkbox",
+} satisfies Meta<typeof Checkbox>;
 
 type Story = StoryObj<typeof meta>;
+export default meta;
 
-const CheckboxWithHook = (args: CheckboxProps) => {
-  const [checkedValue, setCheckedValue] = useState(false);
-
-  const getCheckedValue = (value: boolean) => {
-    setCheckedValue(value);
-  };
-
-  return (
-    <>
-      <div className={cn("flex items-center gap-2")}>
-        <Checkbox {...args} checked={checkedValue} onCheckedChange={getCheckedValue} />
-        <Label disabled={args.disabled} htmlFor={args.id} className="text-light-100">
-          Checkbox
-        </Label>
-      </div>
-      <Typography.MEDIUM14 >Checked: {checkedValue ? "true" : "false"}</Typography.MEDIUM14>
-    </>
-  );
-};
-
-const CheckboxWithLabel = (args: CheckboxProps) => {
-  return (
-    <div className={cn("flex items-center gap-2")}>
-      <Checkbox {...args} />
-      <Label disabled={args.disabled} htmlFor={args.id} className="text-light-100">
-        checkbox
-      </Label>
-    </div>
-  );
-};
-
-export const Default: Story = {};
-
-export const Disabled: Story = {
+export const Default: Story = {
   args: {
-    disabled: true,
+    label: "Checkbox",
+    onClick: action("Button click invoked"),
   },
 };
 
-export const WithLabel: Story = {
-  render: (args) => <CheckboxWithHook {...args} />,
+export const CheckboxWithoutLabel: Story = {
+  args: {
+    onClick: action("Button click invoked"),
+  },
 };
-
-export const DisabledWithLabel: Story = {
+export const CheckboxChecked: Story = {
+  args: {
+    defaultChecked: true,
+    label: "Checked",
+  },
+};
+export const CheckboxUnchecked: Story = {
+  args: {
+    label: "Unchecked",
+  },
+};
+export const CheckboxDisabled: Story = {
   args: {
     disabled: true,
+    label: "Disabled",
   },
-  render: (args) => <CheckboxWithLabel {...args} />,
+};
+export const CheckboxDisabledChecked: Story = {
+  args: {
+    defaultChecked: true,
+    disabled: true,
+    label: "Disabled",
+  },
 };

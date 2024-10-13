@@ -1,6 +1,7 @@
+import type { ComponentProps, ReactNode } from "react";
+
 import { cn } from "@/features/utils/cn";
 import { Typography } from "@/shared/ui/Typography";
-import { ComponentProps, ReactNode } from "react";
 
 type PaginationItemProps = {
   className?: string;
@@ -15,8 +16,8 @@ export const PaginationItem = (props: PaginationItemProps) => {
     <li
       {...restProps}
       className={cn(
-        "cursor-pointer flex justify-center items-center rounded-sm size-6 hover:bg-dark-500",
-        active && "text-dark-900 bg-light-100 ",
+        "flex size-6 cursor-pointer items-center justify-center rounded-sm hover:bg-dark-500",
+        active && "bg-light-100 text-dark-900 ",
         disabled && "pointer-events-none opacity-50 ",
         className
       )}

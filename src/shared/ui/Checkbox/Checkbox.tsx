@@ -1,34 +1,50 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useId } from "react";
-import { Root, Indicator } from "@radix-ui/react-checkbox";
+import * as RadixCheckbox from "@radix-ui/react-checkbox";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
+import { forwardRef, useId } from "react";
+
 import { cn } from "@/features/utils/cn";
 import { CheckmarkOutline } from "@/shared/assets/icons/components";
+import { Typography } from "@/shared/ui/Typography";
 
-export type CheckboxProps = ComponentPropsWithoutRef<typeof Root>;
+export type CheckboxProps = {
+  label?: string;
+} & ComponentPropsWithoutRef<typeof RadixCheckbox.Root>;
 
-const Checkbox = forwardRef<ElementRef<typeof Root>, CheckboxProps>((props: CheckboxProps, ref) => {
-  const { className, id, disabled = false, ...restProps } = props;
+type CheckboxRef = ElementRef<typeof RadixCheckbox.Root>;
+
+const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((props, ref) => {
+  const { className, id, label, disabled = false, ...restProps } = props;
 
   const generatedId = useId();
-  const finalId = id ?? generatedId;
+  const checkboxId = id || generatedId;
+
+  const labelClass = cn("block max-w-max", label && "flex items-center gap-3");
+  const radixCheckboxClass = cn(
+    "focus-visible:ring-ring data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground  peer flex size-[18px] items-center justify-center rounded-sm border border-light-500 hover:shadow-[0px_0px_0px_6px_#333333] focus:shadow-[0px_0px_0px_6px_#171717] focus-visible:outline-none focus-visible:ring-1 active:shadow-[0px_0px_0px_6px_#4c4c4c] disabled:cursor-not-allowed disabled:opacity-50 ",
+    disabled && "hover:shadow-none focus:shadow-none active:shadow-none",
+    className
+  );
+
+  const indicator = cn("flex items-center justify-center bg-white leading-none");
+  const typography = cn("text-slate-50", disabled && "text-light-900");
 
   return (
-    <Root
-      ref={ref}
-      className={cn(
-        "hover:shadow-[0px_0px_0px_6px_#333333] focus:shadow-[0px_0px_0px_6px_#171717] active:shadow-[0px_0px_0px_6px_#4c4c4c]  peer flex justify-center items-center w-[18px] h-[18px] border border-light-500 rounded-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground ",
-        disabled && "hover:shadow-none focus:shadow-none active:shadow-none",
-        className
-      )}
-      id={finalId}
-      disabled={disabled}
-      {...restProps}
-    >
-      <Indicator className={cn("text-light-300")}>
-        <CheckmarkOutline />
-      </Indicator>
-    </Root>
+    <label htmlFor={checkboxId} className={labelClass}>
+      <RadixCheckbox.Root
+        ref={ref}
+        className={radixCheckboxClass}
+        id={checkboxId}
+        disabled={disabled}
+        {...restProps}
+      >
+        <RadixCheckbox.Indicator className={indicator}>
+          <CheckmarkOutline />
+        </RadixCheckbox.Indicator>
+      </RadixCheckbox.Root>
+      {label && <Typography.REGULAR14 className={typography}>{label}</Typography.REGULAR14>}
+    </label>
   );
 });
-Checkbox.displayName = Root.displayName;
+Checkbox.displayName = "Checkbox";
 
 export { Checkbox };

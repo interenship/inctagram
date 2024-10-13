@@ -4,12 +4,8 @@ import { Typography } from "@/shared/ui/Typography";
 
 import { Label } from "./index";
 
-const meta: Meta<typeof Label> = {
+const meta = {
   component: Label,
-  tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
   argTypes: {
     disabled: {
       control: "boolean",
@@ -34,7 +30,10 @@ const meta: Meta<typeof Label> = {
       </Typography>
     ),
   },
-};
+
+  tags: ["autodocs"],
+  title: "Ui/Label",
+} satisfies Meta<typeof Label>;
 
 export default meta;
 type Story = StoryObj<typeof Label>;

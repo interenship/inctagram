@@ -8,16 +8,17 @@ import type { TextFieldProps } from "@/shared/ui/TextField/TextField";
 import { TextField } from "@/shared/ui/TextField/TextField";
 import { Typography } from "@/shared/ui/Typography";
 
-const meta: Meta<typeof TextField> = {
+const meta = {
   component: TextField,
-  tags: ["autodocs"],
   argTypes: {
     disabled: { control: "boolean" },
   },
   args: {
     id: "forInput",
   },
-};
+  tags: ["autodocs"],
+  title: "Ui/TextField",
+} satisfies Meta<typeof TextField>;
 
 export default meta;
 type Story = StoryObj<typeof TextField>;

@@ -26,39 +26,29 @@ const valueExamples: { label: string; value: string }[] = [
   },
 ];
 
-const meta: Meta<typeof RadioGroup> = {
+const meta = {
   component: RadioGroup,
-  tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
   argTypes: {
     disabled: {
       control: "boolean",
-      description: "Отключает компонент, делая его недоступным для взаимодействия.",
     },
     orientation: {
       control: {
         type: "radio",
         options: ["horizontal", "vertical"],
       },
-      description: "Расположение элементов, горизонтально или вертикально.",
     },
     value: {
       control: "text",
-      description: "Текущее выбранное значение в компоненте.",
     },
     onValueChange: {
       action: "changed",
-      description: "Функция обратного вызова, вызываемая при изменении значения.",
     },
     className: {
       control: "text",
-      description: "Дополнительный CSS-класс для настройки стилей компонента.",
     },
     id: {
       control: "text",
-      description: "Уникальный идентификатор для связывания компонента с текстом в теге label.",
     },
   },
   args: {
@@ -66,7 +56,9 @@ const meta: Meta<typeof RadioGroup> = {
     orientation: "horizontal",
     value: "",
   },
-};
+  tags: ["autodocs"],
+  title: "Ui/RadioGroup",
+} satisfies Meta<typeof RadioGroup>;
 
 export default meta;
 type Story = StoryObj<typeof RadioGroup>;
@@ -75,7 +67,6 @@ export const Default: Story = {
   render: args => {
     const [value, setValue] = useState<string>("");
 
-    console.log("Selected value:", value);
     return (
       <>
         <RadioGroup

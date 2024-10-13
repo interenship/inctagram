@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Pagination as PaginationComponent } from "@/shared/ui/Pagination";
 
 const meta = {
-  component: PaginationComponent,
   args: {
     onPageChange: () => {},
     totalCount: 150,
@@ -12,6 +11,7 @@ const meta = {
     currentPage: 1,
     pageSize: 10,
   },
+  component: PaginationComponent,
   tags: ["autodocs"],
   title: "Ui/Pagination",
 } satisfies Meta<typeof PaginationComponent>;

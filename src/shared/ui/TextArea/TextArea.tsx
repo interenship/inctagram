@@ -6,7 +6,7 @@ import { Label } from "@/shared/ui/Label";
 import { Typography } from "@/shared/ui/Typography";
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  labelText?: string;
+  label?: string;
   error?: string;
   placeholder?: string;
 }
@@ -16,7 +16,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
     className,
     disabled,
     placeholder = "Text-area",
-    labelText,
+    label = "Label",
     error,
     id = generatedId,
     ...restProps
@@ -24,14 +24,14 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
 
   return (
     <>
-      {labelText && (
+      {label && (
         <Label
           htmlFor={id}
           className={cn("mb-1 block text-sm text-light-900", {
             "text-dark-100": disabled,
           })}
         >
-          <Typography variant="regular14">{labelText}</Typography>
+          <Typography variant="regular14">{label}</Typography>
         </Label>
       )}
       <textarea

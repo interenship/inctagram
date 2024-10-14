@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { Button } from "@/shared/ui/Button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Typography } from "@/shared/ui/Typography";
 

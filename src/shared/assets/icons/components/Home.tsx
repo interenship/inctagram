@@ -1,5 +1,6 @@
 import type { SVGProps } from "react";
 import { Ref, forwardRef, memo } from "react";
+
 interface SvgHomeProps extends SVGProps<SVGSVGElement> {
   isFilled?: boolean;
 }

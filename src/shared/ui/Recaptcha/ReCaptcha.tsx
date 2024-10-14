@@ -17,7 +17,7 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error = false }: Props, ref) =
   };
 
   return (
-    <>
+    <div>
       <div className="h-[86px] w-[320px] rounded-[2px] border border-dark-300 bg-[#222222]">
         <div
           className="w-[304px] pl-[10px] pt-[6px]"
@@ -31,7 +31,7 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error = false }: Props, ref) =
           Please verify that you are not a robot
         </Typography.SMALL>
       )}
-    </>
+    </div>
   );
 });
 

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   color-scheme: dark;
   font-family: "Inter", sans-serif;

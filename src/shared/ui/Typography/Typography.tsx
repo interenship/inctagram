@@ -1,23 +1,26 @@
-import { ComponentProps, ElementType, FC, ReactNode } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { ComponentProps, ElementType, FC, ReactNode } from "react";
 
-import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/features/utils/cn";
 
 const typographyVariants = cva([""], {
   variants: {
     variant: {
-      Large: ["text-[1.625rem] leading-9 font-semibold"],
-      h1: ["text-[1.25rem] leading-9 font-bold"],
-      h2: ["text-[1.125rem] leading-6 font-bold"],
+      Large: ["text-[1.625rem] font-semibold leading-9"],
+      h1: ["text-[1.25rem] font-bold leading-9"],
+      h2: ["text-[1.125rem] font-bold leading-6"],
       h3: ["text-base font-semibold"],
       regular16: ["text-base font-normal"],
       bold16: ["text-base font-bold"],
-      regular14: ["text-[0.875rem] leading-6 font-normal"],
-      medium14: ["text-[0.875rem] leading-6 font-medium"],
-      bold14: ["text-[0.875rem] leading-6 font-bold"],
+      regular14: ["text-[0.875rem] font-normal leading-6"],
+      medium14: ["text-[0.875rem] font-medium leading-6"],
+      bold14: ["text-[0.875rem] font-bold leading-6"],
       small: ["text-xs font-normal"],
       semiBoldSmall: ["text-xs font-semibold"],
-      regularLink: ["text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-4"],
+      regularLink: [
+        "text-[0.875rem] font-normal leading-6 text-accent-100 underline underline-offset-4",
+      ],
       smallLink: ["text-xs font-normal text-accent-100 underline underline-offset-4"],
     },
   },

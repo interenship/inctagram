@@ -1,10 +1,7 @@
 import type { SVGProps } from "react";
 import { Ref, forwardRef, memo } from "react";
 
-const SvgPlusSquareOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) => {
+const SvgPlusSquareOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => {
   const { className, ...restProps } = props;
 
   return (

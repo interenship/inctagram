@@ -1,10 +1,10 @@
 import React from "react";
-import { DOTS, usePagination } from "@/shared/ui/Pagination/hooks/usePagination";
-import { PaginationItem } from "@/shared/ui/Pagination/PaginationList/PaginationItem";
-import { PaginationList } from "@/shared/ui/Pagination/PaginationList";
-import { cn } from "@/features/utils/cn";
+
 import { ArrowIosBack, ArrowIosForward } from "@/shared/assets/icons/components";
+import { DOTS, usePagination } from "@/shared/ui/Pagination/hooks/usePagination";
+import { PaginationList } from "@/shared/ui/Pagination/PaginationList";
 import { PaginationArrow } from "@/shared/ui/Pagination/PaginationList/PaginationArrow";
+import { PaginationItem } from "@/shared/ui/Pagination/PaginationList/PaginationItem";
 import { PaginationWrapper } from "@/shared/ui/Pagination/PaginationWrapper";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "@/shared/ui/Select/Select";
 import { SelectItem } from "@/shared/ui/Select/SelectItem";
@@ -48,7 +48,7 @@ export const Pagination = (props: PaginationProps) => {
           <PaginationArrow disabled={firstPage} onClick={onPrevious}>
             <ArrowIosBack />
           </PaginationArrow>
-          {paginationRange?.map((pageNumber) =>
+          {paginationRange?.map(pageNumber =>
             pageNumber === DOTS ? (
               <PaginationItem className="cursor-auto">&#8230;</PaginationItem>
             ) : (
@@ -66,7 +66,7 @@ export const Pagination = (props: PaginationProps) => {
           </PaginationArrow>
         </PaginationList>
         <div className="flex items-center gap-1">
-          <Typography.REGULAR14 className={"text-light-100"}>Show</Typography.REGULAR14>
+          <Typography.REGULAR14 className="text-light-100">Show</Typography.REGULAR14>
           <Select>
             <SelectTrigger size="small">
               <SelectValue placeholder="10" />
@@ -79,7 +79,9 @@ export const Pagination = (props: PaginationProps) => {
               <SelectItem value="100">100</SelectItem>
             </SelectContent>
           </Select>
-          <Typography.REGULAR14 className={"text-light-100 min-w-max leading-none"}>on page</Typography.REGULAR14>
+          <Typography.REGULAR14 className="min-w-max leading-none text-light-100">
+            on page
+          </Typography.REGULAR14>
         </div>
       </PaginationWrapper>
     )

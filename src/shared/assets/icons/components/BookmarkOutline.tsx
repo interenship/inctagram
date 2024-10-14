@@ -1,10 +1,7 @@
-import type { SVGProps } from "react";
-import { Ref, forwardRef, memo } from "react";
+import type { Ref, SVGProps } from "react";
+import { forwardRef, memo } from "react";
 
-const SvgBookmarkOutline = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>,
-) => (
+const SvgBookmarkOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     width="24"
     height="24"
@@ -27,7 +24,6 @@ const SvgBookmarkOutline = (
     </defs>
   </svg>
 );
-
 const ForwardRef = forwardRef(SvgBookmarkOutline);
 const Memo = memo(ForwardRef);
 export default Memo;

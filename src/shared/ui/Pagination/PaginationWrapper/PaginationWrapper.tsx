@@ -1,5 +1,6 @@
+import type { ReactNode } from "react";
+
 import { cn } from "@/features/utils/cn";
-import { ReactNode } from "react";
 
 type PaginationWrapper = {
   className?: string;

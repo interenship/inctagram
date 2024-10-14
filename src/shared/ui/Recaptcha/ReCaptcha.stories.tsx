@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Typography } from "../Typography";
 import { ReCaptcha as ReCaptchaComponent } from "./ReCaptcha";
-import { Typography } from '../Typography';
 
 const meta: Meta<typeof ReCaptchaComponent> = {
   component: ReCaptchaComponent,
@@ -13,7 +13,6 @@ type Story = StoryObj<typeof ReCaptchaComponent>;
 
 export const Recaptcha: Story = {
   render: () => {
-
     return (
       <div className="flex gap-10">
         <div>
@@ -22,7 +21,7 @@ export const Recaptcha: Story = {
         </div>
         <div>
           <Typography.SMALL className="text-danger-600">Error</Typography.SMALL>
-          <ReCaptchaComponent error={true} />
+          <ReCaptchaComponent error />
         </div>
       </div>
     );

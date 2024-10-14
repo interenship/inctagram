@@ -35,7 +35,7 @@ export const Header = ({ isLogged, className }: HeaderProps) => {
   return (
     <header className="flex w-full flex-col">
       <div className={cn("flex h-[60px] items-center justify-between px-[64px]", className)}>
-        <Typography variant="large" className="cursor-pointer">
+        <Typography as={"h1"} variant="large" className="cursor-pointer">
           Inctagram
         </Typography>
         <div className="flex gap-9">

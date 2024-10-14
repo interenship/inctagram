@@ -42,7 +42,7 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((props, ref) => {
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
       {label && (
-        <Typography variant="regular14" className={typography}>
+        <Typography as={"label"} variant="regular14" className={typography}>
           {label}
         </Typography>
       )}

@@ -27,7 +27,9 @@ export const Card: Story = {
     <CardComponent>
       <CardHeader>
         <CardTitle className="mx-auto">
-          <Typography variant="h1">Card Tittle</Typography>
+          <Typography as={"h1"} variant="h1">
+            Card Tittle
+          </Typography>
         </CardTitle>
 
         <CardDescription className="mx-auto">

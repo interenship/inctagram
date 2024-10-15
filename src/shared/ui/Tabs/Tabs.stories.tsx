@@ -86,10 +86,10 @@ export const FullWidth: Story = {
 export const DisabledTabs: Story = {
   args: {
     tabs: [
-      { disabled: false, title: "Tabs1", value: "Tabs1" },
-      { disabled: false, title: "Tabs2", value: "Tabs2" },
-      { disabled: false, title: "Tabs3", value: "Tabs3" },
-      { disabled: false, title: "Tabs4", value: "Tabs4" },
+      { disabled: true, title: "Tabs1", value: "Tabs1" },
+      { disabled: true, title: "Tabs2", value: "Tabs2" },
+      { disabled: true, title: "Tabs3", value: "Tabs3" },
+      { disabled: true, title: "Tabs4", value: "Tabs4" },
     ],
     fullWidth: false,
   },

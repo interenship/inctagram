@@ -1,5 +1,4 @@
 import { List, Trigger } from "@radix-ui/react-tabs";
-import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 
 import { cn } from "@/features/utils/cn";
@@ -12,8 +11,8 @@ export type TabsListProps = {
 };
 
 const TabsList = forwardRef<
-  ElementRef<typeof List>,
-  ComponentPropsWithoutRef<typeof List> & TabsListProps
+  React.ElementRef<typeof List>,
+  React.ComponentPropsWithoutRef<typeof List> & TabsListProps
 >((props, ref) => {
   const { tabs, fullWidth = false, className, ...restProps } = props;
 
@@ -41,8 +40,8 @@ const TabsList = forwardRef<
 TabsList.displayName = List.displayName;
 
 const TabsTrigger = forwardRef<
-  ElementRef<typeof Trigger>,
-  ComponentPropsWithoutRef<typeof Trigger>
+  React.ElementRef<typeof Trigger>,
+  React.ComponentPropsWithoutRef<typeof Trigger>
 >((props, ref) => {
   const { className, ...restProps } = props;
 

@@ -1,5 +1,4 @@
 import { Content, Root } from "@radix-ui/react-tabs";
-
 import { forwardRef } from "react";
 
 import { cn } from "@/features/utils/cn";

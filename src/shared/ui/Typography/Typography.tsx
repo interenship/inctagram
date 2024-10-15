@@ -37,7 +37,7 @@ const typographyClasses: Record<TypographyVariant, string> = {
   boldSmall: "text-xs font-semibold",
   link: "text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-4",
   linkSmall: "text-xs font-normal text-accent-100 underline underline-offset-4",
-  error: "text-xs text-danger-500",
+  error: "text-base text-danger-500 font-normal leading-6",
 };
 
 export const Typography = <T extends ElementType = "p">({

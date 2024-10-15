@@ -8,17 +8,16 @@ import type { TextFieldProps } from "@/shared/ui/TextField/TextField";
 import { TextField } from "@/shared/ui/TextField/TextField";
 import { Typography } from "@/shared/ui/Typography";
 
-const meta = {
+const meta: Meta<typeof TextField> = {
   component: TextField,
+  tags: ["autodocs"],
   argTypes: {
     disabled: { control: "boolean" },
   },
   args: {
     id: "forInput",
   },
-  tags: ["autodocs"],
-  title: "Ui/TextField",
-} satisfies Meta<typeof TextField>;
+};
 
 export default meta;
 type Story = StoryObj<typeof TextField>;
@@ -42,7 +41,9 @@ export const TextInputWithLabel: Story = {
     return (
       <>
         <Label disabled={args.disabled} htmlFor={args.id} className={cn("text-white")}>
-          <Typography variant="regular16">Text input</Typography>
+          <Typography as={"label"} variant="regular16">
+            Text input
+          </Typography>
         </Label>
         <TextFieldWrapper {...args} />
       </>
@@ -62,7 +63,9 @@ export const TextInputError: Story = {
   render: args => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Text input with error</Typography>
+        <Typography as={"label"} variant="regular16">
+          Text input with error
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -77,7 +80,9 @@ export const TextInputDisabled: Story = {
   render: args => (
     <>
       <Label disabled={args.disabled} htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Text input disabled</Typography>
+        <Typography as={"label"} variant="regular16">
+          Text input disabled
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -92,7 +97,9 @@ export const SearchInputWithLabel: Story = {
   render: args => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Search</Typography>
+        <Typography as={"label"} variant="regular16">
+          Search
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -116,7 +123,9 @@ export const SearchInputError: Story = {
   render: args => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Search</Typography>
+        <Typography as={"label"} variant="regular16">
+          Search
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -132,7 +141,9 @@ export const SearchInputDisabled: Story = {
   render: args => (
     <>
       <Label disabled={args.disabled} htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Search input disabled</Typography>
+        <Typography as={"label"} variant="regular16">
+          Search input disabled
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -147,7 +158,9 @@ export const PasswordInputWithLabel: Story = {
   render: args => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Password</Typography>
+        <Typography as={"label"} variant="regular16">
+          Password
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -171,7 +184,9 @@ export const PasswordInputError: Story = {
   render: args => (
     <>
       <Label htmlFor={args.id} className={cn("text-white")}>
-        <Typography variant="regular16">Password Error</Typography>
+        <Typography as={"label"} variant="regular16">
+          Password Error
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>
@@ -187,7 +202,9 @@ export const PasswordInputDisabled: Story = {
   render: args => (
     <>
       <Label disabled={args.disabled} htmlFor="textfield" className={cn("text-white")}>
-        <Typography variant="regular16">Password input disabled</Typography>
+        <Typography as={"label"} variant="regular16">
+          Password input disabled
+        </Typography>
       </Label>
       <TextFieldWrapper {...args} />
     </>

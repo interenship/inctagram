@@ -2,11 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Tabs, TabsContent, TabsList } from ".";
 
-const meta = {
+const meta: Meta<typeof Tabs> = {
   component: Tabs,
   tags: ["autodocs"],
-  title: "Ui/Tabs",
-} satisfies Meta<typeof Tabs>;
+  parameters: {
+    layout: "centered",
+  },
+};
 
 const TabListProps = {
   tabs: [
@@ -30,7 +32,15 @@ export const Story: Story = {
       },
     },
   },
-  args: TabListProps,
+  args: {
+    tabs: [
+      { disabled: false, title: "Tabs1", value: "Tabs1" },
+      { disabled: false, title: "Tabs2", value: "Tabs2" },
+      { disabled: false, title: "Tabs3", value: "Tabs3" },
+      { disabled: false, title: "Tabs4", value: "Tabs4" },
+    ],
+    fullWidth: false,
+  },
   render: (args: any) => {
     return (
       <div className="w-[920px] max-w-[955px]">
@@ -74,7 +84,15 @@ export const FullWidth: Story = {
 };
 
 export const DisabledTabs: Story = {
-  args: TabListProps,
+  args: {
+    tabs: [
+      { disabled: false, title: "Tabs1", value: "Tabs1" },
+      { disabled: false, title: "Tabs2", value: "Tabs2" },
+      { disabled: false, title: "Tabs3", value: "Tabs3" },
+      { disabled: false, title: "Tabs4", value: "Tabs4" },
+    ],
+    fullWidth: false,
+  },
   render: (args: any) => {
     return (
       <div className="w-[920px] max-w-[955px]">

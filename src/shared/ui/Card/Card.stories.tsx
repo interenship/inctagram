@@ -37,10 +37,14 @@ export const Card: Story = {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Typography variant="h2">Card Content</Typography>
+        <Typography as={"h2"} variant="h2">
+          Card Content
+        </Typography>
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
-            <Typography variant="h3">Framework</Typography>
+            <Typography as={"h3"} variant="h3">
+              Framework
+            </Typography>
             <Select>
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />

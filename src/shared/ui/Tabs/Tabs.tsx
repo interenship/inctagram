@@ -1,5 +1,5 @@
 import { Content, Root } from "@radix-ui/react-tabs";
-import type { ComponentPropsWithoutRef, ElementRef } from "react";
+
 import { forwardRef } from "react";
 
 import { cn } from "@/features/utils/cn";
@@ -13,8 +13,8 @@ export type TabType = {
 const Tabs = Root;
 
 const TabsContent = forwardRef<
-  ElementRef<typeof Content>,
-  ComponentPropsWithoutRef<typeof Content>
+  React.ElementRef<typeof Content>,
+  React.ComponentPropsWithoutRef<typeof Content>
 >((props, ref) => {
   const { className, ...restProps } = props;
 

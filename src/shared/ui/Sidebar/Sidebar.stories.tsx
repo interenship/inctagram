@@ -1,14 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Sidebar as SidebarComponent } from ".";
+import { Sidebar } from "@/shared/ui/Sidebar/Sidebar";
 
-const meta = {
-  component: SidebarComponent,
+const meta: Meta<typeof Sidebar> = {
+  component: Sidebar,
   tags: ["autodocs"],
-  title: "Ui/Sidebar",
-} satisfies Meta<typeof SidebarComponent>;
+  parameters: {
+    layout: "left",
+  },
+  args: {},
+};
 
 export default meta;
-type Story = StoryObj<typeof SidebarComponent>;
+type Story = StoryObj<typeof Sidebar>;
 
-export const Sidebar: Story = {};
+export const Primary: Story = {};

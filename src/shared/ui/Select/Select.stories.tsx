@@ -5,19 +5,22 @@ import FlagUnitedKingdom from "@/shared/assets/icons/components/FlagUnitedKingdo
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./index";
 
-const meta = {
+const meta: Meta<typeof Select> = {
   component: Select,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     disabled: {
       control: "boolean",
+      description: "Отключает компонент, делая его недоступным для взаимодействия.",
     },
   },
   args: {
     disabled: false,
   },
-  tags: ["autodocs"],
-  title: "Ui/Select",
-} satisfies Meta<typeof Select>;
+};
 
 export default meta;
 type Story = StoryObj<typeof Select>;

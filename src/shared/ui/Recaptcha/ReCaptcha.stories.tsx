@@ -6,12 +6,13 @@ import { ReCaptcha as ReCaptchaComponent } from "./ReCaptcha";
 const meta: Meta<typeof ReCaptchaComponent> = {
   component: ReCaptchaComponent,
   tags: ["autodocs"],
+  title: "UI/ReCaptcha",
 };
 
 export default meta;
 type Story = StoryObj<typeof ReCaptchaComponent>;
 
-export const Recaptcha: Story = {
+export const ReCaptcha: Story = {
   render: () => {
     return (
       <div className="flex gap-10">

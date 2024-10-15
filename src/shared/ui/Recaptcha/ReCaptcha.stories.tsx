@@ -3,11 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Typography } from "../Typography";
 import { ReCaptcha as ReCaptchaComponent } from "./ReCaptcha";
 
-const meta: Meta<typeof ReCaptchaComponent> = {
+const meta = {
   component: ReCaptchaComponent,
   tags: ["autodocs"],
   title: "UI/ReCaptcha",
-};
+} satisfies Meta<typeof ReCaptchaComponent>;
 
 export default meta;
 type Story = StoryObj<typeof ReCaptchaComponent>;

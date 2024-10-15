@@ -9,7 +9,7 @@ const meta = {
   },
   component: Checkbox,
   tags: ["autodocs"],
-  title: "Ui/Checkbox",
+  title: "ui/Checkbox",
 } satisfies Meta<typeof Checkbox>;
 
 type Story = StoryObj<typeof meta>;

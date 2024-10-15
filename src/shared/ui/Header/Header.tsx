@@ -35,7 +35,7 @@ export const Header = ({ isLogged, className }: HeaderProps) => {
   return (
     <header className="flex w-full flex-col">
       <div className={cn("flex h-[60px] items-center justify-between px-[64px]", className)}>
-        <Typography as={"h1"} variant="large" className="cursor-pointer">
+        <Typography variant="large" className="cursor-pointer">
           Inctagram
         </Typography>
         <div className="flex gap-9">
@@ -59,18 +59,18 @@ export const Header = ({ isLogged, className }: HeaderProps) => {
           {!isLogged && (
             <div className="flex items-center gap-6">
               <Button className="cursor-pointer" variant="text" asChild>
-                <Link href="/login">
-                  <Typography variant="regular16">Log in</Typography>
-                </Link>
+                <Typography as={Link} variant="regular16" href="/login">
+                  Log in
+                </Typography>
               </Button>
               <Button
                 variant="primary"
                 className="width-[100px] height-[36px] cursor-pointer"
                 asChild
               >
-                <Link href="/signUp">
-                  <Typography variant="regular16">Sign up</Typography>
-                </Link>
+                <Typography as={Link} variant="regular16" href="/signUp">
+                  Sign up
+                </Typography>
               </Button>
             </div>
           )}

@@ -27,9 +27,7 @@ export const Card: Story = {
     <CardComponent>
       <CardHeader>
         <CardTitle className="mx-auto">
-          <Typography as={"h1"} variant="h1">
-            Card Tittle
-          </Typography>
+          <Typography variant="h1">Card Tittle</Typography>
         </CardTitle>
 
         <CardDescription className="mx-auto">
@@ -37,14 +35,10 @@ export const Card: Story = {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Typography as={"h2"} variant="h2">
-          Card Content
-        </Typography>
+        <Typography variant="h2">Card Content</Typography>
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
-            <Typography as={"h3"} variant="h3">
-              Framework
-            </Typography>
+            <Typography variant="h3">Framework</Typography>
             <Select>
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 export type TypographyVariant =
@@ -20,8 +21,26 @@ export type TypographyVariant =
 type TypographyProps<T extends ElementType> = {
   as?: T;
   gray?: boolean;
+  htmlFor?: string;
   variant?: TypographyVariant;
 } & ComponentPropsWithoutRef<T>;
+
+const defaultTags: Record<TypographyVariant, ElementType> = {
+  large: "h1",
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  regular14: "p",
+  regular16: "p",
+  bold14: "p",
+  bold16: "p",
+  medium14: "p",
+  small: "p",
+  boldSmall: "p",
+  error: "p",
+  link: Link,
+  linkSmall: Link,
+};
 
 const typographyClasses: Record<TypographyVariant, string> = {
   large: "text-[1.625rem] leading-9 font-semibold",
@@ -41,10 +60,12 @@ const typographyClasses: Record<TypographyVariant, string> = {
 };
 
 export const Typography = <T extends ElementType = "p">(props: TypographyProps<T>) => {
-  const { as: Component = "p", className, gray, variant = "regular14", ...rest } = props;
+  const { as, className, gray, htmlFor, variant = "regular14", ...rest } = props;
+
+  const Component = as || defaultTags[variant];
 
   const grayClass = gray && "text-light-900";
   const classNames = clsx(typographyClasses[variant], grayClass, className);
 
-  return <Component className={classNames} {...rest} />;
+  return <Component className={classNames} htmlFor={htmlFor} {...rest} />;
 };

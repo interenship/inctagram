@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { TypographyVariant } from "./Typography";
-import { Typography as TypographyComponent } from "./Typography";
+import { Typography as TypographyComponent, TypographyVariant } from "./Typography";
+import Link from "next/link";
 
 const mockText = "Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH";
 
@@ -39,129 +39,31 @@ type Story = StoryObj<typeof meta>;
 export default meta;
 
 const container = "flex flex-col gap-6";
-const item = "flex items-center gap-10";
 
 export const Typography: Story = {
   render: (args: { variant?: TypographyVariant; gray?: boolean }) => (
     <div className={container}>
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Large:
-        </TypographyComponent>
-        <TypographyComponent as={"h1"} variant="large">
-          {mockText}
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          H1:
-        </TypographyComponent>
-        <TypographyComponent as={"h1"} variant="h1">
-          {mockText}
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          H2:
-        </TypographyComponent>
-        <TypographyComponent as={"h2"} variant="h2">
-          {mockText}
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          H3:
-        </TypographyComponent>
-        <TypographyComponent as={"h3"} variant="h3">
-          {mockText}
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Regular-14:
-        </TypographyComponent>
-        <TypographyComponent variant="regular14">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Regular-16:
-        </TypographyComponent>
-        <TypographyComponent variant="regular16">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Bold-14:
-        </TypographyComponent>
-        <TypographyComponent variant="bold14">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Bold-16:
-        </TypographyComponent>
-        <TypographyComponent variant="bold16">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Medium-14:
-        </TypographyComponent>
-        <TypographyComponent variant="medium14">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Small:
-        </TypographyComponent>
-        <TypographyComponent variant="small">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Bold-Small:
-        </TypographyComponent>
-        <TypographyComponent variant="boldSmall">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Link:
-        </TypographyComponent>
-        <TypographyComponent variant="link">
-          <a href="https://google.com">Link</a>
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Link-Small:
-        </TypographyComponent>
-        <TypographyComponent variant="linkSmall">
-          <a href="https://facebook.com">Link-Small</a>
-        </TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Error:
-        </TypographyComponent>
-        <TypographyComponent variant="error">{mockText}</TypographyComponent>
-      </div>
-
-      <div className={item}>
-        <TypographyComponent className="w-[100px]" variant="regular14">
-          Gray:
-        </TypographyComponent>
-        <TypographyComponent variant="regular14" gray>
-          {mockText}
-        </TypographyComponent>
-      </div>
+      <TypographyComponent variant="large">Large: {mockText}</TypographyComponent>
+      <TypographyComponent variant="h1">H1: {mockText}</TypographyComponent>
+      <TypographyComponent variant="h2">H2: {mockText}</TypographyComponent>
+      <TypographyComponent variant="h3">H3: {mockText}</TypographyComponent>
+      <TypographyComponent>Regular-14: {mockText}</TypographyComponent>
+      <TypographyComponent variant="regular16">Regular-16: {mockText}</TypographyComponent>
+      <TypographyComponent variant="bold14">Bold-14: {mockText}</TypographyComponent>
+      <TypographyComponent variant="bold16">Bold-16: {mockText}</TypographyComponent>
+      <TypographyComponent variant="medium14">Medium-14: {mockText}</TypographyComponent>
+      <TypographyComponent variant="small">Small: {mockText}</TypographyComponent>
+      <TypographyComponent variant="boldSmall">Bold-Small: {mockText}</TypographyComponent>
+      <TypographyComponent as={Link} variant="link" href={"https://www.facebook.com"}>
+        Link: {mockText}
+      </TypographyComponent>
+      <TypographyComponent as={Link} href={"https://www.google.com/"} variant="linkSmall">
+        Link-Small: {mockText}
+      </TypographyComponent>
+      <TypographyComponent as={"span"} variant="error">
+        Error: {mockText}
+      </TypographyComponent>
+      <TypographyComponent gray>Gray: {mockText}</TypographyComponent>
     </div>
   ),
 };

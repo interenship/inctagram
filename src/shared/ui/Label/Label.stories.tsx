@@ -28,11 +28,7 @@ const meta: Meta<typeof Label> = {
   args: {
     disabled: false,
     htmlFor: "email",
-    children: (
-      <Typography variant="regular14" className="ml-2 text-light-100">
-        Your email address
-      </Typography>
-    ),
+    children: <Typography>Your email address</Typography>,
   },
 };
 
@@ -44,10 +40,6 @@ export const Default: Story = {};
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: (
-      <Typography variant="regular14" className="ml-2 text-light-100">
-        Your password is required
-      </Typography>
-    ),
+    children: <Typography gray>Your password is required</Typography>,
   },
 };

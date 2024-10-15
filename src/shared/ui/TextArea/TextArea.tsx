@@ -31,9 +31,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
             "text-dark-100": disabled,
           })}
         >
-          <Typography as={"label"} variant="regular14">
-            {labelText}
-          </Typography>
+          <Typography as={"label"}>{labelText}</Typography>
         </Label>
       )}
       <textarea

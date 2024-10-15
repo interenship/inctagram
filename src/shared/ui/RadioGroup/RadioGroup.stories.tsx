@@ -85,14 +85,10 @@ export const Default: Story = {
           onValueChange={newValue => setValue(newValue)}
         >
           {valueExamples.map(option => (
-            <div key={option.value} className="flex items-center justify-center">
+            <div key={option.value} className="flex items-center justify-center gap-2">
               <RadioGroupItem disabled={args.disabled} value={option.value} id={option.value} />
               <Label htmlFor={option.value} disabled={args.disabled}>
-                {option.label && (
-                  <Typography variant="regular14" className="ml-2 text-light-100">
-                    {option.label}
-                  </Typography>
-                )}
+                {option.label && <Typography>{option.label}</Typography>}
               </Label>
             </div>
           ))}

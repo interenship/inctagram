@@ -66,9 +66,7 @@ export const Pagination = (props: PaginationProps) => {
           </PaginationArrow>
         </PaginationList>
         <div className="flex items-center gap-1">
-          <Typography variant="regular14" className="text-light-100">
-            Show
-          </Typography>
+          <Typography>Show</Typography>
           <Select>
             <SelectTrigger size="small">
               <SelectValue placeholder="10" />
@@ -81,9 +79,7 @@ export const Pagination = (props: PaginationProps) => {
               <SelectItem value="100">100</SelectItem>
             </SelectContent>
           </Select>
-          <Typography variant="regular14" className="min-w-max leading-none text-light-100">
-            on page
-          </Typography>
+          <Typography className="min-w-max leading-none">on page</Typography>
         </div>
       </PaginationWrapper>
     )

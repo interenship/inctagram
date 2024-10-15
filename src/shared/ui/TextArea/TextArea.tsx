@@ -27,7 +27,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
       {labelText && (
         <Label
           htmlFor={id}
-          className={cn("mb-1 block text-sm text-light-900", {
+          className={cn("block text-sm mb-1 text-light-900", {
             "text-dark-100": disabled,
           })}
         >
@@ -39,10 +39,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
         disabled={disabled}
         placeholder={placeholder}
         className={cn(
-          "ring-offset-background !m-[2px] flex min-h-[80px] w-full min-w-[284px] resize-none rounded-sm border-dark-100 px-3 py-2 text-sm",
-          "placeholder:text-md bg-background border border-dark-100 text-light-900 placeholder:text-light-900",
-          "focus:text-light-100 focus:placeholder:text-light-100 focus-visible:border-accent-700 focus-visible:outline-none",
-          "active:placeholder:text-light active:border-light-100",
+          "flex min-h-[80px] min-w-[284px] w-full border-dark-100 resize-none rounded-sm px-3 py-2 text-sm !m-[2px] ring-offset-background",
+          "text-light-900 placeholder:text-md placeholder:text-light-900 border border-dark-100 bg-background",
+          "focus-visible:outline-none focus-visible:border-accent-700 focus:text-light-100 focus:placeholder:text-light-100",
+          "active:border-light-100 active:placeholder:text-light",
           {
             "border-danger-500 focus:border-danger-500 placeholder:text-light-100": error,
             "disabled:cursor-not-allowed disabled:opacity-50": disabled,
@@ -54,7 +54,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
       />
       {error && (
         <Typography.REGULAR14>
-          <span className="pl-px text-xs text-danger-500">{error}</span>
+          <span className="text-danger-500 pl-[1px] text-xs">{error}</span>
         </Typography.REGULAR14>
       )}
     </>

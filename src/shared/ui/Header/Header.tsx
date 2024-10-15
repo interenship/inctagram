@@ -60,7 +60,7 @@ export const Header = ({ isLogged, className }: HeaderProps) => {
             <div className="flex items-center gap-6">
               <Button className="cursor-pointer" variant="text" asChild>
                 <Link href="/login">
-                  <Typography variant="regular14">Log in</Typography>
+                  <Typography variant="regular16">Log in</Typography>
                 </Link>
               </Button>
               <Button
@@ -69,7 +69,7 @@ export const Header = ({ isLogged, className }: HeaderProps) => {
                 asChild
               >
                 <Link href="/signUp">
-                  <Typography variant="regular14">Sign up</Typography>
+                  <Typography variant="regular16">Sign up</Typography>
                 </Link>
               </Button>
             </div>

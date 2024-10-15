@@ -21,7 +21,7 @@ export const ReCaptcha: Story = {
           <ReCaptchaComponent />
         </div>
         <div>
-          <Typography.SMALL className="text-danger-600">Error</Typography.SMALL>
+          <Typography.SMALL className="text-danger-500">Error</Typography.SMALL>
           <ReCaptchaComponent error />
         </div>
       </div>

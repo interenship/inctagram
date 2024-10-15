@@ -38,47 +38,127 @@ const meta = {
 type Story = StoryObj<typeof meta>;
 export default meta;
 
-const typographyVariants: { variant: TypographyVariant; label: string; href?: string }[] = [
-  { variant: "large", label: "Large" },
-  { variant: "h1", label: "H1" },
-  { variant: "h2", label: "H2" },
-  { variant: "h3", label: "H3" },
-  { variant: "regular14", label: "Regular-14" },
-  { variant: "regular16", label: "Regular-16" },
-  { variant: "bold14", label: "Bold-14" },
-  { variant: "bold16", label: "Bold-16" },
-  { variant: "medium14", label: "Medium-14" },
-  { variant: "small", label: "Small" },
-  { variant: "boldSmall", label: "Bold-Small" },
-  { variant: "link", label: "Link", href: "https://google.com" },
-  { variant: "linkSmall", label: "Link-Small", href: "https://facebook.com" },
-  { variant: "error", label: "Error" },
-];
+const container = "flex flex-col gap-6";
+const item = "flex items-center gap-10";
 
 export const Typography: Story = {
   render: (args: { variant?: TypographyVariant; gray?: boolean }) => (
-    <div className="flex flex-col gap-6">
-      {typographyVariants.map(({ variant, label, href }) => (
-        <div key={variant} className="flex items-center gap-10">
-          <TypographyComponent className="w-[100px]" {...args} variant="regular14">
-            {label}:
-          </TypographyComponent>
-          {variant.startsWith("link") ? (
-            <TypographyComponent {...args} variant={variant}>
-              <a href={href}>{label}</a>
-            </TypographyComponent>
-          ) : (
-            <TypographyComponent {...args} variant={variant}>
-              {mockText}
-            </TypographyComponent>
-          )}
-        </div>
-      ))}
-      <div className="flex items-center gap-10">
-        <TypographyComponent className="w-[100px]" {...args} variant="regular14" gray>
+    <div className={container}>
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Large:
+        </TypographyComponent>
+        <TypographyComponent as={"h1"} variant="large">
+          {mockText}
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          H1:
+        </TypographyComponent>
+        <TypographyComponent as={"h1"} variant="h1">
+          {mockText}
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          H2:
+        </TypographyComponent>
+        <TypographyComponent as={"h2"} variant="h2">
+          {mockText}
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          H3:
+        </TypographyComponent>
+        <TypographyComponent as={"h3"} variant="h3">
+          {mockText}
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Regular-14:
+        </TypographyComponent>
+        <TypographyComponent variant="regular14">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Regular-16:
+        </TypographyComponent>
+        <TypographyComponent variant="regular16">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Bold-14:
+        </TypographyComponent>
+        <TypographyComponent variant="bold14">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Bold-16:
+        </TypographyComponent>
+        <TypographyComponent variant="bold16">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Medium-14:
+        </TypographyComponent>
+        <TypographyComponent variant="medium14">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Small:
+        </TypographyComponent>
+        <TypographyComponent variant="small">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Bold-Small:
+        </TypographyComponent>
+        <TypographyComponent variant="boldSmall">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Link:
+        </TypographyComponent>
+        <TypographyComponent variant="link">
+          <a href="https://google.com">Link</a>
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Link-Small:
+        </TypographyComponent>
+        <TypographyComponent variant="linkSmall">
+          <a href="https://facebook.com">Link-Small</a>
+        </TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
+          Error:
+        </TypographyComponent>
+        <TypographyComponent variant="error">{mockText}</TypographyComponent>
+      </div>
+
+      <div className={item}>
+        <TypographyComponent className="w-[100px]" variant="regular14">
           Gray:
         </TypographyComponent>
-        <TypographyComponent {...args} variant="regular14" gray>
+        <TypographyComponent variant="regular14" gray>
           {mockText}
         </TypographyComponent>
       </div>

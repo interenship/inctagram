@@ -37,19 +37,13 @@ const typographyClasses: Record<TypographyVariant, string> = {
   boldSmall: "text-xs font-semibold",
   link: "text-[0.875rem] leading-6 font-normal text-accent-100 underline underline-offset-4",
   linkSmall: "text-xs font-normal text-accent-100 underline underline-offset-4",
-  error: "text-base text-danger-500 font-normal leading-6",
+  error: "text-xs text-danger-500 font-normal leading-6",
 };
 
-export const Typography = <T extends ElementType = "p">({
-  as,
-  className,
-  gray,
-  variant = "regular14",
-  ...rest
-}: TypographyProps<T>) => {
-  const Component = as || "p";
+export const Typography = <T extends ElementType = "p">(props: TypographyProps<T>) => {
+  const { as: Component = "p", className, gray, variant = "regular14", ...rest } = props;
 
-  const grayClass = gray ? "text-light-900" : "";
+  const grayClass = gray && "text-light-900";
   const classNames = clsx(typographyClasses[variant], grayClass, className);
 
   return <Component className={classNames} {...rest} />;

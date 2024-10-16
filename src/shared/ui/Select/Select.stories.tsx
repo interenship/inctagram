@@ -59,36 +59,6 @@ export const Small: Story = {
   ),
 };
 
-export const SmallBorderColor: Story = {
-  render: args => (
-    <Select {...args}>
-      <SelectTrigger size="small">
-        <SelectValue placeholder="100" />
-      </SelectTrigger>
-      <SelectContent className="border-dark-300 text-red-500">
-        <SelectItem className="data-[highlighted]:text-light-100" value="10">
-          10
-        </SelectItem>
-        <SelectItem className="data-[highlighted]:text-light-100" value="20">
-          20
-        </SelectItem>
-        <SelectItem className="data-[highlighted]:text-light-100" value="30">
-          30
-        </SelectItem>
-        <SelectItem className="data-[highlighted]:text-light-100" value="40">
-          40
-        </SelectItem>
-        <SelectItem className="data-[highlighted]:text-light-100" value="50">
-          50
-        </SelectItem>
-        <SelectItem className="data-[highlighted]:text-light-100" value="100">
-          100
-        </SelectItem>
-      </SelectContent>
-    </Select>
-  ),
-};
-
 export const Disabled: Story = {
   render: args => (
     <Select {...args}>

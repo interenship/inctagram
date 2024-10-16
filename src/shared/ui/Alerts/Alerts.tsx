@@ -85,10 +85,10 @@ export const Alerts = (props: AlertsProps) => {
           onMouseLeave={fReturnTimer}
         >
           <div className="flex max-w-[95%] gap-[5px] text-white">
-            {status === AlertsStatus.success && <Typography.BOLD16>SUCCESS!</Typography.BOLD16>}
-            {status === AlertsStatus.failed && <Typography.BOLD16>ERROR!</Typography.BOLD16>}
+            {status === AlertsStatus.success && <Typography variant="bold16">SUCCESS!</Typography>}
+            {status === AlertsStatus.failed && <Typography variant="bold16">ERROR!</Typography>}
 
-            <Typography.REGULAR16>{message}</Typography.REGULAR16>
+            <Typography variant="regular16">{message}</Typography>
           </div>
 
           <Close fill="#fff" className="cursor-pointer" />

@@ -31,7 +31,9 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
             "text-dark-100": disabled,
           })}
         >
-          <Typography.REGULAR14>{labelText}</Typography.REGULAR14>
+          <Typography as="label" htmlFor={id}>
+            {labelText}
+          </Typography>
         </Label>
       )}
       <textarea
@@ -52,11 +54,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
         ref={ref}
         {...restProps}
       />
-      {error && (
-        <Typography.REGULAR14>
-          <span className="text-danger-500 pl-[1px] text-xs">{error}</span>
-        </Typography.REGULAR14>
-      )}
+      {error && <Typography variant="error">{error}</Typography>}
     </>
   );
 });

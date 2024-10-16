@@ -17,9 +17,12 @@ const LogOutBtn = (props: LogOutProps) => {
       onClick={logOutFn}
     >
       <LogOutOutline className="text-light-100 group-hover:text-accent-100 group-active:text-accent-500" />
-      <Typography.MEDIUM14 className="group-hover:text-accent-100 group-active:text-accent-500">
+      <Typography
+        variant="medium14"
+        className="group-hover:text-accent-100 group-active:text-accent-500"
+      >
         Log out
-      </Typography.MEDIUM14>
+      </Typography>
     </Button>
   );
 };

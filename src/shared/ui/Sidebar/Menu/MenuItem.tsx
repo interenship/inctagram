@@ -42,14 +42,15 @@ export const MenuItem = (props: MenuItemProps) => {
             }
           )}
         />
-        <Typography.MEDIUM14
+        <Typography
+          variant="medium14"
           className={cn("transition-colors duration-200 ease-in-out group-hover:text-accent-100", {
             "group-hover:text-accent-500 text-accent-500 font-bold": isActive,
             "text-dark-100": disabled,
           })}
         >
           {title}
-        </Typography.MEDIUM14>
+        </Typography>
       </Link>
     </Button>
   );

@@ -60,7 +60,7 @@ export const Small: Story = {
 };
 
 export const SmallBorderColor: Story = {
-  render: (args) => (
+  render: args => (
     <Select {...args}>
       <SelectTrigger size="small">
         <SelectValue placeholder="100" />

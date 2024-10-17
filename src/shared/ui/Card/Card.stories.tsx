@@ -4,28 +4,23 @@ import { Button } from "@/shared/ui/Button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/Select";
 import { Typography } from "@/shared/ui/Typography";
 
-import {
-  Card as CardComponent,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from ".";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from ".";
 
-const meta = {
-  component: CardComponent,
+const meta: Meta<typeof Card> = {
+  component: Card,
   tags: ["autodocs"],
-  title: "Ui/Card",
-} satisfies Meta<typeof CardComponent>;
+  parameters: {
+    layout: "centered",
+  },
+};
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Card: Story = {
+export const Default: Story = {
   render: () => (
-    <CardComponent>
+    <Card>
       <CardHeader>
         <CardTitle className="mx-auto">
           <Typography.H1>Card Tittle</Typography.H1>
@@ -61,6 +56,6 @@ export const Card: Story = {
           <Button>Deploy</Button>
         </div>
       </CardFooter>
-    </CardComponent>
+    </Card>
   ),
 };

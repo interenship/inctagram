@@ -3,7 +3,12 @@ import { fn } from "@storybook/test";
 
 import { Button } from ".";
 
-const meta = {
+const meta: Meta<typeof Button> = {
+  component: Button,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -21,10 +26,7 @@ const meta = {
     fullWidth: false,
     onClick: fn(),
   },
-  component: Button,
-  tags: ["autodocs"],
-  title: "Ui/Button",
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof Button>;

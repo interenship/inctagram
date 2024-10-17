@@ -16,7 +16,6 @@ const SvgEyeOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) 
     </svg>
   );
 };
-
 const ForwardRef = forwardRef(SvgEyeOutline);
 const Memo = memo(ForwardRef);
 export default Memo;

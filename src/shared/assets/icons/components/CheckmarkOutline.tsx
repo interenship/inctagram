@@ -1,5 +1,5 @@
-import type { Ref, SVGProps } from "react";
-import { forwardRef, memo } from "react";
+import type { SVGProps } from "react";
+import { Ref, forwardRef, memo } from "react";
 
 const SvgCheckmarkOutline = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg height="18" viewBox="0 0 18 18" width="18" fill="currentColor" ref={ref} {...props}>

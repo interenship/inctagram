@@ -12,8 +12,8 @@ import { Typography } from "@/shared/ui/Typography";
 
 type DatePickerProps = ComponentPropsWithoutRef<"input"> & {
   errorMessage?: string;
-  onClick?: () => void;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  // onClick?: () => void;
+  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, ref) => {
@@ -171,7 +171,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
           }}
         />
       )}
-      Selected:{inputValue}
       {error && <Typography.SMALL className={cn("text-danger-500")}>{error}</Typography.SMALL>}
     </div>
   );

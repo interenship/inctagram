@@ -2,7 +2,7 @@ import { format, isValid, parse } from "date-fns";
 import type { ComponentPropsWithoutRef } from "react";
 import React, { forwardRef, useId, useState } from "react";
 import type { DateRange } from "react-day-picker";
-import { DayPicker, getDefaultClassNames } from "react-day-picker";
+import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/features/utils/cn";
 import SvgCalendar from "@/shared/assets/icons/components/Calendar";
@@ -11,24 +11,14 @@ import { Label } from "@/shared/ui/Label";
 import { Typography } from "@/shared/ui/Typography";
 
 type DatePickerProps = ComponentPropsWithoutRef<"input"> & {
-  disabled?: boolean;
   errorMessage?: string;
   onClick?: () => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, ref) => {
-  const {
-    disabled = false,
-    errorMessage,
-    // onClick,
-    // onChange,
-    className,
-    // value,
-    ...restProps
-  } = props;
-
-  const inputId = useId();
+  const generatedId = useId();
+  const { disabled = false, id = generatedId, errorMessage, className, ...restProps } = props;
 
   const [month, setMonth] = useState<Date>(new Date());
 
@@ -61,7 +51,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     setShowCalendar(prev => !prev);
   };
   const handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
-    e.currentTarget.blur(); // Убираем фокус с input после клика
+    e.currentTarget.blur();
     toggleCalendarVisibility();
   };
   const handleIconClick = () => {
@@ -100,11 +90,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     return day > selectedRange.from && day < selectedRange.to;
   };
 
-  const defaultClassNames = getDefaultClassNames();
-  console.log(defaultClassNames);
   return (
     <div className="w-[310px] text-light-100">
-      <Label htmlFor={inputId} disabled={disabled}>
+      <Label htmlFor={id} disabled={disabled}>
         <Typography.REGULAR14 className="text-light-900">Date select:</Typography.REGULAR14>
       </Label>
       <div className={cn("group relative w-full", disabled && "pointer-events-none")}>
@@ -114,12 +102,11 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             "enabled:active:border-dark-300 enabled:active:bg-dark-500 enabled:active:outline-none",
             "enabled:hover:border-dark-100 enabled:hover:bg-dark-500 enabled:hover:outline-none",
             "enabled:focus:border-accent-700 enabled:focus:bg-dark-500 enabled:focus:outline-none",
-            // "pointer-events-none cursor-default",
             disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
             error && "border-danger-500 bg-dark-500 text-danger-500",
             className
           )}
-          id={inputId}
+          id={id}
           type="text"
           value={inputValue}
           placeholder="DD/MM/YYYY"
@@ -129,13 +116,11 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
           ref={ref}
           {...restProps}
         />
-
         {!showCalendar && (
           <SvgCalendarOutline
             onClick={handleIconClick}
             className={cn(
               "absolute right-1 top-1.5 cursor-pointer fill-light-100",
-              // disabled && "fill-dark-100",
               error && "fill-danger-500"
             )}
           />
@@ -151,16 +136,10 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
       {showCalendar && (
         <DayPicker
           classNames={{
-            root: cn(
-              `${defaultClassNames.root}`, // Основные стили ${defaultClassNames.root}
-              "rounded-sm border border-dark-300 bg-dark-500 p-6 font-normal" // Дополнительные стили для корневого элемента
-            ),
+            root: cn("rounded-sm border border-dark-300 bg-dark-500 p-6 font-normal"),
             day: "w-[36px] h-[36px] text-center  hover:bg-accent-700 hover:rounded-full active:rounded-full active:bg-accent-900 focus:ring-2 focus:ring-accent-300",
             today: "font-bold text-accent-500 ",
-            month_caption: cn(
-              // `${defaultClassNames.month_caption}`,
-              "flex items-center justify-between" // Используйте flex для выравнивания
-            ),
+            month_caption: cn("flex items-center justify-between"),
             caption_label: " text-light-100 font-bold py-1.5 pl-2 leading-6 pb-5",
             chevron: cn(
               "size-[20px] rounded-full bg-dark-100 fill-light-100 shadow-[0_0_0px_6px_rgba(76,76,76,1)] hover:bg-dark-300 hover:shadow-[0_0_0px_6px_rgba(51,51,51,1)]"
@@ -171,14 +150,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             weekdays: cn("font-normal text-light-900"),
           }}
           modifiersClassNames={{
-            // Стили для субботы и воскресенья
             weekEnd: "text-danger-300 no-hover no-focus no-active",
-            first: "rounded-l-full text-light-100 bg-accent-900", // Полукруглая левая сторона
-            last: "rounded-r-full text-light-100 bg-accent-900", // Полукруглая правая сторона
+            first: "rounded-l-full text-light-100 bg-accent-900",
+            last: "rounded-r-full text-light-100 bg-accent-900",
             middle: "bg-accent-900  text-light-100",
             outside: "text-light-900",
           }}
-          weekStartsOn={1} //
+          weekStartsOn={1}
           showOutsideDays
           month={month}
           onMonthChange={setMonth}
@@ -186,7 +164,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
           selected={selectedRange}
           onSelect={handleDayPickerSelect}
           modifiers={{
-            weekEnd: { dayOfWeek: [0, 6] }, // Воскресенье Суббота
+            weekEnd: { dayOfWeek: [0, 6] },
             first: isFirstDay,
             last: isLastDay,
             middle: isMiddleDay,

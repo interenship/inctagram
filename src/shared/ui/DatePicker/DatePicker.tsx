@@ -31,7 +31,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
   const handleDayPickerSelect = (range: DateRange | undefined) => {
     if (!range || !range.from) {
       setInputValue("");
-      setError("Please select a valid date range.");
+      // setError("Please select a valid date range.");
       return;
     }
 
@@ -47,15 +47,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     }
     setSelectedRange(range);
   };
-  const toggleCalendarVisibility = () => {
-    setShowCalendar(prev => !prev);
-  };
   const handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.currentTarget.blur();
-    toggleCalendarVisibility();
+    setShowCalendar(prev => !prev);
   };
   const handleIconClick = () => {
-    toggleCalendarVisibility();
+    setShowCalendar(prev => !prev);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -137,7 +134,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         <DayPicker
           classNames={{
             root: cn("rounded-sm border border-dark-300 bg-dark-500 p-6 font-normal"),
-            day: "w-[36px] h-[36px] text-center  hover:bg-accent-700 hover:rounded-full active:rounded-full active:bg-accent-900 focus:ring-2 focus:ring-accent-300",
+            day: "w-[36px] h-[36px] text-center hover:bg-accent-700 hover:p-1 hover:rounded-full active:rounded-full active:bg-accent-900 focus:ring-2 focus:ring-accent-300",
             today: "font-bold text-accent-500 ",
             month_caption: cn("flex items-center justify-between"),
             caption_label: " text-light-100 font-bold py-1.5 pl-2 leading-6 pb-5",

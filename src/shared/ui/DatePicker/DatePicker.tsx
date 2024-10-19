@@ -1,24 +1,40 @@
 import { format, isValid, parse } from "date-fns";
-import type { ComponentPropsWithoutRef } from "react";
-import React, { forwardRef, useId, useState } from "react";
+import React, { useId, useState } from "react";
 import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/features/utils/cn";
-import SvgCalendar from "@/shared/assets/icons/components/Calendar";
-import SvgCalendarOutline from "@/shared/assets/icons/components/CalendarOutline";
-import { Label } from "@/shared/ui/Label";
+import CustomInput from "@/shared/ui/DatePicker/CustomInput/CustomInput";
+import CustomLabel from "@/shared/ui/DatePicker/CustomLabel/CustomLabel";
 import { Typography } from "@/shared/ui/Typography";
 
-type DatePickerProps = ComponentPropsWithoutRef<"input"> & {
+type DatePickerProps = {
+  disabled?: boolean;
+  id: string;
   errorMessage?: string;
-  // onClick?: () => void;
-  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
+  placeholder?: string;
+  startDate: Date | null;
+  endDate?: Date | null;
+  setStartDate: (date: Date | null) => void;
+  setEndDate?: (date: Date | null) => void;
 };
 
-export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, ref) => {
+export const DatePicker = (props: DatePickerProps) => {
   const generatedId = useId();
-  const { disabled = false, id = generatedId, errorMessage, className, ...restProps } = props;
+  const {
+    disabled = false,
+    id = generatedId,
+    errorMessage = "",
+    label = "Date select:",
+    placeholder = "DD/MM/YYYY",
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate,
+
+    ...restProps
+  } = props;
 
   const [month, setMonth] = useState<Date>(new Date());
 
@@ -89,9 +105,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
   return (
     <div className="w-[310px] text-light-100">
-      <Label htmlFor={id} disabled={disabled}>
-        <Typography.REGULAR14 className="text-light-900">Date select:</Typography.REGULAR14>
-      </Label>
+      <CustomLabel id={id} disabled={disabled} label={label} />
+      {/*
       <div className={cn("group relative w-full", disabled && "pointer-events-none")}>
         <input
           className={cn(
@@ -130,6 +145,17 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
           />
         )}
       </div>
+*/}
+      <CustomInput
+        id={id}
+        disabled={disabled}
+        valueInput={inputValue}
+        onChangeCallback={handleInputChange}
+        onClickCallback={handleInputClick}
+        onClickIconCallback={handleIconClick}
+        showCalendar={showCalendar}
+        placeholder={placeholder}
+      />
       {showCalendar && (
         <DayPicker
           classNames={{
@@ -171,5 +197,4 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
       {error && <Typography.SMALL className={cn("text-danger-500")}>{error}</Typography.SMALL>}
     </div>
   );
-});
-DatePicker.displayName = "DatePicker";
+};

@@ -1,20 +1,22 @@
-import { forwardRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import { forwardRef } from "react";
+import ReCAPTCHA, { ReCAPTCHAProps } from "react-google-recaptcha";
 
 import { Typography } from "../Typography";
 
 type Props = {
   error?: boolean;
-};
+  language?: string;
+} & Partial<ReCAPTCHAProps>;
 
-const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error = false }: Props, ref) => {
-  const key = "6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ";
+const ReCaptcha = forwardRef<ReCAPTCHA, Props>((props, ref) => {
+  const { error = false, language = "en", ...rest } = props;
 
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-
-  const handleCaptchaChange = (value: string | null) => {
-    setCaptchaValue(value);
+  const translations = {
+    en: "Please verify that you are not a robot",
+    ru: "Пожалуйста, подтвердите, что вы не робот",
   };
+
+  const key = "6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ";
 
   return (
     <div>
@@ -23,12 +25,12 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>(({ error = false }: Props, ref) =
           className="w-[304px] pl-[10px] pt-[6px]"
           style={{ clipPath: "inset(8px 2px 4px 12px)" }}
         >
-          <ReCAPTCHA ref={ref} theme="dark" hl="en" sitekey={key} onChange={handleCaptchaChange} />
+          <ReCAPTCHA ref={ref} theme="dark" hl={language} {...rest} sitekey={key} />
         </div>
       </div>
       {error && (
         <Typography.SMALL className="mt-2 text-danger-500">
-          Please verify that you are not a robot
+          {language === "en" ? translations.en : translations.ru}
         </Typography.SMALL>
       )}
     </div>

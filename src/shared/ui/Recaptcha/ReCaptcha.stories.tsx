@@ -1,30 +1,34 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Typography } from "../Typography";
-import { ReCaptcha as ReCaptchaComponent } from "./ReCaptcha";
+import { ReCaptcha } from "./ReCaptcha";
 
 const meta = {
-  component: ReCaptchaComponent,
+  component: ReCaptcha,
   tags: ["autodocs"],
-  title: "UI/ReCaptcha",
-} satisfies Meta<typeof ReCaptchaComponent>;
+} satisfies Meta<typeof ReCaptcha>;
 
 export default meta;
-type Story = StoryObj<typeof ReCaptchaComponent>;
+type Story = StoryObj<typeof ReCaptcha>;
 
-export const ReCaptcha: Story = {
+export const Default: Story = {
   render: () => {
     return (
-      <div className="flex gap-10">
-        <div>
-          <Typography.SMALL className="text-dark-100">Default</Typography.SMALL>
-          <ReCaptchaComponent />
-        </div>
-        <div>
-          <Typography.SMALL className="text-danger-500">Error</Typography.SMALL>
-          <ReCaptchaComponent error />
-        </div>
-      </div>
+      <>
+        <Typography.SMALL className="text-dark-100">Default</Typography.SMALL>
+        <ReCaptcha />
+      </>
+    );
+  },
+};
+
+export const Error: Story = {
+  render: () => {
+    return (
+      <>
+        <Typography.SMALL className="text-danger-500">Error</Typography.SMALL>
+        <ReCaptcha error />
+      </>
     );
   },
 };

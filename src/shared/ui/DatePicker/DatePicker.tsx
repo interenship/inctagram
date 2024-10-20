@@ -31,16 +31,6 @@ export const DatePicker = (props: DatePickerProps) => {
   const [inputValue, setInputValue] = useState("");
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(errorMessage);
-  /*
-    const datePickerRef = useRef<HTMLDivElement>(null);
-
-
-    const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-      if (!datePickerRef.current?.contains(e.relatedTarget)) {
-        setShowCalendar(false);
-      }
-    };
-  */
 
   const handleDayPickerSelect = (range: DateRange | undefined) => {
     if (!range || !range.from) {

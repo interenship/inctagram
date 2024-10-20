@@ -1,5 +1,5 @@
 import { format, isValid, parse } from "date-fns";
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useId, useState } from "react";
 import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
 
@@ -102,53 +102,8 @@ export const DatePicker = (props: DatePickerProps) => {
   };
 
   return (
-    <div
-      className="w-[310px] text-light-100"
-      // ref={datePickerRef}
-      // onBlur={handleBlur} // Отслеживаем потерю фокуса
-      // tabIndex={-1}
-    >
+    <div className="w-[310px] text-light-100">
       <CustomLabel id={id} disabled={disabled} label={label} />
-      {/*
-      <div className={cn("group relative w-full", disabled && "pointer-events-none")}>
-        <input
-          className={cn(
-            "h-9 w-full rounded-sm border border-dark-300 bg-transparent px-2.5 py-1.5 text-base font-normal text-light-100",
-            "enabled:active:border-dark-300 enabled:active:bg-dark-500 enabled:active:outline-none",
-            "enabled:hover:border-dark-100 enabled:hover:bg-dark-500 enabled:hover:outline-none",
-            "enabled:focus:border-accent-700 enabled:focus:bg-dark-500 enabled:focus:outline-none",
-            disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
-            error && "border-danger-500 bg-dark-500 text-danger-500",
-            className
-          )}
-          id={id}
-          type="text"
-          value={inputValue}
-          placeholder="DD/MM/YYYY"
-          onClick={handleInputClick}
-          onChange={handleInputChange}
-          disabled={disabled}
-          ref={ref}
-          {...restProps}
-        />
-        {!showCalendar && (
-          <SvgCalendarOutline
-            onClick={handleIconClick}
-            className={cn(
-              "absolute right-1 top-1.5 cursor-pointer fill-light-100",
-              error && "fill-danger-500"
-            )}
-          />
-        )}
-
-        {showCalendar && (
-          <SvgCalendar
-            onClick={handleIconClick}
-            className={cn("absolute right-1 top-1.5 cursor-pointer fill-light-100")}
-          />
-        )}
-      </div>
-*/}
       <CustomInput
         id={id}
         disabled={disabled}
@@ -178,6 +133,7 @@ export const DatePicker = (props: DatePickerProps) => {
           }}
           modifiersClassNames={{
             weekEnd: "text-danger-300 no-hover no-focus no-active",
+            todayWeekend: "font-bold text-blue-500",
             first: "rounded-l-full text-light-100 bg-accent-900",
             last: "rounded-r-full text-light-100 bg-accent-900",
             middle: "bg-accent-900  text-light-100",
@@ -192,6 +148,15 @@ export const DatePicker = (props: DatePickerProps) => {
           onSelect={handleDayPickerSelect}
           modifiers={{
             weekEnd: { dayOfWeek: [0, 6] },
+            todayWeekend: day => {
+              const today = new Date();
+              const isToday =
+                today.getDate() === day.getDate() &&
+                today.getMonth() === day.getMonth() &&
+                today.getFullYear() === day.getFullYear();
+              const isWeekend = day.getDay() === 0 || day.getDay() === 6;
+              return isToday && isWeekend;
+            },
             first: isFirstDay,
             last: isLastDay,
             middle: isMiddleDay,

@@ -1,30 +1,23 @@
-import React from "react";
+import React, { type ComponentPropsWithoutRef } from "react";
 
 import { cn } from "@/features/utils/cn";
 import SvgCalendar from "@/shared/assets/icons/components/Calendar";
 import SvgCalendarOutline from "@/shared/assets/icons/components/CalendarOutline";
 
 type CustomInputProps = {
-  id: string;
-  disabled?: boolean;
-  placeholder?: string;
-  valueInput: string;
-  onChangeCallback: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onClickCallback: (e: React.MouseEvent<HTMLInputElement>) => void;
   onClickIconCallback: () => void;
   showCalendar: boolean;
   hasError: boolean;
   className?: string;
-};
+} & ComponentPropsWithoutRef<"input">;
 
 const CustomInput = (props: CustomInputProps) => {
   const {
-    id,
     disabled,
-    placeholder,
-    valueInput,
-    onChangeCallback,
-    onClickCallback,
+    id,
+    value,
+    onChange,
+    onClick,
     onClickIconCallback,
     showCalendar,
     hasError,
@@ -45,10 +38,10 @@ const CustomInput = (props: CustomInputProps) => {
         )}
         id={id}
         type="text"
-        value={valueInput}
+        value={value}
         placeholder="DD/MM/YYYY"
-        onClick={onClickCallback}
-        onChange={onChangeCallback}
+        onClick={onClick}
+        onChange={onChange}
         disabled={disabled}
         {...restProps}
       />

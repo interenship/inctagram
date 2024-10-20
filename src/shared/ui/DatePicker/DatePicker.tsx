@@ -107,9 +107,9 @@ export const DatePicker = (props: DatePickerProps) => {
       <CustomInput
         id={id}
         disabled={disabled}
-        valueInput={inputValue}
-        onChangeCallback={handleInputChange}
-        onClickCallback={handleInputClick}
+        value={inputValue}
+        onChange={handleInputChange}
+        onClick={handleInputClick}
         onClickIconCallback={handleIconClick}
         showCalendar={showCalendar}
         placeholder={placeholder}

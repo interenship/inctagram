@@ -11,7 +11,7 @@ type CustomLabelProps = {
 };
 
 export default function CustomLabel(props: CustomLabelProps) {
-  const { id, disabled = false, label = "Date select:", className } = props;
+  const { id, disabled, label, className } = props;
   return (
     <Label htmlFor={id} disabled={disabled} className={className}>
       <Typography.REGULAR14 className="text-light-900">{label}</Typography.REGULAR14>

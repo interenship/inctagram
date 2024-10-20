@@ -1,5 +1,5 @@
 import { format, isValid, parse } from "date-fns";
-import React, { useId, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
 
@@ -9,40 +9,38 @@ import CustomLabel from "@/shared/ui/DatePicker/CustomLabel/CustomLabel";
 import { Typography } from "@/shared/ui/Typography";
 
 type DatePickerProps = {
-  disabled?: boolean;
-  id: string;
-  errorMessage?: string;
+  id?: string;
   label?: string;
+  errorMessage?: string;
   placeholder?: string;
-  startDate: Date | null;
-  endDate?: Date | null;
-  setStartDate: (date: Date | null) => void;
-  setEndDate?: (date: Date | null) => void;
+  disabled?: boolean;
 };
 
 export const DatePicker = (props: DatePickerProps) => {
   const generatedId = useId();
   const {
-    disabled = false,
     id = generatedId,
-    errorMessage = "",
     label = "Date select:",
+    errorMessage = "",
     placeholder = "DD/MM/YYYY",
-    startDate,
-    endDate,
-    setStartDate,
-    setEndDate,
-
-    ...restProps
+    disabled = false,
   } = props;
 
   const [month, setMonth] = useState<Date>(new Date());
-
   const [selectedRange, setSelectedRange] = useState<DateRange | undefined>(undefined);
-
   const [inputValue, setInputValue] = useState("");
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(errorMessage);
+  /*
+    const datePickerRef = useRef<HTMLDivElement>(null);
+
+
+    const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+      if (!datePickerRef.current?.contains(e.relatedTarget)) {
+        setShowCalendar(false);
+      }
+    };
+  */
 
   const handleDayPickerSelect = (range: DateRange | undefined) => {
     if (!range || !range.from) {
@@ -104,7 +102,12 @@ export const DatePicker = (props: DatePickerProps) => {
   };
 
   return (
-    <div className="w-[310px] text-light-100">
+    <div
+      className="w-[310px] text-light-100"
+      // ref={datePickerRef}
+      // onBlur={handleBlur} // Отслеживаем потерю фокуса
+      // tabIndex={-1}
+    >
       <CustomLabel id={id} disabled={disabled} label={label} />
       {/*
       <div className={cn("group relative w-full", disabled && "pointer-events-none")}>
@@ -155,6 +158,7 @@ export const DatePicker = (props: DatePickerProps) => {
         onClickIconCallback={handleIconClick}
         showCalendar={showCalendar}
         placeholder={placeholder}
+        hasError={!!error}
       />
       {showCalendar && (
         <DayPicker

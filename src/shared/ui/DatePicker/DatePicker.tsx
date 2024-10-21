@@ -1,5 +1,5 @@
 import { format, isValid, parse } from "date-fns";
-import React, { useId, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
 
@@ -31,6 +31,21 @@ export const DatePicker = (props: DatePickerProps) => {
   const [inputValue, setInputValue] = useState("");
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(errorMessage);
+
+  const calendarRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
+      setShowCalendar(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleDayPickerSelect = (range: DateRange | undefined) => {
     if (!range || !range.from) {
@@ -90,7 +105,7 @@ export const DatePicker = (props: DatePickerProps) => {
   };
 
   return (
-    <div className="w-[310px] text-light-100">
+    <div className="w-[310px] text-light-100" ref={calendarRef}>
       <CustomLabel id={id} disabled={disabled} label={label} />
       <CustomInput
         id={id}

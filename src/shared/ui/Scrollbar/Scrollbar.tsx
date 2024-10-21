@@ -16,8 +16,8 @@ const ScrollBar = (props: ScrollbarProps) => {
       <Scrollbar className="w-[4px] cursor-pointer" orientation="vertical">
         <Thumb className="flex-1 rounded-sm bg-dark-300 hover:bg-light-900" />
       </Scrollbar>
-      <Scrollbar className="h-[10px] cursor-pointer flex-col" orientation="horizontal">
-        <Thumb className="flex-1 rounded-sm bg-dark-300 hover:bg-red-600" />
+      <Scrollbar className="h-[4px] cursor-pointer flex-col" orientation="horizontal">
+        <Thumb className="flex-1 rounded-sm bg-dark-300 hover:bg-light-900" />
       </Scrollbar>
     </Root>
   );

@@ -35,7 +35,7 @@ export const VerticalScroll: Story = {
 
 export const HorizontalScroll: Story = {
   render: () => (
-    <div className="w-[100px] rounded border-2 bg-light-300 p-[5px] text-black">
+    <div className="w-[200px] rounded border-2 bg-light-300 p-[5px] text-black">
       <ScrollBar>
         <div className="w-[400px]">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam doloremque et, eveniet

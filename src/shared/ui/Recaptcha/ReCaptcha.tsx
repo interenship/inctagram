@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import ReCAPTCHA, { ReCAPTCHAProps } from "react-google-recaptcha";
 
 import { Typography } from "../Typography";
+import { RECAPTCHA_SITE_KEY } from "./config";
 
 type Props = {
   error?: boolean;
@@ -11,12 +12,10 @@ type Props = {
 const ReCaptcha = forwardRef<ReCAPTCHA, Props>((props, ref) => {
   const { error = false, language = "en", ...rest } = props;
 
-  const translations = {
+  const translations: { [key: string]: string } = {
     en: "Please verify that you are not a robot",
     ru: "Пожалуйста, подтвердите, что вы не робот",
   };
-
-  const key = "6LeY2y0mAAAAANwI_paCWfoksCgBm1n2z9J0nwNQ";
 
   return (
     <div>
@@ -25,12 +24,12 @@ const ReCaptcha = forwardRef<ReCAPTCHA, Props>((props, ref) => {
           className="w-[304px] pl-[10px] pt-[6px]"
           style={{ clipPath: "inset(8px 2px 4px 12px)" }}
         >
-          <ReCAPTCHA ref={ref} theme="dark" hl={language} {...rest} sitekey={key} />
+          <ReCAPTCHA ref={ref} theme="dark" hl={language} {...rest} sitekey={RECAPTCHA_SITE_KEY} />
         </div>
       </div>
       {error && (
         <Typography.SMALL className="mt-2 text-danger-500">
-          {language === "en" ? translations.en : translations.ru}
+          {translations[language] ?? translations.en}
         </Typography.SMALL>
       )}
     </div>

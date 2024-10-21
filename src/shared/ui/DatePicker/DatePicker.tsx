@@ -43,11 +43,9 @@ export const DatePicker = (props: DatePickerProps) => {
 
     if (!range.to || range.from.getTime() === range.to.getTime()) {
       setInputValue(fromDate);
-      setError(undefined);
     } else {
       const toDate = format(range.to, "dd/MM/yyyy");
       setInputValue(`${fromDate} - ${toDate}`);
-      setError(undefined);
     }
     setSelectedRange(range);
   };

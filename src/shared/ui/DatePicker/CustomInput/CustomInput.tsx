@@ -50,7 +50,7 @@ const CustomInput = (props: CustomInputProps) => {
           onClick={onClickIconCallback}
           className={cn(
             "absolute right-1 top-1.5 cursor-pointer text-light-100",
-            disabled ? "cursor-not-allowed opacity-50" : "hover:cursor-pointer",
+            disabled ? "cursor-not-allowed" : "hover:cursor-pointer",
             hasError && "text-danger-500"
           )}
         />

@@ -1,4 +1,5 @@
 import { format, isValid, parse } from "date-fns";
+import type { ComponentPropsWithoutRef } from "react";
 import React, { useEffect, useId, useRef, useState } from "react";
 import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
@@ -14,7 +15,7 @@ type DatePickerProps = {
   errorMessage?: string;
   placeholder?: string;
   disabled?: boolean;
-};
+} & ComponentPropsWithoutRef<typeof DayPicker>;
 
 export const DatePicker = (props: DatePickerProps) => {
   const generatedId = useId();
@@ -24,9 +25,11 @@ export const DatePicker = (props: DatePickerProps) => {
     errorMessage = "",
     placeholder = "DD/MM/YYYY",
     disabled = false,
+    ...restProps
   } = props;
+  // инпут должен вводить цифры
 
-  const [month, setMonth] = useState<Date>(new Date());
+  // почему
   const [selectedRange, setSelectedRange] = useState<DateRange | undefined>(undefined);
   const [inputValue, setInputValue] = useState("");
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
@@ -65,7 +68,7 @@ export const DatePicker = (props: DatePickerProps) => {
     setSelectedRange(range);
   };
   const handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
-    e.currentTarget.blur();
+    // e.currentTarget.blur();
     setShowCalendar(prev => !prev);
   };
   const handleIconClick = () => {
@@ -83,7 +86,6 @@ export const DatePicker = (props: DatePickerProps) => {
 
       if (isValid(parsedDate)) {
         setSelectedRange({ from: parsedDate, to: undefined });
-        setMonth(parsedDate);
         setError(undefined);
       } else {
         setSelectedRange(undefined);
@@ -144,8 +146,6 @@ export const DatePicker = (props: DatePickerProps) => {
           }}
           weekStartsOn={1}
           showOutsideDays
-          month={month}
-          onMonthChange={setMonth}
           mode="range"
           selected={selectedRange}
           onSelect={handleDayPickerSelect}

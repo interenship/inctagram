@@ -32,3 +32,14 @@ export const Error: Story = {
     );
   },
 };
+
+export const Ru: Story = {
+  render: () => {
+    return (
+      <>
+        <Typography.SMALL className="text-dark-100">Ru</Typography.SMALL>
+        <ReCaptcha language="ru" />
+      </>
+    );
+  },
+};

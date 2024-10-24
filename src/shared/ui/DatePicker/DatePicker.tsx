@@ -5,8 +5,8 @@ import type { DateRange } from "react-day-picker";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/features/utils/cn";
-import CustomInput from "@/shared/ui/DatePicker/CustomInput/CustomInput";
 import CustomLabel from "@/shared/ui/DatePicker/CustomLabel/CustomLabel";
+import CustomInput from "@/shared/ui/DatePicker/DatePickerButton/DatePickerButton";
 import { Typography } from "@/shared/ui/Typography";
 
 type DatePickerProps = {
@@ -51,7 +51,7 @@ export const DatePicker = (props: DatePickerProps) => {
   }, []);
 
   const handleDayPickerSelect = (range: DateRange | undefined) => {
-    if (!range || !range.from) {
+    if (!range || !range?.from) {
       setInputValue("");
       // setError("Please select a valid date range.");
       return;
@@ -67,7 +67,7 @@ export const DatePicker = (props: DatePickerProps) => {
     }
     setSelectedRange(range);
   };
-  const handleInputClick = (e: React.MouseEvent<HTMLInputElement>) => {
+  const handleInputClick = () => {
     // e.currentTarget.blur();
     setShowCalendar(prev => !prev);
   };
@@ -78,9 +78,7 @@ export const DatePicker = (props: DatePickerProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
-    const regex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
-
-    if (regex.test(value) || value === "") {
+    if (value === "") {
       setInputValue(value);
       const parsedDate = parse(value, "dd/MM/yyyy", new Date());
 
@@ -113,11 +111,9 @@ export const DatePicker = (props: DatePickerProps) => {
         id={id}
         disabled={disabled}
         value={inputValue}
-        onChange={handleInputChange}
         onClick={handleInputClick}
         onClickIconCallback={handleIconClick}
         showCalendar={showCalendar}
-        placeholder={placeholder}
         hasError={!!error}
       />
       {showCalendar && (

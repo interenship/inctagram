@@ -6,15 +6,17 @@ import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/features/utils/cn";
 import CustomLabel from "@/shared/ui/DatePicker/CustomLabel/CustomLabel";
-import CustomInput from "@/shared/ui/DatePicker/DatePickerButton/DatePickerButton";
+import DatePickerButton from "@/shared/ui/DatePicker/DatePickerButton/DatePickerButton";
 import { Typography } from "@/shared/ui/Typography";
 
 type DatePickerProps = {
   id?: string;
   label?: string;
   errorMessage?: string;
-  placeholder?: string;
+  placeholderText?: string;
   disabled?: boolean;
+  selectedRange: DateRange | undefined;
+  onSelect: (range: DateRange | undefined) => void;
 } & ComponentPropsWithoutRef<typeof DayPicker>;
 
 export const DatePicker = (props: DatePickerProps) => {
@@ -23,14 +25,15 @@ export const DatePicker = (props: DatePickerProps) => {
     id = generatedId,
     label = "Date select:",
     errorMessage = "",
-    placeholder = "DD/MM/YYYY",
+    placeholderText = "Select date",
     disabled = false,
+    selectedRange,
+    onSelect,
     ...restProps
   } = props;
   // инпут должен вводить цифры
 
   // почему
-  const [selectedRange, setSelectedRange] = useState<DateRange | undefined>(undefined);
   const [inputValue, setInputValue] = useState("");
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(errorMessage);
@@ -65,34 +68,15 @@ export const DatePicker = (props: DatePickerProps) => {
       const toDate = format(range.to, "dd/MM/yyyy");
       setInputValue(`${fromDate} - ${toDate}`);
     }
-    setSelectedRange(range);
+    onSelect(range);
   };
   const handleInputClick = () => {
-    // e.currentTarget.blur();
     setShowCalendar(prev => !prev);
   };
   const handleIconClick = () => {
     setShowCalendar(prev => !prev);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-
-    if (value === "") {
-      setInputValue(value);
-      const parsedDate = parse(value, "dd/MM/yyyy", new Date());
-
-      if (isValid(parsedDate)) {
-        setSelectedRange({ from: parsedDate, to: undefined });
-        setError(undefined);
-      } else {
-        setSelectedRange(undefined);
-        setError("Invalid date.");
-      }
-    } else {
-      setError("Date must be in DD/MM/YYYY format.");
-    }
-  };
   const isFirstDay = (day: Date) => {
     return selectedRange?.from ? day.getTime() === selectedRange.from.getTime() : false;
   };
@@ -107,7 +91,7 @@ export const DatePicker = (props: DatePickerProps) => {
   return (
     <div className="w-[310px] text-light-100" ref={calendarRef}>
       <CustomLabel id={id} disabled={disabled} label={label} />
-      <CustomInput
+      <DatePickerButton
         id={id}
         disabled={disabled}
         value={inputValue}
